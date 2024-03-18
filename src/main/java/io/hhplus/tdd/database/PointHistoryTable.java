@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 해당 Table 클래스는 변경하지 않고 공개된 API 만을 사용해 데이터를 제어합니다.
@@ -22,8 +23,7 @@ public class PointHistoryTable {
             TransactionType transactionType,
             Long updateMillis
     ) throws InterruptedException {
-        //Thread.sleep(Long.parseLong(String.valueOf(Math.random())) * 300L);
-
+        throttle(300L);
         PointHistory history = new PointHistory(cursor++, id, transactionType, amount, updateMillis);
         table.add(history);
 
@@ -34,5 +34,13 @@ public class PointHistoryTable {
         return table.stream()
                 .filter(it -> it.userId().equals(userId))
                 .toList();
+    }
+
+    private void throttle(long millis) {
+        try {
+            TimeUnit.MILLISECONDS.sleep((long) (Math.random() * millis));
+        } catch (InterruptedException ignored) {
+
+        }
     }
 }
