@@ -2,6 +2,9 @@ package io.hhplus.tdd.point;
 
 import java.util.Objects;
 
+import lombok.Getter;
+
+@Getter
 public final class PointHistory {
   private final Long id;
   private final Long userId;
