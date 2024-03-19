@@ -20,20 +20,22 @@ public class PointService {
 
   public UserPoint getUserPoint(long userId) throws InterruptedException {
 
-    if(userId == 0) {
+    /**
+     * [구현 고민]
+     * 사용자 아이디가 없는 경우에 대해서는 Null처리가 필요 없을까?
+     * 왜냐하면 사용자 아이디가 없으면, 생성을 해서 User를 반환해주니 null이 나오지 않는다.
+     * */
+    if(userId == 0L) {
       throw new IllegalArgumentException("사용자 아이디 입력 오류입니다. 올바른 사용자 아이디를 입력해주세요");
     }
-
     return userPointTable.selectById(userId);
-
   }
 
   public List<PointHistory> getPointHistory(long userId) {
 
-    if(userId == 0) {
+    if(userId == 0L) {
       throw new IllegalArgumentException("사용자 아이디 입력 오류입니다. 올바른 사용자 아이디를 입력해주세요");
     }
-
     return pointHistoryTable.selectAllByUserId(userId);
   }
 
@@ -59,20 +61,19 @@ public class PointService {
 
   /** 포인트 사용 */
   public UserPoint use(Long userId, Long amount) throws InterruptedException {
+    UserPoint userPoint = getUserPoint(userId);
 
-    /** 0원 검증 */
+    /** 사용금액 0원 검증 */
     if(amount <= 0) {
       throw new IllegalArgumentException("사용금액이 0원이하일 수 없습니다.");
     }
-
-    UserPoint userPoint = getUserPoint(userId);
 
     /** 잔액 검증 */
     if(userPoint.point() < amount) {
       throw new IllegalArgumentException("잔액이 부족합니다.");
     }
 
-    /** 잔액감 */
+    /** 잔액감소 */
     long totalBalance = userPoint.point() - amount;
     UserPoint userAfterTrns = userPointTable.insertOrUpdate(userId, totalBalance);
 
