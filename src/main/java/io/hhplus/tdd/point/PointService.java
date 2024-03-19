@@ -3,6 +3,7 @@ package io.hhplus.tdd.point;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import io.hhplus.tdd.database.PointHistoryTable;
 import io.hhplus.tdd.database.UserPointTable;
@@ -17,6 +18,8 @@ public class PointService {
 
   @Autowired
   private PointHistoryTable pointHistoryTable;
+
+  private final ConcurrentHashMap<Long, UserPoint> userPointConcurrentHashMap = new ConcurrentHashMap<>();
 
   public UserPoint getUserPoint(long userId) throws InterruptedException {
 
@@ -47,7 +50,15 @@ public class PointService {
       throw new IllegalArgumentException("충전금액이 0원이하일 수 없습니다.");
     }
 
-    UserPoint userPoint = getUserPoint(userId);
+    /** 동시성 제어 */
+    //UserPoint userPoint = getUserPoint(userId);
+    UserPoint userPoint = userPointConcurrentHashMap.compute(userId, (key, oldValue) -> {
+          if(oldValue == null) {
+            return new UserPoint(userId, amount, 10L);
+          }else {
+            return oldValue;
+          }
+    });
 
     /** 잔액증가 */
     long totalBalance = userPoint.point() + amount;

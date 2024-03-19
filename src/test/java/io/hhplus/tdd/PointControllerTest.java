@@ -1,5 +1,6 @@
 package io.hhplus.tdd;
 
+import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -24,6 +25,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -108,6 +110,29 @@ public class PointControllerTest {
     mockMvc.perform(patch("/point/{id}/charge", userId)
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(requestBody))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        .andExpect(jsonPath("$.id").value(userpoint.id()))
+        .andExpect(jsonPath("$.amount").value(amount));
+  }
+
+  @Test
+  @DisplayName("포인트 사용")
+  void 포인트_사용() throws Exception {
+    // given
+    long userId = 1L;
+    UserPoint userpoint = userPointTable.selectById(userId);
+    userPointTable.insertOrUpdate(userpoint.id(), 20000L); // 초기화
+
+    // when
+    Long amount = 10000L;
+    String requestBody = "{\"amount\":" + amount + "}";
+
+
+    // then
+    mockMvc.perform(patch("/point/{id}/use", userId)
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(requestBody))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.id").value(userpoint.id()))
