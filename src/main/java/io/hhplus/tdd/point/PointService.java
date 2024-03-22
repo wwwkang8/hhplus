@@ -51,14 +51,14 @@ public class PointService {
     }
 
     /** 동시성 제어 */
-    //UserPoint userPoint = getUserPoint(userId);
-    UserPoint userPoint = userPointConcurrentHashMap.compute(userId, (key, oldValue) -> {
-          if(oldValue == null) {
-            return new UserPoint(userId, amount, 10L);
-          }else {
-            return oldValue;
-          }
-    });
+    UserPoint userPoint = getUserPoint(userId);
+//    UserPoint userPoint = userPointConcurrentHashMap.compute(userId, (key, oldValue) -> {
+//          if(oldValue == null) {
+//            return new UserPoint(userId, amount, 10L);
+//          }else {
+//            return oldValue;
+//          }
+//    });
 
     /** 잔액증가 */
     long totalBalance = userPoint.point() + amount;
