@@ -18,6 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
 public class PointServiceTest {
@@ -191,6 +194,43 @@ public class PointServiceTest {
     //then
     assertThrows(IllegalArgumentException.class, () -> pointService.use(userId, 0L));
     assertThrows(IllegalArgumentException.class, () -> pointService.use(userId, -1000L));
+  }
+
+  @Test
+  @DisplayName("동시에 다수의 사용자가 포인트 충전하는 경우")
+  void 동시에_다수의_사용자가_포인트_충전하는_경우() throws InterruptedException {
+
+    long userId = 101L;
+
+    // given
+    userPointTable.selectById(userId);
+
+    int numThreads = 10; // 병렬로 실행할 스레드수
+    int numChargesPerThread = 1000; // 각 스레드당 충전 시도 횟수
+    ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
+
+    for(int i=0; i<numThreads; i++) {
+      executorService.submit(()->{
+        for(int j=0; j<numChargesPerThread; j++) {
+          try{
+            pointService.charge(userId, 1000L);
+          } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+          }
+        }
+      });
+
+      executorService.shutdown();
+      executorService.awaitTermination(10, TimeUnit.SECONDS);
+
+      // 각 스레드의 충전결과를 확인하고 총 충전된 포인트의 일관성을 검
+      UserPoint userPoint = pointService.getUserPoint(userId);
+      long expectedTotalCharge = numThreads * numChargesPerThread * 1000L;
+      assertEquals(expectedTotalCharge, userPoint.point());
+    }
+
+
+
   }
 
 }
