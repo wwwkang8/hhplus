@@ -1,4 +1,4 @@
-package com.tdd.courseapi.entity;
+package com.tdd.courseapi.constant;
 
 public enum ReservationStatus {
 

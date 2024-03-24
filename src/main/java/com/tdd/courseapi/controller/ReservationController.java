@@ -1,7 +1,6 @@
 package com.tdd.courseapi.controller;
 
-import com.tdd.courseapi.entity.ReservationEntity;
-import com.tdd.courseapi.entity.ReservationStatus;
+import com.tdd.courseapi.constant.ReservationStatus;
 import com.tdd.courseapi.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
