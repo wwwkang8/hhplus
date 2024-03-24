@@ -18,7 +18,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Table
-public class Reservation {
+public class ReservationEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +33,15 @@ public class Reservation {
   private LocalDateTime registeredAt;
   private LocalDateTime modifiedAt;
 
-
+  public ReservationEntity(long id, long userId, String courseCode,
+                           LocalDateTime courseStartDtm, LocalDate courseStartDate,
+                           ReservationStatus reservationStatus, long applyOrder) {
+    this.id = id;
+    this.userId = userId;
+    this.courseCode = courseCode;
+    this.courseStartDtm = courseStartDtm;
+    this.courseStartDate = courseStartDate;
+    this.reservationStatus = reservationStatus;
+    this.applyOrder = applyOrder;
+  }
 }
