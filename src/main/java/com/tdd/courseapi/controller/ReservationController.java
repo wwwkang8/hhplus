@@ -1,6 +1,7 @@
 package com.tdd.courseapi.controller;
 
 import com.tdd.courseapi.entity.ReservationEntity;
+import com.tdd.courseapi.entity.ReservationStatus;
 import com.tdd.courseapi.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,8 @@ public class ReservationController {
   private final ReservationService reservationService;
 
   @GetMapping("{userId}")
-  public ReservationEntity getReservation(@PathVariable long userId) {
-    return reservationService.getReservation(userId);
+  public ReservationStatus getReservationStatus(@PathVariable long userId) {
+    return reservationService.getSuccessFail(userId);
   }
 
 }
