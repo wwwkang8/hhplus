@@ -32,7 +32,6 @@ public class ReservationServiceImpl implements ReservationService{
    * */
   @Override
   public synchronized ReservationStatus reserve(long userId) {
-
     // 예약 유효성 검증
     boolean result = reservationValidation.validateRequest(userId);
 
