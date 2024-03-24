@@ -2,24 +2,33 @@ package com.tdd.courseapi.service;
 
 import java.util.List;
 
+import com.tdd.courseapi.common.ReservationManager;
+import com.tdd.courseapi.entity.ReservationEntity;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 
 @Service
 @Transactional
-public class ReservationServiceImpl implements Reservation{
+@RequiredArgsConstructor
+public class ReservationServiceImpl implements ReservationService{
+
+  private final ReservationManager reservationManager;
+
+
   @Override
-  public Reservation reserve(long userId) {
+  public ReservationEntity reserve(long userId) {
     return null;
   }
 
   @Override
-  public Reservation getReservation(long id, long userId) {
-    return null;
+  public ReservationEntity getReservation(long userId) {
+    return reservationManager.read(userId);
   }
 
   @Override
-  public List<Reservation> getReservationList(long userId) {
+  public List<ReservationEntity> getReservationList(long userId) {
     return null;
   }
 }
