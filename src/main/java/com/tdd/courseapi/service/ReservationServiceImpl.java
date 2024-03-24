@@ -31,19 +31,16 @@ public class ReservationServiceImpl implements ReservationService{
    *
    * */
   @Override
-  public ReservationStatus reserve(long userId) {
+  public synchronized ReservationStatus reserve(long userId) {
 
     // 예약 유효성 검증
     boolean result = reservationValidation.validateRequest(userId);
 
     if(result) {
-
-      ReservationStatus status = reservationManager.reserve(userId);
-
+      return reservationManager.reserve(userId);
     } else {
       return ReservationStatus.FAIL;
     }
-    return null;
   }
 
   @Override
