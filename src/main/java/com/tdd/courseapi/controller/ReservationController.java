@@ -16,7 +16,7 @@ public class ReservationController {
   private final ReservationService reservationService;
 
   @GetMapping("{userId}")
-  public ReservationStatus getReservationStatus(@PathVariable long userId) {
+  public ReservationStatus getReservationSuccessFail(@PathVariable long userId) {
     return reservationService.getSuccessFail(userId);
   }
 
