@@ -2,13 +2,15 @@ package com.tdd.courseapi.entity;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
+import com.tdd.courseapi.constant.CourseCode;
+import com.tdd.courseapi.constant.ReservationStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,23 +27,44 @@ public class ReservationEntity {
   long id;
 
   private long userId;
-  private String courseCode;
+  private CourseCode courseCode;
   private LocalDateTime courseStartDtm;
   private LocalDate courseStartDate;
   private ReservationStatus reservationStatus;
-  private long applyOrder;
   private LocalDateTime registeredAt;
   private LocalDateTime modifiedAt;
 
-  public ReservationEntity(long id, long userId, String courseCode,
+  public ReservationEntity(long id, long userId, CourseCode courseCode,
                            LocalDateTime courseStartDtm, LocalDate courseStartDate,
-                           ReservationStatus reservationStatus, long applyOrder) {
+                           ReservationStatus reservationStatus, LocalDateTime registeredAt,
+                           LocalDateTime modifiedAt) {
     this.id = id;
     this.userId = userId;
     this.courseCode = courseCode;
     this.courseStartDtm = courseStartDtm;
     this.courseStartDate = courseStartDate;
     this.reservationStatus = reservationStatus;
-    this.applyOrder = applyOrder;
+    this.registeredAt = registeredAt;
+    this.modifiedAt = modifiedAt;
+  }
+
+  public ReservationEntity() {
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ReservationEntity that = (ReservationEntity) o;
+    return id == that.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }

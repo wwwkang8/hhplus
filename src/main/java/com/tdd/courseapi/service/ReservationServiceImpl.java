@@ -1,10 +1,9 @@
 package com.tdd.courseapi.service;
 
-import java.util.List;
-
 import com.tdd.courseapi.common.ReservationManager;
+import com.tdd.courseapi.common.ReservationValidation;
 import com.tdd.courseapi.entity.ReservationEntity;
-import com.tdd.courseapi.entity.ReservationStatus;
+import com.tdd.courseapi.constant.ReservationStatus;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class ReservationServiceImpl implements ReservationService{
 
   private final ReservationManager reservationManager;
+  private final ReservationValidation reservationValidation;
 
 
   /*
@@ -26,9 +26,23 @@ public class ReservationServiceImpl implements ReservationService{
    * 4. 요청 순서 번호표 부여 : 요청 순서대로 번호를 부여한다. 부여할 때 기존에 등록되지 않은 경우에만 등록
    * 5.
    *
+   * 고민1 : 먼저 Queue에 요청을 모두 넣는게 아니라, 그 전에 기등록여부를 조회하여 한 번 거른다.
+   * => Queue 방식을 채택한다.
+   *
    * */
   @Override
-  public ReservationEntity reserve(long userId) {
+  public ReservationStatus reserve(long userId) {
+
+    // 예약 유효성 검증
+    boolean result = reservationValidation.validateRequest(userId);
+
+    if(result) {
+
+      ReservationStatus status = reservationManager.reserve(userId);
+
+    } else {
+      return ReservationStatus.FAIL;
+    }
     return null;
   }
 
@@ -44,14 +58,11 @@ public class ReservationServiceImpl implements ReservationService{
 
   @Override
   public ReservationStatus getSuccessFail(long userId) {
-
     ReservationStatus status = reservationManager.getSuccessFail(userId);
-
     // 예약 성공여부가 조회되지 않는 경우 실패로 간주
     if(status == null) {
       status = ReservationStatus.FAIL;
     }
-
     return status;
   }
 }

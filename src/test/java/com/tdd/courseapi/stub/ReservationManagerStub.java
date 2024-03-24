@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.tdd.courseapi.entity.ReservationEntity;
-import com.tdd.courseapi.entity.ReservationStatus;
+import com.tdd.courseapi.constant.ReservationStatus;
 
 public class ReservationManagerStub implements ReservationManagerJob {
 

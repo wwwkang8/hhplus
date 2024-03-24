@@ -3,7 +3,7 @@ package com.tdd.courseapi.common;
 import java.util.List;
 
 import com.tdd.courseapi.entity.ReservationEntity;
-import com.tdd.courseapi.entity.ReservationStatus;
+import com.tdd.courseapi.constant.ReservationStatus;
 import com.tdd.courseapi.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
