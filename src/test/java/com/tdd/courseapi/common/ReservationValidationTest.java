@@ -1,4 +1,4 @@
-package com.tdd.courseapi;
+package com.tdd.courseapi.common;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
