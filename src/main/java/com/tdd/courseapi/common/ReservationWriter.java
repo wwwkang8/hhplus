@@ -18,20 +18,20 @@ public class ReservationWriter {
 
   public void reserve(long userId) {
 
-    long applyOrder = 0;
+    ReservationEntity result = reservationRepository.findByUserIdWithExclusiveLock(userId);
 
-    ReservationEntity reservationEntity = new ReservationEntity();
-    long id = reservationEntity.getId();
-    reservationEntity.setId(id);
-    reservationEntity.setUserId(userId);
-    reservationEntity.setCourseCode(CourseCode.JAVA);
-    reservationEntity.setCourseStartDate(LocalDate.of(2024, 5, 1));
-    reservationEntity.setReservationStatus(ReservationStatus.SUCCESS);
-    reservationEntity.setRegisteredAt(LocalDateTime.now());
-    reservationEntity.setModifiedAt(LocalDateTime.now());
+    if(result == null) {
+      ReservationEntity reservationEntity = new ReservationEntity();
+      long id = reservationEntity.getId();
+      reservationEntity.setId(id);
+      reservationEntity.setUserId(userId);
+      reservationEntity.setCourseCode(CourseCode.JAVA);
+      reservationEntity.setCourseStartDate(LocalDate.of(2024, 5, 1));
+      reservationEntity.setReservationStatus(ReservationStatus.SUCCESS);
+      reservationEntity.setRegisteredAt(LocalDateTime.now());
+      reservationEntity.setModifiedAt(LocalDateTime.now());
 
-    reservationRepository.save(reservationEntity);
-
-
+      reservationRepository.save(reservationEntity);
+    }
   }
 }

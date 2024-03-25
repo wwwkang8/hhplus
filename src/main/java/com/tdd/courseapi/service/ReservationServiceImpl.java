@@ -28,11 +28,10 @@ public class ReservationServiceImpl implements ReservationService{
    *
    * 고민1 : 먼저 Queue에 요청을 모두 넣는게 아니라, 그 전에 기등록여부를 조회하여 한 번 거른다.
    * => Queue 방식을 채택한다.
-   *
    * */
   @Override
-  public synchronized ReservationStatus reserve(long userId) {
-    // 예약 유효성 검증
+  public ReservationStatus reserve(long userId) {
+    // 예약 유효성 검증선행
     boolean result = reservationValidation.validateRequest(userId);
 
     if(result) {
