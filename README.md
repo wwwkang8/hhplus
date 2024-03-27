@@ -1,36 +1,27 @@
 [요구사항 분석]
 1. 특강 신청 API 구현
-![image](https://github.com/wwwkang8/hhplus_architecture_2nd/assets/26863285/d507803c-a573-4908-a28c-b820cc4d7419)
+- 특강신청 성공여부 조회
+- 특강신청
 
  
+[데이터베이스]
+![image](https://github.com/wwwkang8/hhplus_architecture_2nd/assets/26863285/9a951e82-06c1-4db7-8426-a73991a96ed8)
+
+- 추후 특강이 여러개가 될 것을 대비하여 확장 가능하도록 특강정보 테이블을 따로 분리하였습니다.
+- 강의내역 테이블에 INSERT 되면 강의신청 성공으로 보기 때문에 따로 강의신청 상태 필드값은 추가하지 않았습니다.
 
 
 [아키텍쳐 구조]
 - 구조 : 레이어드 아키텍쳐 + 클린 아키텍쳐 혼합형태
-
 - Controller <---> Service <---> Repository 구조
-
 - 인터페이스1. 컨트롤러와 서비스 사이에 인터페이스 존재
 
-- 인터페이스2. 서비스와 레포지토리 사이에도 존재해야 하나? DB가 바뀌어도 영향받지 않으려면 인터페이스가 필요하지 않을까??
+ 
+
 
  
 
-[내가 의도한 아키텍쳐]
 
-1. 클린 아키텍쳐를 도입 : Controller에서 Service 호출시 인터페이스로 호출한다.
-
-Service 구현 로직은 알 필요 없이 인터페이스로 호출.
-
-2. 공통모듈을 쪼갰다 : Reservation 관련 조회, 쓰기, 검증 등 공통 로직들은 하나의 작은 모듈로 만들어서 책임을 분리하였다.
-
-3. 
-
- 
-
-[데이터베이스]
-테이블명 : 강의 예약내역(reservation_list)
-![image](https://github.com/wwwkang8/hhplus_architecture_2nd/assets/26863285/14ca8a6d-5512-4ec7-9021-f77f991fa7b2)
 
  	 	 
  
