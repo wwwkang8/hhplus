@@ -1,6 +1,7 @@
 package com.tdd.courseapi.controller;
 
 import com.tdd.courseapi.constant.ReservationStatus;
+import com.tdd.courseapi.controller.dto.ResponseDto;
 import com.tdd.courseapi.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +18,19 @@ public class ReservationController {
   private final ReservationService reservationService;
 
   @GetMapping("{userId}")
-  public ReservationStatus getReservationSuccessFail(@PathVariable long userId) {
-    return reservationService.getSuccessFail(userId);
+  public ResponseDto getReservationSuccessFail(@PathVariable long userId) {
+
+    ResponseDto responseDto = new ResponseDto();
+    responseDto.setStatus(reservationService.getSuccessFail(userId));
+
+    return responseDto;
   }
 
   @PostMapping("{userId}")
-  public ReservationStatus reserve(@PathVariable long userId) {
-    return reservationService.reserve(userId);
+  public ResponseDto reserve(@PathVariable long userId) {
+    ResponseDto responseDto = new ResponseDto();
+    responseDto.setStatus(reservationService.reserve(userId));
+    return responseDto;
   }
 
 

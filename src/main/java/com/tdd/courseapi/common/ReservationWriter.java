@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.tdd.courseapi.constant.CourseCode;
-import com.tdd.courseapi.entity.ReservationEntity;
+import com.tdd.courseapi.domain.CourseEntity;
+import com.tdd.courseapi.domain.ReservationEntity;
 import com.tdd.courseapi.constant.ReservationStatus;
 import com.tdd.courseapi.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,21 +16,21 @@ import org.springframework.stereotype.Component;
 public class ReservationWriter {
 
   private final ReservationRepository reservationRepository;
+  private final CourseReader courseReader;
 
   public void reserve(long userId) {
 
     ReservationEntity result = reservationRepository.findByUserIdWithExclusiveLock(userId);
 
+    CourseEntity course = courseReader.getCourse(1L);
+
     if(result == null) {
       ReservationEntity reservationEntity = new ReservationEntity();
-      long id = reservationEntity.getId();
-      reservationEntity.setId(id);
+      long id = reservationEntity.getReservationId();
+      reservationEntity.setReservationId(id);
+      reservationEntity.setReservationDate(LocalDate.now());
       reservationEntity.setUserId(userId);
-      reservationEntity.setCourseCode(CourseCode.JAVA);
-      reservationEntity.setCourseStartDate(LocalDate.of(2024, 5, 1));
-      reservationEntity.setReservationStatus(ReservationStatus.SUCCESS);
-      reservationEntity.setRegisteredAt(LocalDateTime.now());
-      reservationEntity.setModifiedAt(LocalDateTime.now());
+      reservationEntity.setCourseEntity(course);
 
       reservationRepository.save(reservationEntity);
     }

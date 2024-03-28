@@ -30,28 +30,25 @@ public class ReservationValidationTest {
     MockitoAnnotations.openMocks(this);
   }
 
-//  @DisplayName("특강신청 시각이 아닌 경우")
-//  @Test
-//  void 특강신청_시각이_아닌경우() {
-//
-//    long userId = 111;
-//    when(LocalDateTime.now()).thenReturn(LocalDateTime.of(2024, 4, 3, 13, 00));
-//
-//    boolean status = reservationValidation.validateRequest(userId);
-//
-//    assertEquals(false, status);
-//  }
+  @DisplayName("특강신청 시각이 아닌 경우")
+  @Test
+  void 특강신청_시각이_아닌경우() {
+    long userId = 111;
+
+    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId);});
+  }
 
   @DisplayName("특강신청인원이 30명이 완료된 경우")
   @Test
   void 특강신청인원_30명_완료() {
     long userId = 123;
-    when(reservationManager.getCurrentReservationCount()).thenReturn(30);
+    long userId2 = 222;
+    for(int i=0; i<30; i++) {
+      reservationManager.reserve(userId);
+      userId++;
+    }
 
-    boolean result = reservationValidation.validateRequest(userId);
-
-    assertEquals(false, result);
-    //verify(reservationManager).getCurrentReservationCount();
+    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId2);});
   }
 
 }

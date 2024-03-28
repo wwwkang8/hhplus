@@ -2,7 +2,7 @@ package com.tdd.courseapi.common;
 
 import java.time.LocalDateTime;
 
-import com.tdd.courseapi.entity.ReservationEntity;
+import com.tdd.courseapi.domain.ReservationEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ public class ReservationValidation {
 
   public boolean validateRequest(long userId) {
 
-    // 날짜 검증 : 2024년 4월 20일 00:00부터 시작
+    // 날짜 검증 : 2024년 4월 20일 13:00부터 시작
     if(LocalDateTime.now().isBefore(LocalDateTime.of(2024, 4, 20, 13, 00))){
       throw new RuntimeException("강의 등록기간이 아닙니다.");
     }

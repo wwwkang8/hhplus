@@ -2,7 +2,7 @@ package com.tdd.courseapi.common;
 
 import java.util.List;
 
-import com.tdd.courseapi.entity.ReservationEntity;
+import com.tdd.courseapi.domain.ReservationEntity;
 import com.tdd.courseapi.constant.ReservationStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -14,14 +14,6 @@ public class ReservationManager{
   private final ReservationReader reservationReader;
   private final ReservationWriter reservationWriter;
 
-  public ReservationEntity getReservation(long userId) {
-    return reservationReader.readReservation(userId);
-  }
-
-  public List<ReservationEntity> getReservationList() {
-    return reservationReader.readReservationList();
-  }
-
   public ReservationStatus getSuccessFail(long userId) {
     return reservationReader.getSuccessFail(userId);
   }
@@ -32,7 +24,10 @@ public class ReservationManager{
 
   public ReservationStatus reserve(long userId) {
       reservationWriter.reserve(userId);
-
       return reservationReader.getSuccessFail(userId);
+  }
+
+  public ReservationEntity getReservation(long userId) {
+    return reservationReader.readReservation(userId);
   }
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.tdd.courseapi.constant.CourseCode;
 import com.tdd.courseapi.constant.ReservationStatus;
-import com.tdd.courseapi.entity.ReservationEntity;
+import com.tdd.courseapi.domain.ReservationEntity;
 
 public class ReservationRepositoryStub {
 
@@ -22,16 +22,16 @@ public class ReservationRepositoryStub {
 
   public void save(long userId) {
 
-    ReservationEntity reservationEntity = new ReservationEntity();
-    long id = reservationEntity.getId();
-    reservationEntity.setId(id);
-    reservationEntity.setUserId(userId);
-    reservationEntity.setCourseCode(CourseCode.JAVA);
-    reservationEntity.setCourseStartDate(LocalDate.of(2024, 5, 1));
-    reservationEntity.setReservationStatus(ReservationStatus.SUCCESS);
-    reservationEntity.setRegisteredAt(LocalDateTime.now());
-    reservationEntity.setModifiedAt(LocalDateTime.now());
-    db.put(userId, reservationEntity);
+//    ReservationEntity reservationEntity = new ReservationEntity();
+//    long id = reservationEntity.getId();
+//    reservationEntity.setId(id);
+//    reservationEntity.setUserId(userId);
+//    reservationEntity.setCourseCode(CourseCode.JAVA);
+//    reservationEntity.setCourseStartDate(LocalDate.of(2024, 5, 1));
+//    reservationEntity.setReservationStatus(ReservationStatus.SUCCESS);
+//    reservationEntity.setRegisteredAt(LocalDateTime.now());
+//    reservationEntity.setModifiedAt(LocalDateTime.now());
+//    db.put(userId, reservationEntity);
 
   }
 
