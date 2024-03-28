@@ -13,3 +13,7 @@ spring:
         format_sql: false  # 아름답게 출력
     hibernate:
       ddl-auto: create
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always

@@ -15,9 +15,9 @@ public class ReservationValidation {
   public boolean validateRequest(long userId) {
 
     // 날짜 검증 : 2024년 4월 20일 13:00부터 시작
-    if(LocalDateTime.now().isBefore(LocalDateTime.of(2024, 4, 20, 13, 00))){
-      throw new RuntimeException("강의 등록기간이 아닙니다.");
-    }
+//    if(LocalDateTime.now().isBefore(LocalDateTime.of(2024, 4, 20, 13, 00))){
+//      throw new RuntimeException("강의 등록기간이 아닙니다.");
+//    }
 
     // 인원수 검증 : 30명이 꽉 찼는지 검증
     int count = reservationManager.getCurrentReservationCount();
