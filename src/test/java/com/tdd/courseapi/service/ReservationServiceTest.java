@@ -1,30 +1,18 @@
 package com.tdd.courseapi.service;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import com.tdd.courseapi.common.ReservationManager;
-import com.tdd.courseapi.common.ReservationReader;
 import com.tdd.courseapi.common.ReservationValidation;
-import com.tdd.courseapi.common.ReservationWriter;
-import com.tdd.courseapi.entity.ReservationEntity;
 import com.tdd.courseapi.constant.ReservationStatus;
-import com.tdd.courseapi.repository.ReservationRepository;
-import com.tdd.courseapi.service.ReservationService;
-import com.tdd.courseapi.service.ReservationServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.core.AutoConfigureCache;
 
 
 public class ReservationServiceTest {
