@@ -12,9 +12,7 @@ public class CourseReader {
   private final CourseRepository courseRepository;
 
   public CourseEntity getCourse(long courseId) {
-
     return courseRepository.findCourseEntityByCourseId(courseId);
-
   }
 
 }

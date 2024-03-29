@@ -18,11 +18,11 @@ public class ReservationWriter {
   private final ReservationRepository reservationRepository;
   private final CourseReader courseReader;
 
-  public void reserve(long userId) {
+  public void reserve(long userId, long courseId) {
 
-    ReservationEntity result = reservationRepository.findByUserIdWithExclusiveLock(userId);
+    ReservationEntity result = reservationRepository.findByUserIdWithExclusiveLock(userId, courseId);
 
-    CourseEntity course = courseReader.getCourse(1L);
+    CourseEntity course = courseReader.getCourse(courseId);
 
     if(result == null) {
       ReservationEntity reservationEntity = new ReservationEntity();

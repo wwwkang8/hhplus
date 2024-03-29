@@ -3,10 +3,18 @@ package com.tdd.courseapi.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 
 import com.tdd.courseapi.common.ReservationManager;
 import com.tdd.courseapi.common.ReservationValidation;
 import com.tdd.courseapi.constant.ReservationStatus;
+import com.tdd.courseapi.controller.request.RequestDTO;
+import com.tdd.courseapi.controller.response.ResponseDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,24 +43,26 @@ public class ReservationServiceTest {
     @Test
     void case1() {
       long userId = 123;
-      when(reservationManager.getSuccessFail(userId)).thenReturn(ReservationStatus.SUCCESS);
+      long courseId = 1L;
+      when(reservationManager.getSuccessFail(userId, courseId)).thenReturn(ReservationStatus.SUCCESS);
 
-      ReservationStatus status = reservationService.getSuccessFail(userId);
+      ReservationStatus status = reservationService.getSuccessFail(userId, courseId);
 
       assertEquals(ReservationStatus.SUCCESS, status);
-      verify(reservationManager).getSuccessFail(userId);
+      verify(reservationManager).getSuccessFail(userId, courseId);
     }
 
     @DisplayName("조회-신청내역이 없는 경우")
     @Test
     void case2() {
       long userId = 123;
-      when(reservationManager.getSuccessFail(userId)).thenReturn(ReservationStatus.FAIL);
+      long courseId = 1L;
+      when(reservationManager.getSuccessFail(userId, courseId)).thenReturn(ReservationStatus.FAIL);
 
-      ReservationStatus status = reservationService.getSuccessFail(userId);
+      ReservationStatus status = reservationService.getSuccessFail(userId, courseId);
 
       assertEquals(ReservationStatus.FAIL, status);
-      verify(reservationManager).getSuccessFail(userId);
+      verify(reservationManager).getSuccessFail(userId, courseId);
     }
 
 
@@ -60,18 +70,20 @@ public class ReservationServiceTest {
     @Test
     void case3() {
       long userId = 123;
+      long courseId = 1L;
       // reserVationValidation 객체에서 validateRequest를 호출하면 True를 반환한다.
-      when(reservationValidation.validateRequest(userId)).thenReturn(true);
+      when(reservationValidation.validateRequest(userId, courseId)).thenReturn(true);
 
       // reservationManager에서 reserve 메서드를 호출하면 예약성공 상태를 반환한다.
-      when(reservationManager.reserve(userId)).thenReturn(ReservationStatus.SUCCESS);
+      when(reservationManager.reserve(userId, courseId)).thenReturn(ReservationStatus.SUCCESS);
 
       // reserve 메서드를 호출
-      ReservationStatus result = reservationService.reserve(userId);
+      RequestDTO requestDTO = new RequestDTO(userId, courseId);
+      ResponseDTO responseDTO = reservationService.reserve(requestDTO);
 
-      assertEquals(ReservationStatus.SUCCESS, result);
-      verify(reservationValidation).validateRequest(userId); //validateRequest 메서드를 호출했는지 여부 검증
-      verify(reservationManager).reserve(userId); // reserve 메서드를 호출했는지 여부 검증
+      assertEquals(ReservationStatus.SUCCESS, responseDTO.getStatus());
+      verify(reservationValidation).validateRequest(userId, courseId); //validateRequest 메서드를 호출했는지 여부 검증
+      verify(reservationManager).reserve(userId, courseId); // reserve 메서드를 호출했는지 여부 검증
     }
 
     @DisplayName("조회 - 총 신청건수 조회")
@@ -79,10 +91,11 @@ public class ReservationServiceTest {
     void case4() {
       // given
       int max = 30;
-      when(reservationManager.getCurrentReservationCount()).thenReturn(max);
+      long courseId = 1L;
+      when(reservationManager.countByCourseEntityCourseId(courseId)).thenReturn(max);
 
       // when
-      int count = reservationService.getCurrentReservationCount();
+      int count = reservationService.countReservationByCourseId(courseId);
 
       // then
       assertEquals(max, count);
@@ -93,14 +106,16 @@ public class ReservationServiceTest {
     void case5() {
       //given
       long userId = 123L;
-      when(reservationValidation.validateRequest(userId)).thenReturn(true);
-      when(reservationManager.reserve(userId)).thenReturn(ReservationStatus.SUCCESS);
+      long courseId = 1L;
+      RequestDTO requestDTO = new RequestDTO(userId, courseId);
+      when(reservationValidation.validateRequest(userId, courseId)).thenReturn(true);
+      when(reservationManager.reserve(userId, courseId)).thenReturn(ReservationStatus.SUCCESS);
 
       // when
-      ReservationStatus status = reservationService.reserve(userId);
+      ResponseDTO responseDTO = reservationService.reserve(requestDTO);
 
       // then
-      assertEquals(ReservationStatus.SUCCESS, status);
+      assertEquals(ReservationStatus.SUCCESS, responseDTO.getStatus());
     }
 
     @DisplayName("등록 - 특강 신청 실패")
@@ -108,14 +123,16 @@ public class ReservationServiceTest {
     void case6() {
       //given
       long userId = 123L;
-      when(reservationValidation.validateRequest(userId)).thenReturn(true);
-      when(reservationManager.reserve(userId)).thenReturn(ReservationStatus.FAIL);
+      long courseId = 1L;
+      RequestDTO requestDTO = new RequestDTO(userId, courseId);
+      when(reservationValidation.validateRequest(userId, courseId)).thenReturn(true);
+      when(reservationManager.reserve(userId, courseId)).thenReturn(ReservationStatus.FAIL);
 
       // when
-      ReservationStatus status = reservationService.reserve(userId);
+      ResponseDTO responseDTO = reservationService.reserve(requestDTO);
 
       // then
-      assertEquals(ReservationStatus.FAIL, status);
+      assertEquals(ReservationStatus.FAIL, responseDTO.getStatus());
     }
 
 }

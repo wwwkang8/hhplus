@@ -34,8 +34,9 @@ public class ReservationValidationTest {
   @Test
   void 특강신청_시각이_아닌경우() {
     long userId = 111;
+    long courseId = 1L;
 
-    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId);});
+    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId, courseId);});
   }
 
   @DisplayName("특강신청인원이 30명이 완료된 경우")
@@ -43,12 +44,13 @@ public class ReservationValidationTest {
   void 특강신청인원_30명_완료() {
     long userId = 123;
     long userId2 = 222;
+    long courseId = 1L;
     for(int i=0; i<30; i++) {
-      reservationManager.reserve(userId);
+      reservationManager.reserve(userId, courseId);
       userId++;
     }
 
-    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId2);});
+    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId2, courseId);});
   }
 
 }
