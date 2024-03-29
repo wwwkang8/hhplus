@@ -15,18 +15,18 @@ public class ReservationReader {
   private final ReservationRepository reservationRepository;
 
   // 사용자 아이디로 예약내역 조회
-  public ReservationEntity readReservation(long userId) {
-    return reservationRepository.findByUserId(userId);
+  public ReservationEntity readReservation(long userId, long courseId) {
+    return reservationRepository.findByUserIdAndCourseId(userId, courseId);
   }
 
-  public List<ReservationEntity> readReservationList() {
-    return reservationRepository.findAll();
+  public int countByCourseEntityCourseId(long courseId) {
+    return reservationRepository.countByCourseEntityCourseId(courseId);
   }
 
   // 사용자 아이디로 예약상태(성공 or 실패) 조회
-  public ReservationStatus getSuccessFail(long userId) {
+  public ReservationStatus getSuccessFail(long userId, long courseId) {
 
-    if(readReservation(userId) == null) {
+    if(readReservation(userId, courseId) == null) {
       return ReservationStatus.FAIL;
     }else {
       return ReservationStatus.SUCCESS;

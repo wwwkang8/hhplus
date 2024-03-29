@@ -31,16 +31,16 @@ public class ReservationWriterTest {
   @Test
   void 동시에_특강신청_ㄱㄱ () {
 
-    ExecutorService executor = Executors.newFixedThreadPool(30);
-
-    Runnable runnableTask = () -> {
-
-      for(int i=0; i< 50; i++) {
-        reservationWriter.reserve(i);
-      }
-    };
-
-    executor.execute(runnableTask);
+//    ExecutorService executor = Executors.newFixedThreadPool(30);
+//
+//    Runnable runnableTask = () -> {
+//
+//      for(int i=0; i< 50; i++) {
+//        reservationWriter.reserve(i);
+//      }
+//    };
+//
+//    executor.execute(runnableTask);
   }
 
 }

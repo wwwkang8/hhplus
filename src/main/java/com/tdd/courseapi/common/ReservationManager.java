@@ -14,20 +14,20 @@ public class ReservationManager{
   private final ReservationReader reservationReader;
   private final ReservationWriter reservationWriter;
 
-  public ReservationStatus getSuccessFail(long userId) {
-    return reservationReader.getSuccessFail(userId);
+  public ReservationStatus getSuccessFail(long userId, long courseId) {
+    return reservationReader.getSuccessFail(userId, courseId);
   }
 
-  public int getCurrentReservationCount() {
-    return reservationReader.readReservationList().size();
+  public int countByCourseEntityCourseId(long courseId) {
+    return reservationReader.countByCourseEntityCourseId(courseId);
   }
 
-  public ReservationStatus reserve(long userId) {
-      reservationWriter.reserve(userId);
-      return reservationReader.getSuccessFail(userId);
+  public ReservationStatus reserve(long userId, long courseId) {
+      reservationWriter.reserve(userId, courseId);
+      return reservationReader.getSuccessFail(userId, courseId) ;
   }
 
-  public ReservationEntity getReservation(long userId) {
-    return reservationReader.readReservation(userId);
+  public ReservationEntity getReservation(long userId, long courseId) {
+    return reservationReader.readReservation(userId, courseId);
   }
 }
