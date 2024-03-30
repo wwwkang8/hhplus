@@ -1,13 +1,13 @@
 ## 요구사항 분석
 1. 특강 신청 API 구현
 - 특강신청 성공여부 조회
-  요청 : GET  /reservation/{userId}/{courseId}
-  응답 : SUCCESS 또는 FAIL
+  - 요청 : GET  /reservation/{userId}/{courseId}
+  - 응답 : SUCCESS 또는 FAIL
   
 - 특강신청
-  요청 : POST /reservation/
-  Body : {"userId": "2", "courseId": "1"}
-  응답 : SUCCESS 또는 FAIL
+  - 요청 : POST /reservation/
+  - Body : {"userId": "2", "courseId": "1"}
+  - 응답 : SUCCESS 또는 FAIL
 
  
 ## 데이터베이스
