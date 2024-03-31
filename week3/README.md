@@ -53,7 +53,7 @@
 
 | 메서드 | 요청 URL |기능|
 |--------|----------|----------|
-| POST     |/api/point/| 포인트 충전   |
+| POST     |/api/point/charge| 포인트 충전   |
 * Request : 사용자 아이디, 충전금액
 * Response : 충전 후 잔액
 
