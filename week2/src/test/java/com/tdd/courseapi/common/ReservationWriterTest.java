@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ReservationWriterTest {
@@ -29,7 +30,7 @@ public class ReservationWriterTest {
 
   @DisplayName("동시에 특강신청 요청이 몰리는 경우")
   @Test
-  void 동시에_특강신청_ㄱㄱ () {
+  void 동시에_특강신청_ㄱㄱ() {
 
 //    ExecutorService executor = Executors.newFixedThreadPool(30);
 //

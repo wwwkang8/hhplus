@@ -22,13 +22,13 @@ public class CourseEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="course_id")
+  @Column(name = "course_id")
   private long courseId;
 
-  @Column(name="course_start_date")
+  @Column(name = "course_start_date")
   private LocalDate courseStartDate;
 
-  @Column(name="quantity")
+  @Column(name = "quantity")
   private int quantity;
 
   public CourseEntity() {

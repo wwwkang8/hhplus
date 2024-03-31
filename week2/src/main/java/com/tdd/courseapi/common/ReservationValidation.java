@@ -24,13 +24,13 @@ public class ReservationValidation {
     // 인원수 검증 : 30명이 꽉 찼는지 검증
     int reservationCount = reservationManager.countByCourseEntityCourseId(courseId);
     int maxCourseStudent = courseReader.getCourse(courseId).getQuantity();
-    if(reservationCount == maxCourseStudent) {
+    if (reservationCount == maxCourseStudent) {
       throw new RuntimeException("정원이 마감되었습니다.");
     }
 
     // 기등록여부 조회
     ReservationEntity reservation = reservationManager.getReservation(userId, courseId);
-    if(reservation != null) {
+    if (reservation != null) {
       throw new RuntimeException("이미 강의가 신청되어있습니다.");
     }
 

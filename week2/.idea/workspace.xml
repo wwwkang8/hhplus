@@ -4,7 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b17a5027-59aa-4c7f-b770-bf5503228a7d" name="Default Changelist" comment="" />
+    <list default="true" id="b17a5027-59aa-4c7f-b770-bf5503228a7d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../concert/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../concert/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../concert/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../concert/concert.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/ApiControllerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/ApiControllerAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/TddApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/TddApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/database/PointHistoryTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/database/UserPointTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/database/UserPointTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/point/PointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/point/PointController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/point/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/point/PointService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/point/TransactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/main/java/io/hhplus/tdd/point/TransactionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/PointControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/PointControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/PointServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/PointServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/PointServiceUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/PointServiceUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/TddApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week1/src/test/java/io/hhplus/tdd/TddApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/common/ReservationWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/controller/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/controller/request/RequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/controller/request/RequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/domain/CourseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/domain/CourseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/domain/ReservationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/domain/ReservationEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/repository/ReservationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/service/ReservationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tdd/courseapi/service/ReservationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/common/ReservationValidationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/common/ReservationValidationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/common/ReservationWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/common/ReservationWriterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/controller/ReservationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/controller/ReservationControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/service/ReservationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tdd/courseapi/service/ReservationServiceTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,8 +66,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -52,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711797366423</updated>
       <workItem from="1711797371008" duration="73000" />
-      <workItem from="1711856078493" duration="317000" />
+      <workItem from="1711856078493" duration="975000" />
     </task>
     <servers />
   </component>

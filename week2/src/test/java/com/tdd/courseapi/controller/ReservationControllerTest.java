@@ -85,9 +85,9 @@ public class ReservationControllerTest {
 
     // then
     mvc.perform(get("/reservation/{userId}/{courseId}", userId, courseId))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.status").value(status.toString()));
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        .andExpect(jsonPath("$.status").value(status.toString()));
   }
 
   @DisplayName("조회-특정 사용자의 신청내역이 있는 경우")
@@ -96,7 +96,8 @@ public class ReservationControllerTest {
     // given : 특정 사용자의 특강 신청내역이 있는 경우
     long userId = 2L;
     long courseId = 1L;
-    ReservationEntity reservationEntity = new ReservationEntity(1L, userId, courseEntity,LocalDate.now());
+    ReservationEntity reservationEntity =
+        new ReservationEntity(1L, userId, courseEntity, LocalDate.now());
     reservationRepository.save(reservationEntity);
     ReservationStatus status = reservationService.getSuccessFail(userId, courseId);
 
@@ -116,7 +117,8 @@ public class ReservationControllerTest {
     long userId = 2L;
     long courseId = 1L;
     RequestDTO requestDTO = new RequestDTO(userId, courseId);
-    String requestBody = String.format("{\"userId\": \"%s\", \"courseId\": \"%s\"}", userId, courseId);
+    String requestBody =
+        String.format("{\"userId\": \"%s\", \"courseId\": \"%s\"}", userId, courseId);
 
 
     // when
@@ -147,7 +149,7 @@ public class ReservationControllerTest {
     long userId2 = 31L;
 
     // when
-    for(int i=0; i<30; i++) {
+    for (int i = 0; i < 30; i++) {
       RequestDTO requestDTO = new RequestDTO(userId, courseId);
       reservationService.reserve(requestDTO);
       userId++;
@@ -160,7 +162,8 @@ public class ReservationControllerTest {
     mvc.perform(post("/reservation/{userId}", userId))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-        .andExpect((result)->assertTrue(result.getResolvedException().getClass().isAssignableFrom(RuntimeException.class)));
+        .andExpect((result) -> assertTrue(
+            result.getResolvedException().getClass().isAssignableFrom(RuntimeException.class)));
   }
 
   @DisplayName("예약-기등록된 사용자가 또 특강신청하는 경우")
@@ -196,13 +199,13 @@ public class ReservationControllerTest {
     final CountDownLatch countDownLatch = new CountDownLatch(threadCount);
 
     //when
-    for(int i=0; i<threadCount; i++) {
+    for (int i = 0; i < threadCount; i++) {
       userId += 1;
       requestDTO.setUserId(userId);
-      executorService.submit(()->{
-        try{
+      executorService.submit(() -> {
+        try {
           reservationService.reserve(requestDTO);
-        }finally{
+        } finally {
           countDownLatch.countDown();
         }
       });

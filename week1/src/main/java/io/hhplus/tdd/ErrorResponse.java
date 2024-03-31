@@ -1,7 +1,7 @@
 package io.hhplus.tdd;
 
 public record ErrorResponse(
-        String code,
-        String message
-) {
-}
+    String code,
+    String message
+    ){
+    }

@@ -26,13 +26,12 @@ public class ReservationReader {
   // 사용자 아이디로 예약상태(성공 or 실패) 조회
   public ReservationStatus getSuccessFail(long userId, long courseId) {
 
-    if(readReservation(userId, courseId) == null) {
+    if (readReservation(userId, courseId) == null) {
       return ReservationStatus.FAIL;
-    }else {
+    } else {
       return ReservationStatus.SUCCESS;
     }
   }
-
 
 
 }

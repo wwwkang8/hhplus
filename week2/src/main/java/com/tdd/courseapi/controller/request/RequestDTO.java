@@ -12,8 +12,8 @@ import org.hibernate.annotations.SecondaryRow;
 @ToString
 public class RequestDTO {
 
-    private long userId;
-    private long courseId;
+  private long userId;
+  private long courseId;
 
   public RequestDTO(long userId, long courseId) {
     this.userId = userId;

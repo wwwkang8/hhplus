@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ReservationServiceImpl implements ReservationService{
+public class ReservationServiceImpl implements ReservationService {
 
   private final ReservationManager reservationManager;
   private final ReservationValidation reservationValidation;
@@ -28,20 +28,20 @@ public class ReservationServiceImpl implements ReservationService{
     boolean result = reservationValidation.validateRequest(userId, courseId);
     ResponseDTO responseDTO = new ResponseDTO();
 
-    if(result) {
+    if (result) {
       ReservationStatus status = reservationManager.reserve(userId, courseId);
-      if(status == ReservationStatus.SUCCESS) {
+      if (status == ReservationStatus.SUCCESS) {
         responseDTO.setStatus(status);
-        responseDTO.setMessage("[특강신청 성공] 사용자아이디 : " + userId + ", 특강아이디 : "+courseId);
+        responseDTO.setMessage("[특강신청 성공] 사용자아이디 : " + userId + ", 특강아이디 : " + courseId);
         return responseDTO;
-      }else{
+      } else {
         responseDTO.setStatus(status);
-        responseDTO.setMessage("[특강신청 실패] 사용자아이디 : " + userId + ", 특강아이디 : "+courseId);
+        responseDTO.setMessage("[특강신청 실패] 사용자아이디 : " + userId + ", 특강아이디 : " + courseId);
         return responseDTO;
       }
     } else {
       responseDTO.setStatus(ReservationStatus.FAIL);
-      responseDTO.setMessage("[특강신청 실패] 사용자아이디 : " + userId + ", 특강아이디 : "+courseId);
+      responseDTO.setMessage("[특강신청 실패] 사용자아이디 : " + userId + ", 특강아이디 : " + courseId);
       return responseDTO;
     }
   }

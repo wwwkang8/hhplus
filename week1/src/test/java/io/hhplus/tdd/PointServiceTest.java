@@ -29,10 +29,10 @@ public class PointServiceTest {
   private UserPointTable userPointTable;
 
   @Autowired
-  private  PointHistoryTable pointHistoryTable;
+  private PointHistoryTable pointHistoryTable;
 
   @Autowired
-  private  PointService pointService;
+  private PointService pointService;
 
 
   @Test
@@ -66,7 +66,7 @@ public class PointServiceTest {
 
   @Test
   @DisplayName("사용자_아이디가_0L일때")
-  void 사용자_아이디가_0L일때 () throws InterruptedException {
+  void 사용자_아이디가_0L일때() throws InterruptedException {
     //given : 사용자 아이디가 0L로 세팅.
     long userId = 0L;
 
@@ -209,10 +209,10 @@ public class PointServiceTest {
     int numChargesPerThread = 1000; // 각 스레드당 충전 시도 횟수
     ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
 
-    for(int i=0; i<numThreads; i++) {
-      executorService.submit(()->{
-        for(int j=0; j<numChargesPerThread; j++) {
-          try{
+    for (int i = 0; i < numThreads; i++) {
+      executorService.submit(() -> {
+        for (int j = 0; j < numChargesPerThread; j++) {
+          try {
             pointService.charge(userId, 1000L);
           } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -228,7 +228,6 @@ public class PointServiceTest {
       long expectedTotalCharge = numThreads * numChargesPerThread * 1000L;
       assertEquals(expectedTotalCharge, userPoint.point());
     }
-
 
 
   }

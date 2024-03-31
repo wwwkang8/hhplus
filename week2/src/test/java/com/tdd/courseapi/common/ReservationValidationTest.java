@@ -25,7 +25,7 @@ public class ReservationValidationTest {
   ReservationValidation reservationValidation;
 
   @BeforeEach
-  void setUp () {
+  void setUp() {
     // 모킹된 객체를 초기화
     MockitoAnnotations.openMocks(this);
   }
@@ -36,7 +36,9 @@ public class ReservationValidationTest {
     long userId = 111;
     long courseId = 1L;
 
-    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId, courseId);});
+    assertThrows(RuntimeException.class, () -> {
+      reservationValidation.validateRequest(userId, courseId);
+    });
   }
 
   @DisplayName("특강신청인원이 30명이 완료된 경우")
@@ -45,12 +47,14 @@ public class ReservationValidationTest {
     long userId = 123;
     long userId2 = 222;
     long courseId = 1L;
-    for(int i=0; i<30; i++) {
+    for (int i = 0; i < 30; i++) {
       reservationManager.reserve(userId, courseId);
       userId++;
     }
 
-    assertThrows(RuntimeException.class, () -> {reservationValidation.validateRequest(userId2, courseId);});
+    assertThrows(RuntimeException.class, () -> {
+      reservationValidation.validateRequest(userId2, courseId);
+    });
   }
 
 }

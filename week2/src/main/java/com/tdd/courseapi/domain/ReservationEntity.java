@@ -27,14 +27,14 @@ public class ReservationEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long reservationId;
 
-  @Column(name="user_id")
+  @Column(name = "user_id")
   private long userId;
 
   @ManyToOne
-  @JoinColumn(name="course_id")
+  @JoinColumn(name = "course_id")
   private CourseEntity courseEntity;
 
-  @Column(name="reservation_date")
+  @Column(name = "reservation_date")
   private LocalDate reservationDate;
 
   public ReservationEntity() {

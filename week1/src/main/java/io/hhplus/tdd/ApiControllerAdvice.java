@@ -13,20 +13,20 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @Slf4j
 @RestControllerAdvice
 public class ApiControllerAdvice extends ResponseEntityExceptionHandler {
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleException(Exception e) {
-        log.error("error: ", e);
-        ErrorResponse errorResponse = new ErrorResponse() {
-            @Override
-            public HttpStatusCode getStatusCode() {
-                return HttpStatus.INTERNAL_SERVER_ERROR;
-            }
+  @ExceptionHandler(Exception.class)
+  public ResponseEntity<ErrorResponse> handleException(Exception e) {
+    log.error("error: ", e);
+    ErrorResponse errorResponse = new ErrorResponse() {
+      @Override
+      public HttpStatusCode getStatusCode() {
+        return HttpStatus.INTERNAL_SERVER_ERROR;
+      }
 
-            @Override
-            public ProblemDetail getBody() {
-                return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, "에러가 발생했습니다.");
-            }
-        };
-        return ResponseEntity.internalServerError().body(errorResponse);
-    }
+      @Override
+      public ProblemDetail getBody() {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, "에러가 발생했습니다.");
+      }
+    };
+    return ResponseEntity.internalServerError().body(errorResponse);
+  }
 }

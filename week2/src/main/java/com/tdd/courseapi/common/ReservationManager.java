@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ReservationManager{
+public class ReservationManager {
 
   private final ReservationReader reservationReader;
   private final ReservationWriter reservationWriter;
@@ -23,8 +23,8 @@ public class ReservationManager{
   }
 
   public ReservationStatus reserve(long userId, long courseId) {
-      reservationWriter.reserve(userId, courseId);
-      return reservationReader.getSuccessFail(userId, courseId) ;
+    reservationWriter.reserve(userId, courseId);
+    return reservationReader.getSuccessFail(userId, courseId);
   }
 
   public ReservationEntity getReservation(long userId, long courseId) {

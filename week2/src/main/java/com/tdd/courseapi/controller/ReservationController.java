@@ -18,16 +18,22 @@ public class ReservationController {
 
   private final ReservationService reservationService;
 
-  /** 특강신청여부 조회 */
+  /**
+   * 특강신청여부 조회
+   */
   @GetMapping("{userId}/{courseId}")
-  public ResponseDTO getReservationSuccessFail(@PathVariable long userId, @PathVariable long courseId) {
+  public ResponseDTO getReservationSuccessFail(@PathVariable long userId,
+                                               @PathVariable long courseId) {
 
     ResponseDTO responseDto = new ResponseDTO();
     responseDto.setStatus(reservationService.getSuccessFail(userId, courseId));
 
     return responseDto;
   }
-  /** 특강신청 */
+
+  /**
+   * 특강신청
+   */
   @PostMapping("/")
   public ResponseDTO reserve(@RequestBody RequestDTO requestDTO) {
     ResponseDTO responseDto = reservationService.reserve(requestDTO);

@@ -20,11 +20,12 @@ public class ReservationWriter {
 
   public void reserve(long userId, long courseId) {
 
-    ReservationEntity result = reservationRepository.findByUserIdWithExclusiveLock(userId, courseId);
+    ReservationEntity result =
+        reservationRepository.findByUserIdWithExclusiveLock(userId, courseId);
 
     CourseEntity course = courseReader.getCourse(courseId);
 
-    if(result == null) {
+    if (result == null) {
       ReservationEntity reservationEntity = new ReservationEntity();
       long id = reservationEntity.getReservationId();
       reservationEntity.setReservationId(id);

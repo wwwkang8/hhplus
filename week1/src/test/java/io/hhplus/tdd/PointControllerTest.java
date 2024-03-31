@@ -45,7 +45,7 @@ public class PointControllerTest {
 
   @Test
   @DisplayName("사용자 포인트 조회")
-  void 사용자_포인트_조회 () throws Exception {
+  void 사용자_포인트_조회() throws Exception {
     /**
      * HttpStatus 406 리턴하여 오류
      * 원인 : Controller에서 리턴시 APPLICATION_JSON 타입으로 리턴하지 않아서.
@@ -64,15 +64,15 @@ public class PointControllerTest {
 
     // then : JSON 형식으로 응답
     mockMvc.perform(get("/point/{id}", userId))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$.id").value(userPoint.id()))
-            .andExpect(jsonPath("$.point").value(userPoint.point()));
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+        .andExpect(jsonPath("$.id").value(userPoint.id()))
+        .andExpect(jsonPath("$.point").value(userPoint.point()));
   }
 
   @Test
   @DisplayName("사용자 포인트 거래내역 조회")
-  void 사용자_포인트_거래내역_조회 () throws Exception {
+  void 사용자_포인트_거래내역_조회() throws Exception {
     // given
     long userId = 1L;
     pointService.charge(userId, 1000L);
@@ -108,8 +108,8 @@ public class PointControllerTest {
 
     // then
     mockMvc.perform(patch("/point/{id}/charge", userId)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(requestBody))
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(requestBody))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.id").value(userpoint.id()))
@@ -131,14 +131,13 @@ public class PointControllerTest {
 
     // then
     mockMvc.perform(patch("/point/{id}/use", userId)
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(requestBody))
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(requestBody))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
         .andExpect(jsonPath("$.id").value(userpoint.id()))
         .andExpect(jsonPath("$.amount").value(amount));
   }
-
 
 
 }

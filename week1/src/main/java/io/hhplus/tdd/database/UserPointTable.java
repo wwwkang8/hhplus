@@ -12,32 +12,32 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class UserPointTable {
-    private Map<Long, UserPoint> table = new HashMap<>();
+  private Map<Long, UserPoint> table = new HashMap<>();
 
-    public UserPoint selectById(Long id) throws InterruptedException {
-        throttle(200);
-        UserPoint userPoint = table.get(id);
+  public UserPoint selectById(Long id) throws InterruptedException {
+    throttle(200);
+    UserPoint userPoint = table.get(id);
 
-        if (userPoint == null) {
-            return new UserPoint(id, 0L, System.currentTimeMillis());
-        }
-        return userPoint;
+    if (userPoint == null) {
+      return new UserPoint(id, 0L, System.currentTimeMillis());
     }
+    return userPoint;
+  }
 
-    public UserPoint insertOrUpdate(Long id, Long amount) throws InterruptedException {
-        //Thread.sleep(Long.parseLong(String.valueOf(Math.random())) * 300L);
+  public UserPoint insertOrUpdate(Long id, Long amount) throws InterruptedException {
+    //Thread.sleep(Long.parseLong(String.valueOf(Math.random())) * 300L);
 
-        UserPoint userPoint = new UserPoint(id, amount, System.currentTimeMillis());
-        table.put(id, userPoint);
+    UserPoint userPoint = new UserPoint(id, amount, System.currentTimeMillis());
+    table.put(id, userPoint);
 
-        return userPoint;
+    return userPoint;
+  }
+
+  private void throttle(long millis) {
+    try {
+      TimeUnit.MILLISECONDS.sleep((long) (Math.random() * millis));
+    } catch (InterruptedException ignored) {
+
     }
-
-    private void throttle(long millis) {
-        try {
-            TimeUnit.MILLISECONDS.sleep((long) (Math.random() * millis));
-        } catch (InterruptedException ignored) {
-
-        }
-    }
+  }
 }
