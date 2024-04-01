@@ -4,11 +4,14 @@ import java.time.LocalDateTime;
 
 import com.tdd.concert.domain.concert.status.ReservationStatus;
 import com.tdd.concert.domain.token.status.ProgressStatus;
+import com.tdd.concert.domain.user.model.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jdk.jfr.Enabled;
 import lombok.Getter;
@@ -36,19 +39,24 @@ public class Token {
   @Column(name="created_at")
   private LocalDateTime createdAt;
 
-  @Column(name="modified_at")
-  private LocalDateTime modifiedAt;
+  @Column(name="expired_at")
+  private LocalDateTime expiredAt;
+
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
   public Token() {
   }
 
   public Token(long id, String token,
                ProgressStatus progressStatus, LocalDateTime createdAt,
-               LocalDateTime modifiedAt) {
+               LocalDateTime expiredAt, User user) {
     this.id = id;
     this.token = token;
     this.progressStatus = progressStatus;
     this.createdAt = createdAt;
-    this.modifiedAt = modifiedAt;
+    this.expiredAt = expiredAt;
+    this.user = user;
   }
 }

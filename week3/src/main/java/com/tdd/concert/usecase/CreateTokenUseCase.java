@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class CreateTokenUseCase {
 
-  private final TokenManagerImpl tokenManagerImpl;
-
-  // 토큰 발행
-  public TokenResponseDto generateToken(TokenRequestDto request) {
-    return tokenManagerImpl.generateToken(request);
-  }
+//  private final TokenManagerImpl tokenManagerImpl;
+//
+//  // 토큰 발행
+//  public TokenResponseDto generateToken(TokenRequestDto request) {
+//    return tokenManagerImpl.generateToken(request);
+//  }
 
 
 

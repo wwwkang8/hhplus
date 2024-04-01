@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class TokenController {
 
-  private final CreateTokenUseCase createTokenUseCase;
-
-
-  @PostMapping("/token")
-  public TokenResponseDto createToken() {
-    // 임시코드
-    TokenRequestDto request = new TokenRequestDto();
-    return createTokenUseCase.generateToken(request);
-  }
+//  private final CreateTokenUseCase createTokenUseCase;
+//
+//
+//  @PostMapping("/token")
+//  public TokenResponseDto createToken() {
+//    // 임시코드
+//    TokenRequestDto request = new TokenRequestDto(1L);
+//    return createTokenUseCase.generateToken(request);
+//  }
 }
