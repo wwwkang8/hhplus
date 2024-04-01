@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -35,22 +36,21 @@ public class Reservation {
   @Column(name="reservation_date")
   private LocalDate reservationDate;
 
-  @Column(name="seat_no")
-  private String seatNo;
-
   @ManyToOne
-  @JoinColumn(name="concert_id")
+  @JoinColumns({
+      @JoinColumn(name = "concert_id", referencedColumnName = "concertId"),
+      @JoinColumn(name = "seat_no", referencedColumnName = "seatNo")
+  })
   private Concert concert;
 
   public Reservation() {
   }
 
-  public Reservation(long id, User user, LocalDate reservationDate, String seatNo,
+  public Reservation(long id, User user, LocalDate reservationDate,
                      Concert concert) {
     this.id = id;
     this.user = user;
     this.reservationDate = reservationDate;
-    this.seatNo = seatNo;
     this.concert = concert;
   }
 }

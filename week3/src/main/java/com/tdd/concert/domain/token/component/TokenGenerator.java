@@ -16,16 +16,16 @@ public class TokenGenerator {
   public TokenResponseDto generateToken(TokenRequestDto request) {
 
     // 토큰 생성시각과 사용자 아이디를 조합하여 UUID 생성
-    String createdTime = LocalDateTime.now().toString();
-    long userId = request.getUserId();
+//    String createdTime = LocalDateTime.now().toString();
+//    long userId = request.getUserId();
+//
+//    String combinedData = userId + "-" + createdTime;
+//
+//    String token = UUID.nameUUIDFromBytes(combinedData.getBytes()).toString();
+//
+//    TokenResponseDto response = new TokenResponseDto(userId, token);
 
-    String combinedData = userId + "-" + createdTime;
-
-    String token = UUID.nameUUIDFromBytes(combinedData.getBytes()).toString();
-
-    TokenResponseDto response = new TokenResponseDto(userId, token);
-
-    return response;
+    return null;
   }
 
 }

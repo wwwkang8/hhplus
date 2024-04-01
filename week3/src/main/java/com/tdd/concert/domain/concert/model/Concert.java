@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.tdd.concert.domain.concert.status.ReservationStatus;
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,13 +23,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Setter
 public class Concert {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="concertId")
-  private long id;
-
-  @Column(name="seat_no")
-  private String seatNo;
+  @EmbeddedId
+  private ConcertPk id;
 
   @Column(name="concert_date")
   private LocalDate concertDate;
@@ -39,10 +35,9 @@ public class Concert {
   public Concert() {
   }
 
-  public Concert(long id, String seatNo, LocalDate concertDate,
+  public Concert(ConcertPk id , LocalDate concertDate,
                  ReservationStatus reservationStatus) {
     this.id = id;
-    this.seatNo = seatNo;
     this.concertDate = concertDate;
     this.reservationStatus = reservationStatus;
   }

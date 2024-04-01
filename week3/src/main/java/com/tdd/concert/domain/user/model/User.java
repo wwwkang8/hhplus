@@ -8,17 +8,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 @Entity
 @Table
 public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="userId")
-  private long id;
+  @Column(name="user_id")
+  private long userId;
 
   @Column(name="token")
   private String token;
@@ -26,5 +28,12 @@ public class User {
   @Column(name="point")
   private int point;
 
+  public User() {
+  }
 
+  public User(long userId, String token, int point) {
+    this.userId = userId;
+    this.token = token;
+    this.point = point;
+  }
 }
