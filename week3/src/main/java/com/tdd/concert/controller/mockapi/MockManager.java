@@ -8,8 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.tdd.concert.dto.request.PaymentRequestDto;
+import com.tdd.concert.dto.request.PointRequestDto;
 import com.tdd.concert.dto.request.ReservationRequestDto;
 import com.tdd.concert.dto.response.ConcertResponseDto;
+import com.tdd.concert.dto.response.PaymentResponseDto;
+import com.tdd.concert.dto.response.PointResponseDto;
 import com.tdd.concert.dto.response.ReservationResponseDto;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +23,7 @@ public class MockManager {
   HashMap<Long, Long> waitList = new HashMap<>();
   HashMap<Long, List<LocalDate>> concertDateList = new HashMap<>();
   List<LocalDate> concertDates = new ArrayList<>();
+  HashMap<Long, Integer> userPoint = new HashMap<>();
   long waitNo = 0;
 
   public void insertWaitList(long userId) {
@@ -77,4 +82,37 @@ public class MockManager {
     return reservationResponseDto;
   }
 
+  public PointResponseDto getUserPoint(long userId) {
+
+    userPoint.put(userId, 15000);
+
+    PointResponseDto pointResponseDto = new PointResponseDto(userId, userPoint.get(userId));
+
+    return pointResponseDto;
+  }
+
+  public PointResponseDto chargePoint(PointRequestDto request) {
+
+    int total = userPoint.get(request.getUserId()) + request.getAmount();
+
+    userPoint.put(request.getUserId(), total);
+
+    PointResponseDto pointResponseDto = new PointResponseDto(request.getUserId(), total);
+
+    return pointResponseDto;
+  }
+
+  public PaymentResponseDto payment(PaymentRequestDto request) {
+
+    PaymentResponseDto paymentResponseDto
+          = new PaymentResponseDto(
+              request.getUserId(),
+              request.getConcertId(),
+              request.getConcertDate(),
+              request.getSeatNo(),
+              PaymentResult.SUCCESS
+      );
+
+    return paymentResponseDto;
+  }
 }

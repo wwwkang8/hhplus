@@ -5,8 +5,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.tdd.concert.domain.concert.model.Concert;
+import com.tdd.concert.dto.request.PaymentRequestDto;
+import com.tdd.concert.dto.request.PointRequestDto;
 import com.tdd.concert.dto.request.ReservationRequestDto;
 import com.tdd.concert.dto.response.ConcertResponseDto;
+import com.tdd.concert.dto.response.PaymentResponseDto;
+import com.tdd.concert.dto.response.PointResponseDto;
 import com.tdd.concert.dto.response.ReservationResponseDto;
 import com.tdd.concert.dto.response.TokenResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
@@ -85,6 +89,30 @@ public class MockController {
     ReservationResponseDto reservationResponseDto = mockManager.reservation(request);
 
     return ResponseEntity.ok().body(reservationResponseDto);
+  }
+
+  @GetMapping("/point/{userId}")
+  public ResponseEntity<PointResponseDto> getUserPoint(@PathVariable long userId) {
+
+    PointResponseDto pointResponseDto = mockManager.getUserPoint(userId);
+
+    return ResponseEntity.ok().body(pointResponseDto);
+  }
+
+  @PostMapping("/point/charge")
+  public ResponseEntity<PointResponseDto> chargePoint(@RequestBody PointRequestDto request) {
+
+    PointResponseDto pointResponseDto = mockManager.chargePoint(request);
+
+    return ResponseEntity.ok().body(pointResponseDto);
+  }
+
+  @PostMapping("/payment")
+  public ResponseEntity<PaymentResponseDto> payment(@RequestBody PaymentRequestDto request) {
+
+    PaymentResponseDto paymentResponseDto = mockManager.payment(request);
+
+    return ResponseEntity.ok().body(paymentResponseDto);
   }
 
 
