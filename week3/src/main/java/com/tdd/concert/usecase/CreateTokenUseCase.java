@@ -8,18 +8,23 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class CreateTokenUseCase {
 
-//  private final TokenManagerImpl tokenManagerImpl;
-//
-//  // 토큰 발행
-//  public TokenResponseDto generateToken(TokenRequestDto request) {
-//    return tokenManagerImpl.generateToken(request);
-//  }
+  private final TokenManagerImpl tokenManagerImpl;
 
+  public CreateTokenUseCase(TokenManagerImpl tokenManagerImpl) {
+    this.tokenManagerImpl = tokenManagerImpl;
+  }
 
+  // 토큰 발행
+  public TokenResponseDto generateToken(TokenRequestDto request) {
+    return tokenManagerImpl.generateToken(request);
+  }
 
+  public TokenResponseDto insertQueue(TokenRequestDto request) {
+
+    return tokenManagerImpl.insertQueue(request);
+  }
 
 
 }

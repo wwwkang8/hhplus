@@ -26,8 +26,8 @@ public class Reservation {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="reservationId")
-  private long id;
+  @Column(name="reservation_id")
+  private long reservationId;
 
   @ManyToOne
   @JoinColumn(name="user_id")
@@ -46,9 +46,9 @@ public class Reservation {
   public Reservation() {
   }
 
-  public Reservation(long id, User user, LocalDate reservationDate,
+  public Reservation(long reservationId, User user, LocalDate reservationDate,
                      Concert concert) {
-    this.id = id;
+    this.reservationId = reservationId;
     this.user = user;
     this.reservationDate = reservationDate;
     this.concert = concert;

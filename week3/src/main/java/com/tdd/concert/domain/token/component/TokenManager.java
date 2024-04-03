@@ -7,8 +7,10 @@ public interface TokenManager {
 
   public TokenResponseDto generateToken(TokenRequestDto tokenRequestDto);
 
-  public TokenResponseDto validateToken(TokenRequestDto tokenRequestDto);
+  public TokenResponseDto insertQueue(TokenRequestDto tokenRequestDto);
 
-  public TokenResponseDto selectToken(TokenRequestDto tokenRequestDto);
+//  public TokenResponseDto validateToken(TokenRequestDto tokenRequestDto);
+//
+//  public TokenResponseDto selectToken(TokenRequestDto tokenRequestDto);
 
 }
