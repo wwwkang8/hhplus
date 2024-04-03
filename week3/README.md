@@ -49,8 +49,8 @@ Response
 | 필드 | 타입 | 필수여부 | 설명 |
 |--------|----------------|-----|------------------|
 | token  |String    |필수  |토큰|
-| userId |String    |필수  |사용자ID|
-| waitNo |String    |필수  |대기순번|
+| userId |Long    |필수  |사용자ID|
+| waitNo |Long    |필수  |대기순번|
 
 ### [1-1. 대기열 순번 조회]
 대기열 순번을 조회하는 폴링 API
@@ -62,15 +62,15 @@ Response
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |--------|----------| ----------|----------|
-| userId |String    |필수        |사용자의 대기순번 조회|
+| userId |Long    |필수        |사용자의 대기순번 조회|
 | token  |String    |필수        |사용자의 토큰|
 
 Response
 | 필드 | 타입 | 필수여부 | 설명 |
 |--------|----------------|-----|------------------|
 | token  |String    |필수  |토큰|
-| userId |String    |필수  |사용자ID|
-| waitNo |String    |필수  |대기순번|
+| userId |Long    |필수  |사용자ID|
+| waitNo |Long    |필수  |대기순번|
 
 
 
@@ -84,14 +84,14 @@ Response
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |--------|----------| ----------|----------|
-|concertId| String |  필수     | 콘서트아이디   |
+|concertId| Long |  필수     | 콘서트아이디   |
 
 현재 시점에서 예약 가능한 콘서트의 모든 날짜를 리턴. 따라서 파라메터를 따로 입력받지 않습니다.
 
 Response
 | 필드 | 타입 | 필수여부 | 설명 |
 |--------|----------------|-----|------------------|
-|concertId|String    |필수  |콘서트 아이디|
+|concertId|Long  |필수  |콘서트 아이디|
 |date   |List<String>    |필수  |예약 가능한 날짜|
 
 ### [3. 특정날짜의 예약가능한 좌석조회]
@@ -102,8 +102,8 @@ Response
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |--------|----------|-----|----------|
-|concertId|  String  | 필수 | 콘서트아이디|
-|date   |  String  | 필수 | 예약날짜|
+|concertId| Long| 필수 | 콘서트아이디|
+|date   | String| 필수 | 예약날짜|
 
 Response
 | 필드 | 타입 | 필수여부 | 설명 |
@@ -119,18 +119,19 @@ Response
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |--------|----------|-----|----------|
-|userId |String| 필수 |사용자아이디|
+|userId |Long| 필수 |사용자아이디|
 |token |String| 필수 |토큰|
-|concertId |String| 필수 |콘서트 아이디|
+|concertId |Long| 필수 |콘서트 아이디|
 |concertDate|String| 필수 |예약날짜|
-|seatNo|String| 필수 |좌석번호|
+|seatNo|Long| 필수 |좌석번호|
 
 Response
 | 필드 | 타입 | 필수여부 | 설명 |
 |--------|----------------|-----|-------------------|
-|concertId|String    |필수  |콘서트 아이디|
-|seatNo|String    |필수  |임시배정된 좌석번호|
-|expiredAt|String    |필수  |임시배정된 좌석만료시각|
+|userId|Long    |필수  |사용자 아이디|
+|concertId|Long    |필수  |콘서트 아이디|
+|seatNo|Long    |필수  |임시배정된 좌석번호|
+|expiredAt|LocalDateTime|필수  |임시배정된 좌석만료시각|
 
 ### [5. 포인트 조회]
 | 메서드 | 요청 URL | 기능 |
@@ -140,11 +141,12 @@ Response
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |--------|----------|-----|----------|
-|userId |String| 필수 |사용자아이디|
+|userId |long| 필수 |사용자아이디|
 
 Response
 | 필드 | 타입 | 필수여부 | 설명 |
 |--------|--------|-----|--------|
+| userId|long |필수  |사용자아이디|
 | point|Integer |필수  |포인트 잔액|
 
 ### [6. 포인트 충전]
@@ -155,7 +157,7 @@ Response
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |--------|----------|-----|----------|
-|userId |String| 필수 |사용자아이디|
+|userId |long| 필수 |사용자아이디|
 |amount |Integer| 필수 |충전할 포인트 금액|
 
 Response
@@ -171,16 +173,20 @@ Response
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |-----------|----------|-----|----------|
-|userId |String| 필수 |사용자아이디|
+|userId |long| 필수 |사용자아이디|
 |token |String| 필수 |토큰|
-|concertId |String| 필수 |콘서트 아이디|
-|date |String| 필수 |예약 날짜|
-|seatNo |String| 필수 |예약 좌석번호|
+|concertId |long| 필수 |콘서트 아이디|
+|concertDate|LocalDate| 필수 |예약 날짜|
+|seatNo |long| 필수 |예약 좌석번호|
 
 Response
 | 필드 | 타입 | 필수여부 | 설명 |
 |--------|--------|-----|--------|
-| result|String |필수  |좌석예약 성공여부|
+|userId|long |필수  |사용자 아이디|
+|concertId |long| 필수 |콘서트 아이디|
+|concertDate|LocalDate| 필수 |예약 날짜|
+|seatNo |long| 필수 |예약 좌석번호|
+|result|String |필수  |좌석예약 성공여부|
 
 ## ERD 구조
 ![image](https://github.com/wwwkang8/hhplus/assets/26863285/ddbd8c20-a2a9-4297-bff6-61a3313c0ca4)
