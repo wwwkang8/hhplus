@@ -183,7 +183,7 @@ Response
 | result|String |필수  |좌석예약 성공여부|
 
 ## ERD 구조
-![image](https://github.com/wwwkang8/hhplus/assets/26863285/aa7742d6-8f7b-43c6-9858-c7d6f5789b33)
+![image](https://github.com/wwwkang8/hhplus/assets/26863285/ddbd8c20-a2a9-4297-bff6-61a3313c0ca4)
 
 
 1) 사용자 테이블뿐만 아니라 대기열 테이블에도 사용자 아이디를 넣은 이유는 대기열 테이블의 경우 대기상태를 계속해서 체크해야 하므로
