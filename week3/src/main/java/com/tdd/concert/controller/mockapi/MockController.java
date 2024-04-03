@@ -1,7 +1,11 @@
 package com.tdd.concert.controller.mockapi;
 
 import java.net.http.HttpRequest;
+import java.time.LocalDate;
+import java.util.List;
 
+import com.tdd.concert.domain.concert.model.Concert;
+import com.tdd.concert.dto.response.ConcertResponseDto;
 import com.tdd.concert.dto.response.TokenResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
@@ -52,6 +56,24 @@ public class MockController {
 
     TokenResponseDto responseDto = new TokenResponseDto(userId, mockToken,waitNo);
     return ResponseEntity.ok().body(responseDto);
+  }
+
+  @GetMapping("/concert/{concertId}")
+  public ResponseEntity<ConcertResponseDto> getAvailableConcert(@PathVariable long concertId) {
+
+      ConcertResponseDto concertResponseDto = mockManager.getAvailableConcert(concertId);
+
+      return ResponseEntity.ok().body(concertResponseDto);
+  }
+
+
+  @GetMapping("/concert/{concertId}/{concertDate}")
+  public ResponseEntity<ConcertResponseDto> getAvailableSeat(@PathVariable long concertId,
+                                                                @PathVariable String concertDate) {
+
+    ConcertResponseDto concertResponseDto = mockManager.getAvailableSeat(concertId, concertDate);
+
+    return ResponseEntity.ok().body(concertResponseDto);
   }
 
 
