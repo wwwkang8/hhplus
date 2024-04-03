@@ -25,7 +25,10 @@ public class TokenGenerator {
 //
 //    TokenResponseDto response = new TokenResponseDto(userId, token);
 
-    return null;
+    //Mock 코드
+    TokenResponseDto tokenResponseDto = new TokenResponseDto(1L, "45432-789874-firjfif", 1L);
+
+    return tokenResponseDto;
   }
 
 }
