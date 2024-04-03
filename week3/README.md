@@ -122,7 +122,7 @@ Request
 |userId |String| 필수 |사용자아이디|
 |token |String| 필수 |토큰|
 |concertId |String| 필수 |콘서트 아이디|
-|date   |String| 필수 |예약날짜|
+|concertDate|String| 필수 |예약날짜|
 |seatNo|String| 필수 |좌석번호|
 
 Response
