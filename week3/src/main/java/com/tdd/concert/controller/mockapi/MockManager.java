@@ -1,13 +1,16 @@
 package com.tdd.concert.controller.mockapi;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.tdd.concert.dto.request.ReservationRequestDto;
 import com.tdd.concert.dto.response.ConcertResponseDto;
+import com.tdd.concert.dto.response.ReservationResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -59,6 +62,19 @@ public class MockManager {
     ConcertResponseDto concertResponseDto = new ConcertResponseDto(concertId, date, seatNoList);
 
     return concertResponseDto;
+  }
+
+  public ReservationResponseDto reservation(ReservationRequestDto request) {
+
+    LocalDateTime expiredAt = LocalDateTime.now().plusMinutes(5);
+
+    ReservationResponseDto reservationResponseDto =
+        new ReservationResponseDto(request.getUserId(),
+                                   request.getConcertId(),
+                                   request.getSeatNo(),
+                                   expiredAt);
+
+    return reservationResponseDto;
   }
 
 }

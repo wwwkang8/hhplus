@@ -5,13 +5,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.tdd.concert.domain.concert.model.Concert;
+import com.tdd.concert.dto.request.ReservationRequestDto;
 import com.tdd.concert.dto.response.ConcertResponseDto;
+import com.tdd.concert.dto.response.ReservationResponseDto;
 import com.tdd.concert.dto.response.TokenResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -74,6 +77,14 @@ public class MockController {
     ConcertResponseDto concertResponseDto = mockManager.getAvailableSeat(concertId, concertDate);
 
     return ResponseEntity.ok().body(concertResponseDto);
+  }
+
+  @PostMapping("/reservation")
+  public ResponseEntity<ReservationResponseDto> reservation(@RequestBody ReservationRequestDto request) {
+
+    ReservationResponseDto reservationResponseDto = mockManager.reservation(request);
+
+    return ResponseEntity.ok().body(reservationResponseDto);
   }
 
 
