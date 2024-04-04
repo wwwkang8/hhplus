@@ -27,8 +27,17 @@
   1-1. 헤더에 토큰이 없는 경우 => 토큰(사용자ID+UUID) 발행 => 토큰, 사용자 테이블 INSERT
   1-2. 헤더에 토큰이 있는 경우 => 토큰에서 사용자ID 추출 => 토큰 테이블에서 순번 조회
 2. @Scheduled  스케쥴러가 대기열에서 현재 몇 명이 ONGOING 상태인지 확인 => 50명 미만? 그러면 wait_no 순서대로 상태변경
+3. 토큰 발급 여부를 이후 API에서 Filter로 검증
 
-### 2. 좌석 임시배정
+### 2. 내 대기 순번 조회 기능
+1. 고객 진입 : POST  /api/queue/{userId}
+  1-1. 방법 : 내 wait_no - 상태가 ONGOING인 사용자의 마지막 wait_no
+  1-2. 장점 : 상태가 ONGOING인 사용자들만 조회해도 되기 때문에 대기열 테이블 전체를 조회하는 것을 피할 수 있다.(성능 향상)
+![image](https://github.com/wwwkang8/hhplus/assets/26863285/1a072d9a-23ec-4933-95b8-78f4fda8f7f5)
+
+
+
+### 3. 좌석 임시배정
 1. 고객이 좌석 예약 : POST  /api/reservation
    1-1. 좌석테이블에 사용자ID, 임시배정만료시각(~5분), 상태값(RESERVED) 세팅
 2. @Scheduled 스케쥴러가 대기열에서 현재 시각을 기준으로 임시배정만료시각이 지난 좌석은 상태값(AVAILABLE)로 갱신
