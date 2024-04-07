@@ -5,8 +5,6 @@ import com.tdd.concert.dto.response.TokenResponseDto;
 
 public interface TokenManager {
 
-  public TokenResponseDto generateToken(TokenRequestDto tokenRequestDto);
-
   public TokenResponseDto insertQueue(TokenRequestDto tokenRequestDto);
 
 //  public TokenResponseDto validateToken(TokenRequestDto tokenRequestDto);

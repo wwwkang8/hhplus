@@ -6,10 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
 @ToString
-@NoArgsConstructor
 @RequiredArgsConstructor
 public class TokenRequestDto {
 
@@ -20,5 +17,25 @@ public class TokenRequestDto {
 
   public TokenRequestDto(long userId) {
     this.userId = userId;
+  }
+
+  public TokenRequestDto(String token) {
+    this.token = token;
+  }
+
+  public long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(long userId) {
+    this.userId = userId;
+  }
+
+  public String getToken() {
+    return token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
   }
 }

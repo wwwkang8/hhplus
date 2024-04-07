@@ -1,22 +1,22 @@
-package com.tdd.concert.domain.user.component;
+package com.tdd.concert.domain.user.infra;
 
 import com.tdd.concert.domain.user.model.User;
 import com.tdd.concert.domain.user.repository.UserCoreRepository;
 import com.tdd.concert.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 @RequiredArgsConstructor
 @Slf4j
-public class UserStore {
+public class UserCoreRepositoryImpl implements UserCoreRepository {
 
-  private final UserCoreRepository userCoreRepository;
   private final UserRepository userRepository;
 
+  @Override
   public User createUser() {
-    return userCoreRepository.createUser();
+    User user = new User();
+    return userRepository.save(user);
   }
-
 }

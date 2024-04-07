@@ -4,6 +4,7 @@ import com.tdd.concert.domain.token.component.TokenManagerImpl;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.dto.request.TokenRequestDto;
 import com.tdd.concert.dto.response.TokenResponseDto;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -16,14 +17,18 @@ public class CreateTokenUseCase {
     this.tokenManagerImpl = tokenManagerImpl;
   }
 
-  // 토큰 발행
-  public TokenResponseDto generateToken(TokenRequestDto request) {
-    return tokenManagerImpl.generateToken(request);
-  }
+  public TokenResponseDto insertQueue(HttpServletRequest request) {
 
-  public TokenResponseDto insertQueue(TokenRequestDto request) {
+    String token = request.getHeader("Authorization");
+    TokenRequestDto tokenRequestDto = new TokenRequestDto(token);
 
-    return tokenManagerImpl.insertQueue(request);
+    if(tokenRequestDto.getToken() == null) {
+      return tokenManagerImpl.insertQueue(tokenRequestDto);
+    }else {
+      //return tokenManagerImpl.insertQueue(request);
+    }
+
+    return null;
   }
 
 
