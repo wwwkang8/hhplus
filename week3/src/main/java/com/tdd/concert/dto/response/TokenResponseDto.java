@@ -1,7 +1,10 @@
 package com.tdd.concert.dto.response;
 
+import java.time.LocalDateTime;
+
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.status.ProgressStatus;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 @ToString
 @Getter
+@Builder
 public class TokenResponseDto {
 
   private long userId;
@@ -20,6 +24,8 @@ public class TokenResponseDto {
   private long waitNo;
 
   private ProgressStatus status;
+
+  private LocalDateTime expiredAt;
 
   public TokenResponseDto() {
   }
@@ -36,6 +42,15 @@ public class TokenResponseDto {
     this.token = token;
     this.waitNo = waitNo;
     this.status = status;
+  }
+
+  public TokenResponseDto(long userId, String token, long waitNo, ProgressStatus status,
+                          LocalDateTime expiredAt) {
+    this.userId = userId;
+    this.token = token;
+    this.waitNo = waitNo;
+    this.status = status;
+    this.expiredAt = expiredAt;
   }
 
   public long getUserId() {
@@ -75,7 +90,8 @@ public class TokenResponseDto {
         token.getUser().getUserId(),
         token.getToken(),
         token.getWaitNo(),
-        token.getProgressStatus()
+        token.getProgressStatus(),
+        token.getExpiredAt()
     );
   }
 

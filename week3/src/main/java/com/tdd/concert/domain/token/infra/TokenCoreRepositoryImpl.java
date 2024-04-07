@@ -16,7 +16,7 @@ public class TokenCoreRepositoryImpl implements TokenCoreRepository {
 
   @Override
   public Token findByToken(String token) {
-    return null;
+    return tokenRepository.findTokenByToken(token);
   }
 
   @Override

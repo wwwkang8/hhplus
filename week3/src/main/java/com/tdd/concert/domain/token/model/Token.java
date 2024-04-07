@@ -44,6 +44,9 @@ public class Token {
   @Column(name="created_at")
   private LocalDateTime createdAt;
 
+  @Column(name="updated_at")
+  private LocalDateTime updatedAt;
+
   @Column(name="expired_at")
   private LocalDateTime expiredAt;
 
@@ -52,6 +55,19 @@ public class Token {
   private User user;
 
   public Token() {
+  }
+
+  public Token(long id, String token, ProgressStatus progressStatus, long waitNo,
+               LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime expiredAt,
+               User user) {
+    this.id = id;
+    this.token = token;
+    this.progressStatus = progressStatus;
+    this.waitNo = waitNo;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.expiredAt = expiredAt;
+    this.user = user;
   }
 
   public Token(long id, String token,
@@ -75,33 +91,5 @@ public class Token {
 
   public TokenResponseDto to(long userId, String token, long waitNo) {
     return new TokenResponseDto(userId, token, waitNo);
-  }
-
-  public long getId() {
-    return id;
-  }
-
-  public String getToken() {
-    return token;
-  }
-
-  public ProgressStatus getProgressStatus() {
-    return progressStatus;
-  }
-
-  public long getWaitNo() {
-    return waitNo;
-  }
-
-  public LocalDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public LocalDateTime getExpiredAt() {
-    return expiredAt;
-  }
-
-  public User getUser() {
-    return user;
   }
 }

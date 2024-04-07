@@ -14,4 +14,6 @@ public interface TokenRepository extends JpaRepository<Token, Long> {
   @Query("SELECT COALESCE(COUNT(t.progressStatus), 0) FROM Token t WHERE t.progressStatus = :progressStatus")
   public Long getCurrentReservationOngoingCount(@Param("progressStatus") ProgressStatus progressStatus);
 
+  public Token findTokenByToken(String token);
+
 }

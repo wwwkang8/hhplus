@@ -1,5 +1,7 @@
 package com.tdd.concert.domain.token.component;
 
+import java.time.LocalDateTime;
+
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import com.tdd.concert.domain.user.component.UserManagerImpl;
@@ -24,6 +26,8 @@ public class TokenManagerImpl implements TokenManager{
   @Transactional
   public TokenResponseDto insertQueue(TokenRequestDto request) {
 
+    Token tokenEntity = null;
+
     // 0. 사용자 생성
     User user = userManagerImpl.createUser();
 
@@ -37,19 +41,39 @@ public class TokenManagerImpl implements TokenManager{
     // 3. 대기 상태조회
     ProgressStatus status = tokenGenerator.getCurrentQueueStatus();
 
-    // 4. Token 엔티티 생성
-    Token tokenEntity = Token.builder()
-                             .user(user)
-                             .token(token)
-                             .waitNo(waitNo)
-                             .progressStatus(status)
-                             .build();
+    // 4. Token 엔티티 생성(현재 상태에 따라서 토큰 만료시각을 다르게 설정)
+    if(status == ProgressStatus.ONGOING) { // 토큰 만료시간은 10분 후
+      tokenEntity = Token.builder()
+          .user(user)
+          .token(token)
+          .waitNo(waitNo)
+          .progressStatus(status)
+          .createdAt(LocalDateTime.now())
+          .expiredAt(LocalDateTime.now().plusMinutes(10)) //토큰이 10분간 유효함.
+          .build();
+    } else if(status == ProgressStatus.WAIT) { // 대기상태이기 때문에 토큰의 만료시간을 설정하지 않음.
+      tokenEntity = Token.builder()
+          .user(user)
+          .token(token)
+          .waitNo(waitNo)
+          .progressStatus(status)
+          .createdAt(LocalDateTime.now()) // 대기상태이기 때문에 토큰의 만료시간을 설정하지 않음.
+          .build();
+    }
 
 
     // 4. 발급한 토큰 테이블에 저장
     Token savedTokenEntity = tokenGenerator.insertTokenTable(tokenEntity);
 
     return TokenResponseDto.from(savedTokenEntity);
+  }
+
+  @Override
+  public TokenResponseDto validateToken(TokenRequestDto request) {
+
+    TokenResponseDto tokenResponseDto = tokenValidator.validateToken(request.getToken());
+
+    return tokenResponseDto;
   }
 
 }
