@@ -3,6 +3,7 @@ package com.tdd.concert.domain.token.infra;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
 import com.tdd.concert.domain.token.repository.TokenRepository;
+import com.tdd.concert.domain.token.status.ProgressStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -20,6 +21,11 @@ public class TokenCoreRepositoryImpl implements TokenCoreRepository {
   }
 
   @Override
+  public Token findByWaitNo(long waitNo) {
+    return tokenRepository.findTokenByWaitNo(waitNo);
+  }
+
+  @Override
   public long selectNextWaitNo() {
     return tokenRepository.selectNextWaitNo();
   }
@@ -27,5 +33,15 @@ public class TokenCoreRepositoryImpl implements TokenCoreRepository {
   @Override
   public Token save(Token token) {
     return tokenRepository.save(token);
+  }
+
+  @Override
+  public Long getNextPriorityWaitNo(ProgressStatus status) {
+    return tokenRepository.getNextPriorityWaitNo(status);
+  }
+
+  @Override
+  public Long getProgressStatusCount(ProgressStatus status) {
+    return tokenRepository.getProgressStatusCount(status);
   }
 }

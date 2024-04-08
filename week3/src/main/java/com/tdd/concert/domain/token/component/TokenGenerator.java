@@ -45,10 +45,15 @@ public class TokenGenerator {
     return tokenCoreRepository.selectNextWaitNo();
   }
 
+  /** 현재 예약 진행중인 고객이 몇명인지 조회 */
+  public long getCurrentReservationOngoingCount(ProgressStatus status) {
+    return tokenRepository.getProgressStatusCount(status);
+  }
+
   /** 현재 대기열의 대기상태 확인 */
   public ProgressStatus getCurrentQueueStatus() {
     // 1. 현재 예약 진행중인 고객들이 몇 명인지 확인
-    long count = tokenRepository.getCurrentReservationOngoingCount(ProgressStatus.ONGOING);
+    long count = getCurrentReservationOngoingCount(ProgressStatus.ONGOING);
 
     log.info("[getCurrentQueueStatus] 예약 진행중인 고객수 : " + count);
 
