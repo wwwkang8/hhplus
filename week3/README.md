@@ -57,6 +57,8 @@
   Controller --> Usecase --> Repository 방향으로 단방향 호출 방식
 
 ## API 명세
+![image](https://github.com/wwwkang8/hhplus/assets/26863285/7f800487-8042-46f5-acad-4f0794d84e09)
+
 
 ### [1. 대기열 진입]
 사용자가 대기열에 진입합니다. 진입시 토큰, 사용자ID, 대기번호를 발급 받습니다.
