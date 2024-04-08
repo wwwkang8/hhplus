@@ -36,4 +36,16 @@ public class User {
     this.token = token;
     this.point = point;
   }
+
+  public long getUserId() {
+    return userId;
+  }
+
+  public String getToken() {
+    return token;
+  }
+
+  public int getPoint() {
+    return point;
+  }
 }

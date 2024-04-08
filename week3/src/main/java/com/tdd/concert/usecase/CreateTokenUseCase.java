@@ -1,29 +1,33 @@
 package com.tdd.concert.usecase;
 
+import com.tdd.concert.domain.token.component.TokenManager;
 import com.tdd.concert.domain.token.component.TokenManagerImpl;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.dto.request.TokenRequestDto;
 import com.tdd.concert.dto.response.TokenResponseDto;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
+@Slf4j
 public class CreateTokenUseCase {
 
-  private final TokenManagerImpl tokenManagerImpl;
+  private final TokenManager tokenManager;
 
-  public CreateTokenUseCase(TokenManagerImpl tokenManagerImpl) {
-    this.tokenManagerImpl = tokenManagerImpl;
-  }
 
-  // 토큰 발행
-  public TokenResponseDto generateToken(TokenRequestDto request) {
-    return tokenManagerImpl.generateToken(request);
-  }
+  public TokenResponseDto insertQueue(HttpServletRequest request) {
 
-  public TokenResponseDto insertQueue(TokenRequestDto request) {
+    String token = request.getHeader("Authorization");
+    TokenRequestDto tokenRequestDto = new TokenRequestDto(token);
 
-    return tokenManagerImpl.insertQueue(request);
+    if(tokenRequestDto.getToken() == null) {
+      return tokenManager.insertQueue(tokenRequestDto);
+    }else {
+      return tokenManager.validateToken(tokenRequestDto);
+    }
   }
 
 
