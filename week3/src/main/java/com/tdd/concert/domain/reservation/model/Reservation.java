@@ -3,6 +3,7 @@ package com.tdd.concert.domain.reservation.model;
 import java.time.LocalDate;
 
 import com.tdd.concert.domain.concert.model.Concert;
+import com.tdd.concert.domain.concert.model.Seat;
 import com.tdd.concert.domain.user.model.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,20 +39,11 @@ public class Reservation {
   private LocalDate reservationDate;
 
   @ManyToOne
-  @JoinColumns({
-      @JoinColumn(name = "concert_id", referencedColumnName = "concertId"),
-      @JoinColumn(name = "seat_no", referencedColumnName = "seatNo")
-  })
+  @JoinColumn(name = "concert_id")
   private Concert concert;
 
-  public Reservation() {
-  }
+  @OneToOne
+  @JoinColumn(name="seat_id")
+  private Seat seat;
 
-  public Reservation(long reservationId, User user, LocalDate reservationDate,
-                     Concert concert) {
-    this.reservationId = reservationId;
-    this.user = user;
-    this.reservationDate = reservationDate;
-    this.concert = concert;
-  }
 }

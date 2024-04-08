@@ -23,22 +23,20 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Setter
 public class Concert {
 
-  @EmbeddedId
-  private ConcertPk id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long concertId;
 
   @Column(name="concert_date")
   private LocalDate concertDate;
 
-  @Column(name="reservation_status")
-  private ReservationStatus reservationStatus;
+  @Column(name="concert_name")
+  private String concertName;
 
-  public Concert() {
-  }
+  @Column(name = "price")
+  private long price;
 
-  public Concert(ConcertPk id , LocalDate concertDate,
-                 ReservationStatus reservationStatus) {
-    this.id = id;
-    this.concertDate = concertDate;
-    this.reservationStatus = reservationStatus;
-  }
+
+
+
 }
