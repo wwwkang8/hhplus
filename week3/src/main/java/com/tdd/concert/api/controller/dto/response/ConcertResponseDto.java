@@ -74,4 +74,5 @@ public class ConcertResponseDto {
   public void setSeatNoList(List<Long> seatNoList) {
     this.seatNoList = seatNoList;
   }
+
 }

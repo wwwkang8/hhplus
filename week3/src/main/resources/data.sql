@@ -1,0 +1,16 @@
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (1, '2024-05-01', 'Maroon 5', 10000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (1, '2024-05-02', 'Maroon 5', 10000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (1, '2024-05-03', 'Maroon 5', 10000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (1, '2024-05-04', 'Maroon 5', 10000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (1, '2024-05-05', 'Maroon 5', 10000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (1, '2024-05-06', 'Maroon 5', 10000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (1, '2024-05-07', 'Maroon 5', 10000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (2, '2024-05-02', 'Beyoncé', 12000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (3, '2024-05-03', 'Ed Sheeran', 11000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (4, '2024-05-04', 'Taylor Swift', 9000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (5, '2024-05-05', 'Ariana Grande', 9500);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (6, '2024-05-06', 'Justin Bieber', 8000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (7, '2024-05-07', 'Drake', 8500);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (8, '2024-05-08', 'Rihanna', 13000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (9, '2024-05-09', 'Coldplay', 11000);
+INSERT INTO concert (concert_id, concert_date, concert_name, price) VALUES (10, '2024-05-10', 'Katy Perry', 10500);
