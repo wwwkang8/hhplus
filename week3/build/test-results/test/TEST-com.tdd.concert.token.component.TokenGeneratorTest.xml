@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.token.component.TokenGeneratorTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-04-10T03:29:18" hostname="Jeongui-MacBookPro.local" time="0.161">
+  <properties/>
+  <testcase name="토큰 테이블에 INSERT 하는 테스트" classname="com.tdd.concert.token.component.TokenGeneratorTest" time="0.119"/>
+  <testcase name="사용자ID의 토큰을 발급한다" classname="com.tdd.concert.token.component.TokenGeneratorTest" time="0.012"/>
+  <testcase name="서로 다른 사용자ID로 토큰을 발급한다." classname="com.tdd.concert.token.component.TokenGeneratorTest" time="0.003"/>
+  <testcase name="대기순번 채번하는 테스트" classname="com.tdd.concert.token.component.TokenGeneratorTest" time="0.006"/>
+  <testcase name="현재 예약진행중인 고객 수 확인" classname="com.tdd.concert.token.component.TokenGeneratorTest" time="0.003"/>
+  <testcase name="예약진행중인 고객이 50명미만일 때는 추가사용자의 상태값을 예약가능상태로 설정" classname="com.tdd.concert.token.component.TokenGeneratorTest" time="0.004"/>
+  <testcase name="예약진행중인 고객이 50명초과일 때 추가 사용자의 예약상태값을 대기로 설정" classname="com.tdd.concert.token.component.TokenGeneratorTest" time="0.005"/>
+  <system-out><![CDATA[12:29:19.023 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [토큰 생성] UUID 토큰 : c4ca4238-a0b9-3382-8dcc-509a6f75849b, 사용자ID : 1
+12:29:19.030 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [토큰 생성] UUID 토큰 : c81e728d-9d4c-3f63-af06-7f89cc14862c, 사용자ID : 2
+waitNo : 1
+waitNo : 2
+waitNo : 3
+waitNo : 4
+waitNo : 5
+waitNo : 6
+waitNo : 7
+waitNo : 8
+waitNo : 9
+waitNo : 10
+ expectedWaitNo : 11
+ actualNextWaitNo : 11
+12:29:19.048 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [getCurrentQueueStatus] 예약 진행중인 고객수 : 45
+12:29:19.055 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [getCurrentQueueStatus] 예약 진행중인 고객수 : 50
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

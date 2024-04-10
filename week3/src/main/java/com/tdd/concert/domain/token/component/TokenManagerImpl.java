@@ -35,8 +35,8 @@ public class TokenManagerImpl implements TokenManager{
     String token = tokenGenerator.generateToken(user.getUserId());
 
     // 2. 대기 순번조회
-    long waitNo = tokenGenerator.selectLastWaitNo();
-    if(waitNo == 0) waitNo++;
+    long waitNo = tokenGenerator.selectNextWaitNo();
+    //if(waitNo == 0) waitNo++;
 
     // 3. 대기 상태조회
     ProgressStatus status = tokenGenerator.getCurrentQueueStatus();
