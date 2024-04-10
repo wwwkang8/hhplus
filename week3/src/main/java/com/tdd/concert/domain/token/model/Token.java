@@ -58,6 +58,8 @@ public class Token {
   public Token() {
   }
 
+
+
   public Token(long id, String token, ProgressStatus progressStatus, long waitNo,
                LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime expiredAt,
                User user) {
