@@ -1,7 +1,6 @@
-package com.tdd.concert.controller;
+package com.tdd.concert.api.controller;
 
-import com.tdd.concert.dto.request.TokenRequestDto;
-import com.tdd.concert.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
 import com.tdd.concert.usecase.CreateTokenUseCase;
 import com.tdd.concert.usecase.ValidateTokenUseCase;
 import jakarta.servlet.http.HttpServletRequest;

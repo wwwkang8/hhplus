@@ -1,6 +1,6 @@
-package com.tdd.concert.controller;
+package com.tdd.concert.api.controller;
 
-import com.tdd.concert.dto.response.PaymentResponseDto;
+import com.tdd.concert.api.controller.dto.response.PaymentResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

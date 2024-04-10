@@ -2,10 +2,9 @@ package com.tdd.concert.domain.token.model;
 
 import java.time.LocalDateTime;
 
-import com.tdd.concert.domain.concert.status.ReservationStatus;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import com.tdd.concert.domain.user.model.User;
-import com.tdd.concert.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +13,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jdk.jfr.Enabled;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,17 +1,10 @@
 package com.tdd.concert.domain.token.component;
 
-import java.nio.charset.StandardCharsets;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
-import com.tdd.concert.domain.token.repository.TokenRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
-import com.tdd.concert.dto.request.TokenRequestDto;
-import com.tdd.concert.dto.response.TokenResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

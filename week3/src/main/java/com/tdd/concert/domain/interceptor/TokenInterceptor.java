@@ -1,8 +1,8 @@
 package com.tdd.concert.domain.interceptor;
 
 import com.tdd.concert.domain.token.component.TokenManagerImpl;
-import com.tdd.concert.dto.request.TokenRequestDto;
-import com.tdd.concert.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.request.TokenRequestDto;
+import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

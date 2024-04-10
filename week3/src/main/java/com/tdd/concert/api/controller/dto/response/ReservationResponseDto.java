@@ -1,4 +1,4 @@
-package com.tdd.concert.dto.response;
+package com.tdd.concert.api.controller.dto.response;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.tdd.concert.dto.response;
+package com.tdd.concert.api.controller.dto.response;
 
 import java.time.LocalDateTime;
 
@@ -6,11 +6,7 @@ import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
-import org.springframework.stereotype.Component;
 
 @ToString
 @Getter

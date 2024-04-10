@@ -1,9 +1,8 @@
 package com.tdd.concert.usecase;
 
 import com.tdd.concert.domain.token.component.TokenManager;
-import com.tdd.concert.domain.token.component.TokenManagerImpl;
-import com.tdd.concert.dto.request.TokenRequestDto;
-import com.tdd.concert.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.request.TokenRequestDto;
+import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

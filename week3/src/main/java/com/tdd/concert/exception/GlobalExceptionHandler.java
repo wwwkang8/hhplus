@@ -1,6 +1,6 @@
 package com.tdd.concert.exception;
 
-import com.tdd.concert.dto.response.ExceptionResponseDto;
+import com.tdd.concert.api.controller.dto.response.ExceptionResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

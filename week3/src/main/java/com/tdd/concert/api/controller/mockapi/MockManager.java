@@ -1,4 +1,4 @@
-package com.tdd.concert.controller.mockapi;
+package com.tdd.concert.api.controller.mockapi;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -6,15 +6,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import com.tdd.concert.dto.request.PaymentRequestDto;
-import com.tdd.concert.dto.request.PointRequestDto;
-import com.tdd.concert.dto.request.ReservationRequestDto;
-import com.tdd.concert.dto.response.ConcertResponseDto;
-import com.tdd.concert.dto.response.PaymentResponseDto;
-import com.tdd.concert.dto.response.PointResponseDto;
-import com.tdd.concert.dto.response.ReservationResponseDto;
+import com.tdd.concert.api.controller.dto.request.PaymentRequestDto;
+import com.tdd.concert.api.controller.dto.request.PointRequestDto;
+import com.tdd.concert.api.controller.dto.request.ReservationRequestDto;
+import com.tdd.concert.api.controller.dto.response.ConcertResponseDto;
+import com.tdd.concert.api.controller.dto.response.PaymentResponseDto;
+import com.tdd.concert.api.controller.dto.response.PointResponseDto;
+import com.tdd.concert.api.controller.dto.response.ReservationResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component
