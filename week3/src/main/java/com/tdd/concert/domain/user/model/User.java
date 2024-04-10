@@ -31,6 +31,11 @@ public class User {
   public User() {
   }
 
+  public User(long userId, int point) {
+    this.userId = userId;
+    this.point = point;
+  }
+
   public User(long userId, String token, int point) {
     this.userId = userId;
     this.token = token;

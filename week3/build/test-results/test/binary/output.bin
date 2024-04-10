@@ -1,16 +1,0 @@
-�12:29:19.023 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [토큰 생성] UUID 토큰 : c4ca4238-a0b9-3382-8dcc-509a6f75849b, 사용자ID : 1
-�12:29:19.030 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [토큰 생성] UUID 토큰 : c81e728d-9d4c-3f63-af06-7f89cc14862c, 사용자ID : 2
-waitNo : 1
-waitNo : 2
-waitNo : 3
-waitNo : 4
-waitNo : 5
-waitNo : 6
-waitNo : 7
-waitNo : 8
-waitNo : 9
-waitNo : 10
- expectedWaitNo : 11
- actualNextWaitNo : 11
-�12:29:19.048 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [getCurrentQueueStatus] 예약 진행중인 고객수 : 45
-�12:29:19.055 [Test worker] INFO com.tdd.concert.domain.token.component.TokenGenerator -- [getCurrentQueueStatus] 예약 진행중인 고객수 : 50
