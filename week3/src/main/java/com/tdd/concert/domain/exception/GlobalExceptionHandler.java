@@ -1,4 +1,4 @@
-package com.tdd.concert.exception;
+package com.tdd.concert.domain.exception;
 
 import com.tdd.concert.api.controller.dto.response.ExceptionResponseDto;
 import org.springframework.http.HttpStatus;
