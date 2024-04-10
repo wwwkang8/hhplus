@@ -1,8 +1,8 @@
 package com.tdd.concert.api.controller;
 
 import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
-import com.tdd.concert.usecase.CreateTokenUseCase;
-import com.tdd.concert.usecase.ValidateTokenUseCase;
+import com.tdd.concert.api.usecase.CreateTokenUseCase;
+import com.tdd.concert.api.usecase.ValidateTokenUseCase;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
