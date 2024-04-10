@@ -1,4 +1,4 @@
-package com.tdd.concert.usecase;
+package com.tdd.concert.api.usecase;
 
 import com.tdd.concert.domain.token.component.TokenManager;
 import com.tdd.concert.api.controller.dto.request.TokenRequestDto;
