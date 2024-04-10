@@ -25,9 +25,6 @@ public class Concert {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long concertSeq;
-
-  @Column(name="concert_id")
   private long concertId;
 
   @Column(name="concert_date")

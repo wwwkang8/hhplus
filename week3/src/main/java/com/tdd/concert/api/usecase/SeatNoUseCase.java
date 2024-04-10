@@ -12,19 +12,17 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class AvailableConcertDateUseCase {
+public class SeatNoUseCase {
 
   private final ConcertManager concertManager;
 
+  public ConcertResponseDto seatNoList(long concertId, LocalDate concertDate) {
 
-  public ConcertResponseDto availableConcertDate(long concertId) {
+    List<Long> seatNoList = concertManager.seatNoList(concertId, concertDate);
 
-    List<LocalDate> concertDateList = concertManager.availableConcertDate(concertId);
+    ConcertResponseDto responseDto = new ConcertResponseDto(concertId, concertDate, seatNoList);
 
-    ConcertResponseDto concertResponseDto = new ConcertResponseDto(concertId, concertDateList);
-
-    return concertResponseDto;
+    return responseDto;
   }
-
 
 }

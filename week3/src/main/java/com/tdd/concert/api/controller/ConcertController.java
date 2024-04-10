@@ -1,7 +1,10 @@
 package com.tdd.concert.api.controller;
 
+import java.time.LocalDate;
+
 import com.tdd.concert.api.controller.dto.response.ConcertResponseDto;
-import com.tdd.concert.api.usecase.AvailableConcertDateUseCase;
+import com.tdd.concert.api.usecase.ConcertDateUseCase;
+import com.tdd.concert.api.usecase.SeatNoUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class ConcertController {
 
-    private final AvailableConcertDateUseCase availableConcertDateUseCase;
+    private final ConcertDateUseCase concertDateUseCase;
+    private final SeatNoUseCase seatNoUseCase;
 
 
     @GetMapping("/{concertId}")
@@ -24,15 +28,15 @@ public class ConcertController {
 
         log.info("[/api/concert/{concertId}] 콘서트날짜 조회 진입");
 
-        return ResponseEntity.ok().body(availableConcertDateUseCase.availableConcertDate(concertId));
+        return ResponseEntity.ok().body(concertDateUseCase.availableConcertDate(concertId));
     }
 
 
     @GetMapping("/{concertId}/calendar/{concertDate}")
-    public ResponseEntity<ConcertResponseDto> getAvailableConcertSeat(@PathVariable long concertId,
-                                                                      @PathVariable String concertDate) {
+    public ResponseEntity<ConcertResponseDto> getSeatNoList(@PathVariable long concertId,
+                                                                      @PathVariable LocalDate concertDate) {
 
-        return null;
+        return ResponseEntity.ok().body(seatNoUseCase.seatNoList(concertId, concertDate));
     }
 
 

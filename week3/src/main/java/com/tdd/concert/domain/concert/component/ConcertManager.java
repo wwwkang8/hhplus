@@ -21,4 +21,7 @@ public class ConcertManager {
   }
 
 
+  public List<Long> seatNoList(long concertId, LocalDate concertDate) {
+    return concertReader.seatNoList(concertId, concertDate);
+  }
 }
