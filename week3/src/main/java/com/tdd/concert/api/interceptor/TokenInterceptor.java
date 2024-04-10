@@ -1,4 +1,4 @@
-package com.tdd.concert.domain.interceptor;
+package com.tdd.concert.api.interceptor;
 
 import com.tdd.concert.domain.token.component.TokenManagerImpl;
 import com.tdd.concert.api.controller.dto.request.TokenRequestDto;

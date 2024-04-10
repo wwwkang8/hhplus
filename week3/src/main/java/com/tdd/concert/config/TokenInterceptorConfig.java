@@ -1,8 +1,7 @@
 package com.tdd.concert.config;
 
-import com.tdd.concert.domain.interceptor.TokenInterceptor;
+import com.tdd.concert.api.interceptor.TokenInterceptor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
