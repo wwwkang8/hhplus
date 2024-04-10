@@ -1,10 +1,8 @@
-package com.tdd.concert.dto.response;
+package com.tdd.concert.api.controller.dto.request;
 
 import java.time.LocalDate;
 
-import com.tdd.concert.controller.mockapi.PaymentResult;
-
-public class PaymentResponseDto {
+public class ReservationRequestDto {
 
   private long userId;
 
@@ -16,29 +14,16 @@ public class PaymentResponseDto {
 
   private long seatNo;
 
-  private PaymentResult paymentResult;
-
-  public PaymentResponseDto() {
+  public ReservationRequestDto() {
   }
 
-  public PaymentResponseDto(long userId, String token, long concertId,
-                            LocalDate concertDate, long seatNo,
-                            PaymentResult paymentResult) {
+  public ReservationRequestDto(long userId, String token, long concertId,
+                               LocalDate concertDate, long seatNo) {
     this.userId = userId;
     this.token = token;
     this.concertId = concertId;
     this.concertDate = concertDate;
     this.seatNo = seatNo;
-    this.paymentResult = paymentResult;
-  }
-
-  public PaymentResponseDto(long userId, long concertId, LocalDate concertDate, long seatNo,
-                            PaymentResult paymentResult) {
-    this.userId = userId;
-    this.concertId = concertId;
-    this.concertDate = concertDate;
-    this.seatNo = seatNo;
-    this.paymentResult = paymentResult;
   }
 
   public long getUserId() {
@@ -79,13 +64,5 @@ public class PaymentResponseDto {
 
   public void setSeatNo(long seatNo) {
     this.seatNo = seatNo;
-  }
-
-  public PaymentResult getPaymentResult() {
-    return paymentResult;
-  }
-
-  public void setPaymentResult(PaymentResult paymentResult) {
-    this.paymentResult = paymentResult;
   }
 }

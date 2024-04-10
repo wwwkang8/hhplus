@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
-import com.tdd.concert.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

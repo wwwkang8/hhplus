@@ -1,13 +1,11 @@
-package com.tdd.concert.dto.response;
+package com.tdd.concert.api.controller.dto.response;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.stereotype.Repository;
 
 @Getter
 @Setter

@@ -2,7 +2,6 @@ package com.tdd.concert.domain.token.repository;
 
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.status.ProgressStatus;
-import com.tdd.concert.dto.request.TokenRequestDto;
 
 public interface TokenCoreRepository {
 

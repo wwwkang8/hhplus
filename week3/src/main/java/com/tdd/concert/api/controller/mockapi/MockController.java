@@ -1,20 +1,4 @@
-package com.tdd.concert.controller.mockapi;
-
-import com.tdd.concert.dto.request.PaymentRequestDto;
-import com.tdd.concert.dto.request.PointRequestDto;
-import com.tdd.concert.dto.request.ReservationRequestDto;
-import com.tdd.concert.dto.response.ConcertResponseDto;
-import com.tdd.concert.dto.response.PaymentResponseDto;
-import com.tdd.concert.dto.response.PointResponseDto;
-import com.tdd.concert.dto.response.ReservationResponseDto;
-import com.tdd.concert.dto.response.TokenResponseDto;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+package com.tdd.concert.api.controller.mockapi;
 
 //@RestController
 //@RequestMapping("/api")

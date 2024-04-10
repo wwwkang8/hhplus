@@ -1,9 +1,8 @@
-package com.tdd.concert.controller;
+package com.tdd.concert.api.controller;
 
-import com.tdd.concert.dto.response.ConcertResponseDto;
+import com.tdd.concert.api.controller.dto.response.ConcertResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

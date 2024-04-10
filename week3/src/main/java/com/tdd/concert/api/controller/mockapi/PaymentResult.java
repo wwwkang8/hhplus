@@ -1,4 +1,4 @@
-package com.tdd.concert.controller.mockapi;
+package com.tdd.concert.api.controller.mockapi;
 
 public enum PaymentResult {
 
