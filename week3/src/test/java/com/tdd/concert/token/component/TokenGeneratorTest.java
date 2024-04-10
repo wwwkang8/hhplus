@@ -5,11 +5,9 @@ import java.util.UUID;
 
 import com.tdd.concert.domain.token.component.TokenGenerator;
 import com.tdd.concert.domain.token.model.Token;
-import com.tdd.concert.domain.token.repository.TokenRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import com.tdd.concert.domain.user.model.User;
 import com.tdd.concert.token.mock.MockTokenCoreRepositoryImpl;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

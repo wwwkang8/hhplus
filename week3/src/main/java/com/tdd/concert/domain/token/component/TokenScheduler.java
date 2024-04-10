@@ -2,10 +2,8 @@ package com.tdd.concert.domain.token.component;
 
 import java.time.LocalDateTime;
 
-import com.tdd.concert.domain.token.infra.TokenCoreRepositoryImpl;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
-import com.tdd.concert.domain.token.repository.TokenRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
