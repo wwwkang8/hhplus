@@ -2,10 +2,8 @@ package com.tdd.concert.domain.token.component;
 
 import java.time.LocalDateTime;
 
-import com.tdd.concert.domain.token.infra.TokenCoreRepositoryImpl;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
-import com.tdd.concert.domain.token.repository.TokenRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,10 +35,11 @@ public class TokenScheduler {
 
                 if(token != null) {
                     // 토큰의 속성을 변경하고 저장하는 부분
-                    token.setExpiredAt(LocalDateTime.now().plusMinutes(10));
-                    token.setProgressStatus(ProgressStatus.ONGOING);
-                    // 업데이트된 토큰은 영속성 컨텍스트에 의해 관리됨
-                    tokenCoreRepository.save(token);
+                    token.setExpiredAtAndStatus(LocalDateTime.now().plusMinutes(10)
+                                                , ProgressStatus.ONGOING);
+
+                    // @Transactional 어노테이션 때문에 save 메서드 불필요
+                    //tokenCoreRepository.save(token);
                 }
 
             }

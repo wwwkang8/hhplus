@@ -4,12 +4,11 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import com.tdd.concert.domain.token.component.TokenGenerator;
+import com.tdd.concert.domain.token.component.TokenReader;
 import com.tdd.concert.domain.token.model.Token;
-import com.tdd.concert.domain.token.repository.TokenRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import com.tdd.concert.domain.user.model.User;
 import com.tdd.concert.token.mock.MockTokenCoreRepositoryImpl;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,12 +17,14 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TokenGeneratorTest {
 
   private TokenGenerator tokenGenerator;
+  private TokenReader tokenReader;
   private MockTokenCoreRepositoryImpl mockTokenCoreRepository;
 
   @BeforeEach
   void setUp() {
      mockTokenCoreRepository = new MockTokenCoreRepositoryImpl();
      tokenGenerator = new TokenGenerator(mockTokenCoreRepository);
+    tokenReader = new TokenReader(mockTokenCoreRepository);
   }
 
   @DisplayName("토큰 테이블에 INSERT 하는 테스트")
@@ -99,7 +100,7 @@ public class TokenGeneratorTest {
 
 
     // when : 다음 대기순번 채번
-    long actualNextWaitNo = tokenGenerator.selectNextWaitNo();
+    long actualNextWaitNo = tokenReader.selectNextWaitNo();
     System.out.println(" actualNextWaitNo : " + actualNextWaitNo);
 
     // then : 이건 테스트 짜는게 어렵다.
@@ -127,7 +128,7 @@ public class TokenGeneratorTest {
 
 
     // when
-    long actualOngoingCount = tokenGenerator.getProgressStatusCount(ProgressStatus.ONGOING);
+    long actualOngoingCount = tokenReader.getProgressStatusCount(ProgressStatus.ONGOING);
 
 
     // then
@@ -153,7 +154,7 @@ public class TokenGeneratorTest {
     }
 
     // when : 신규로 추가되는 사용자의 초기 예약상태는 ONGOING으로 설정
-    ProgressStatus actualStatus = tokenGenerator.getCurrentQueueStatus();
+    ProgressStatus actualStatus = tokenReader.getCurrentQueueStatus();
 
     // then
     assertEquals(ProgressStatus.ONGOING, actualStatus);
@@ -179,7 +180,7 @@ public class TokenGeneratorTest {
     }
 
     // when : 신규로 추가되는 사용자의 예약상태는 WAIT으로 설정(왜? 현재 ONGOING이 50명이 넘어서)
-    ProgressStatus actualStatus = tokenGenerator.getCurrentQueueStatus();
+    ProgressStatus actualStatus = tokenReader.getCurrentQueueStatus();
 
     // then
     assertEquals(ProgressStatus.WAIT, actualStatus);

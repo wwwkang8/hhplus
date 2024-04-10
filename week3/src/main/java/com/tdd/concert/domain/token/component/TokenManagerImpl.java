@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 public class TokenManagerImpl implements TokenManager{
 
   private final TokenGenerator tokenGenerator;
+  private final TokenReader tokenReader;
   private final TokenValidator tokenValidator;
   private final UserManagerImpl userManagerImpl;
 
@@ -35,11 +36,11 @@ public class TokenManagerImpl implements TokenManager{
     String token = tokenGenerator.generateToken(user.getUserId());
 
     // 2. 대기 순번조회
-    long waitNo = tokenGenerator.selectNextWaitNo();
+    long waitNo = tokenReader.selectNextWaitNo();
     //if(waitNo == 0) waitNo++;
 
     // 3. 대기 상태조회
-    ProgressStatus status = tokenGenerator.getCurrentQueueStatus();
+    ProgressStatus status = tokenReader.getCurrentQueueStatus();
 
     // 4. Token 엔티티 생성(현재 상태에 따라서 토큰 만료시각을 다르게 설정)
     if(status == ProgressStatus.ONGOING) { // 토큰 만료시간은 10분 후

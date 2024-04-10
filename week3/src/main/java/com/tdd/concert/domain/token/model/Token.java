@@ -53,6 +53,12 @@ public class Token {
   @JoinColumn(name = "user_id")
   private User user;
 
+  public void setExpiredAtAndStatus(LocalDateTime expiredAt, ProgressStatus status) {
+    this.expiredAt = expiredAt;
+    this.progressStatus = status;
+  }
+
+
   public Token() {
   }
 

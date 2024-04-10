@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface TokenRepository extends JpaRepository<Token, Long> {
+public interface TokenJpaRepository extends JpaRepository<Token, Long> {
 
   @Query("SELECT COALESCE(MAX(t.waitNo),0)+1 FROM Token t")
   public Long selectNextWaitNo();
