@@ -1,15 +1,15 @@
 package com.tdd.concert.api.controller.dto.request;
 
-public class PointRequestDto {
+public class PointRequest {
 
   private long userId;
 
   private int amount;
 
-  public PointRequestDto() {
+  public PointRequest() {
   }
 
-  public PointRequestDto(long userId, int amount) {
+  public PointRequest(long userId, int amount) {
     this.userId = userId;
     this.amount = amount;
   }

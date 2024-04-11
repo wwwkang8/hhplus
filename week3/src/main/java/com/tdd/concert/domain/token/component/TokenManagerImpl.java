@@ -6,8 +6,8 @@ import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import com.tdd.concert.domain.user.component.UserManagerImpl;
 import com.tdd.concert.domain.user.model.User;
-import com.tdd.concert.api.controller.dto.request.TokenRequestDto;
-import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.request.TokenRequest;
+import com.tdd.concert.api.controller.dto.response.TokenResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ public class TokenManagerImpl implements TokenManager{
 
 
   @Transactional
-  public TokenResponseDto insertQueue(TokenRequestDto request) {
+  public TokenResponse insertQueue(TokenRequest request) {
 
     Token tokenEntity = null;
 
@@ -66,15 +66,15 @@ public class TokenManagerImpl implements TokenManager{
     // 4. 발급한 토큰 테이블에 저장
     Token savedTokenEntity = tokenGenerator.insertTokenTable(tokenEntity);
 
-    return TokenResponseDto.from(savedTokenEntity);
+    return TokenResponse.from(savedTokenEntity);
   }
 
   @Override
-  public TokenResponseDto validateToken(TokenRequestDto request) {
+  public TokenResponse validateToken(TokenRequest request) {
 
-    TokenResponseDto tokenResponseDto = tokenValidator.validateToken(request.getToken());
+    TokenResponse tokenResponse = tokenValidator.validateToken(request.getToken());
 
-    return tokenResponseDto;
+    return tokenResponse;
   }
 
 }

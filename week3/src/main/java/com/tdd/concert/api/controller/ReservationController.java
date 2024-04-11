@@ -1,6 +1,6 @@
 package com.tdd.concert.api.controller;
 
-import com.tdd.concert.api.controller.dto.response.ReservationResponseDto;
+import com.tdd.concert.api.controller.dto.response.ReservationResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ public class ReservationController {
 
 
     @PostMapping("")
-    public ResponseEntity<ReservationResponseDto> reserveConcertSeat() {
+    public ResponseEntity<ReservationResponse> reserveConcertSeat() {
 
         return null;
     }

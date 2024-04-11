@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @Builder
-public class TokenResponseDto {
+public class TokenResponse {
 
   private long userId;
 
@@ -23,25 +23,25 @@ public class TokenResponseDto {
 
   private LocalDateTime expiredAt;
 
-  public TokenResponseDto() {
+  public TokenResponse() {
   }
 
-  public TokenResponseDto(long userId, String token, long waitNo) {
+  public TokenResponse(long userId, String token, long waitNo) {
     this.userId = userId;
     this.token = token;
     this.waitNo = waitNo;
   }
 
-  public TokenResponseDto(long userId, String token, long waitNo,
-                          ProgressStatus status) {
+  public TokenResponse(long userId, String token, long waitNo,
+                       ProgressStatus status) {
     this.userId = userId;
     this.token = token;
     this.waitNo = waitNo;
     this.status = status;
   }
 
-  public TokenResponseDto(long userId, String token, long waitNo, ProgressStatus status,
-                          LocalDateTime expiredAt) {
+  public TokenResponse(long userId, String token, long waitNo, ProgressStatus status,
+                       LocalDateTime expiredAt) {
     this.userId = userId;
     this.token = token;
     this.waitNo = waitNo;
@@ -81,8 +81,8 @@ public class TokenResponseDto {
     this.status = status;
   }
 
-  public static TokenResponseDto from(Token token) {
-    return new TokenResponseDto(
+  public static TokenResponse from(Token token) {
+    return new TokenResponse(
         token.getUser().getUserId(),
         token.getToken(),
         token.getWaitNo(),

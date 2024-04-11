@@ -5,18 +5,18 @@ import lombok.ToString;
 
 @ToString
 @RequiredArgsConstructor
-public class TokenRequestDto {
+public class TokenRequest {
 
   private long userId;
 
   private String token;
 
 
-  public TokenRequestDto(long userId) {
+  public TokenRequest(long userId) {
     this.userId = userId;
   }
 
-  public TokenRequestDto(String token) {
+  public TokenRequest(String token) {
     this.token = token;
   }
 

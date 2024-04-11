@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.tdd.concert.api.controller.dto.request.PaymentRequestDto;
-import com.tdd.concert.api.controller.dto.request.PointRequestDto;
-import com.tdd.concert.api.controller.dto.request.ReservationRequestDto;
-import com.tdd.concert.api.controller.dto.response.ConcertResponseDto;
-import com.tdd.concert.api.controller.dto.response.PaymentResponseDto;
-import com.tdd.concert.api.controller.dto.response.PointResponseDto;
-import com.tdd.concert.api.controller.dto.response.ReservationResponseDto;
+import com.tdd.concert.api.controller.dto.request.PaymentRequest;
+import com.tdd.concert.api.controller.dto.request.PointRequest;
+import com.tdd.concert.api.controller.dto.request.ReservationRequest;
+import com.tdd.concert.api.controller.dto.response.ConcertResponse;
+import com.tdd.concert.api.controller.dto.response.PaymentResponse;
+import com.tdd.concert.api.controller.dto.response.PointResponse;
+import com.tdd.concert.api.controller.dto.response.ReservationResponse;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -33,7 +33,7 @@ public class MockManager {
     return waitList.get(userId);
   }
 
-  public ConcertResponseDto getAvailableConcert(long concertId) {
+  public ConcertResponse getAvailableConcert(long concertId) {
 
     LocalDate today = LocalDate.now();
     LocalDate nextDay;
@@ -46,12 +46,12 @@ public class MockManager {
 
     concertDateList.put(concertId, concertDates);
 
-    ConcertResponseDto concertResponseDto = new ConcertResponseDto(concertId, concertDates);
+    ConcertResponse concertResponse = new ConcertResponse(concertId, concertDates);
 
-    return concertResponseDto;
+    return concertResponse;
   }
 
-  public ConcertResponseDto getAvailableSeat(long concertId, String concertDate) {
+  public ConcertResponse getAvailableSeat(long concertId, String concertDate) {
 
     long seatNo = 1L;
     List<Long> seatNoList = new ArrayList<>();
@@ -63,48 +63,48 @@ public class MockManager {
     DateTimeFormatter formatter = DateTimeFormatter.BASIC_ISO_DATE;
     LocalDate date = LocalDate.parse(concertDate, formatter);
 
-    ConcertResponseDto concertResponseDto = new ConcertResponseDto(concertId, date, seatNoList);
+    ConcertResponse concertResponse = new ConcertResponse(concertId, date, seatNoList);
 
-    return concertResponseDto;
+    return concertResponse;
   }
 
-  public ReservationResponseDto reservation(ReservationRequestDto request) {
+  public ReservationResponse reservation(ReservationRequest request) {
 
     LocalDateTime expiredAt = LocalDateTime.now().plusMinutes(5);
 
-    ReservationResponseDto reservationResponseDto =
-        new ReservationResponseDto(request.getUserId(),
+    ReservationResponse reservationResponse =
+        new ReservationResponse(request.getUserId(),
                                    request.getConcertId(),
                                    request.getSeatNo(),
                                    expiredAt);
 
-    return reservationResponseDto;
+    return reservationResponse;
   }
 
-  public PointResponseDto getUserPoint(long userId) {
+  public PointResponse getUserPoint(long userId) {
 
     userPoint.put(userId, 15000);
 
-    PointResponseDto pointResponseDto = new PointResponseDto(userId, userPoint.get(userId));
+    PointResponse pointResponse = new PointResponse(userId, userPoint.get(userId));
 
-    return pointResponseDto;
+    return pointResponse;
   }
 
-  public PointResponseDto chargePoint(PointRequestDto request) {
+  public PointResponse chargePoint(PointRequest request) {
 
     int total = userPoint.get(request.getUserId()) + request.getAmount();
 
     userPoint.put(request.getUserId(), total);
 
-    PointResponseDto pointResponseDto = new PointResponseDto(request.getUserId(), total);
+    PointResponse pointResponse = new PointResponse(request.getUserId(), total);
 
-    return pointResponseDto;
+    return pointResponse;
   }
 
-  public PaymentResponseDto payment(PaymentRequestDto request) {
+  public PaymentResponse payment(PaymentRequest request) {
 
-    PaymentResponseDto paymentResponseDto
-          = new PaymentResponseDto(
+    PaymentResponse paymentResponse
+          = new PaymentResponse(
               request.getUserId(),
               request.getConcertId(),
               request.getConcertDate(),
@@ -112,6 +112,6 @@ public class MockManager {
               PaymentResult.SUCCESS
       );
 
-    return paymentResponseDto;
+    return paymentResponse;
   }
 }

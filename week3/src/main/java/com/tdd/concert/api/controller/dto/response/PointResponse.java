@@ -1,15 +1,15 @@
 package com.tdd.concert.api.controller.dto.response;
 
-public class PointResponseDto {
+public class PointResponse {
 
   private long userId;
 
   private int point;
 
-  public PointResponseDto() {
+  public PointResponse() {
   }
 
-  public PointResponseDto(long userId, int point) {
+  public PointResponse(long userId, int point) {
     this.userId = userId;
     this.point = point;
   }

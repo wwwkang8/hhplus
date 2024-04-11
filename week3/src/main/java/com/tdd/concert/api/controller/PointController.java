@@ -1,6 +1,6 @@
 package com.tdd.concert.api.controller;
 
-import com.tdd.concert.api.controller.dto.response.PointResponseDto;
+import com.tdd.concert.api.controller.dto.response.PointResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class PointController {
 
     @GetMapping("/{userId}")
-    public ResponseEntity<PointResponseDto> getPoint(@PathVariable long userId) {
+    public ResponseEntity<PointResponse> getPoint(@PathVariable long userId) {
         return null;
     }
 
     @PostMapping("/charge")
-    public ResponseEntity<PointResponseDto> chargePoint() {
+    public ResponseEntity<PointResponse> chargePoint() {
         return null;
     }
 

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
-import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.response.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ public class TokenValidator {
 
   private final TokenCoreRepository tokenCoreRepository;
 
-  public TokenResponseDto validateToken(String token) {
+  public TokenResponse validateToken(String token) {
 
     Token selectedToken = tokenCoreRepository.findByToken(token);
 
@@ -36,7 +36,7 @@ public class TokenValidator {
       throw new RuntimeException("예약이 완료된 토큰입니다. 토큰 : " + selectedToken.getToken() + ", 토큰 상태 : " + selectedToken.getProgressStatus());
     }
 
-    return TokenResponseDto.from(selectedToken);
+    return TokenResponse.from(selectedToken);
 
   }
 

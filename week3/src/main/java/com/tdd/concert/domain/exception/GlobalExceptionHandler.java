@@ -1,6 +1,6 @@
 package com.tdd.concert.domain.exception;
 
-import com.tdd.concert.api.controller.dto.response.ExceptionResponseDto;
+import com.tdd.concert.api.controller.dto.response.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
   @ExceptionHandler(RuntimeException.class)
-  public ResponseEntity<ExceptionResponseDto> handleRuntimeException(RuntimeException ex) {
+  public ResponseEntity<ExceptionResponse> handleRuntimeException(RuntimeException ex) {
     // 런타임 에러에 대한 응답생성
-    ExceptionResponseDto response = new ExceptionResponseDto(ex.getMessage());
+    ExceptionResponse response = new ExceptionResponse(ex.getMessage());
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
   }
 

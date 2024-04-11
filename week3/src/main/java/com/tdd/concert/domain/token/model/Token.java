@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import com.tdd.concert.domain.user.model.User;
-import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.response.TokenResponse;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -96,7 +96,7 @@ public class Token {
     this.progressStatus = status;
   }
 
-  public TokenResponseDto to(long userId, String token, long waitNo) {
-    return new TokenResponseDto(userId, token, waitNo);
+  public TokenResponse to(long userId, String token, long waitNo) {
+    return new TokenResponse(userId, token, waitNo);
   }
 }
