@@ -24,16 +24,19 @@ public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long seatId;
+    private Long seatId;
 
     @Column(name = "seat_no")
-    private long seatNo;
+    private Long seatNo;
+
+    @Column(name="price")
+    private int price;
 
     @Column(name ="reservation_status")
     private ReservationStatus reservationStatus;
 
     @Column(name ="temp_reserved_user_id")
-    private long tempReservedUserId;
+    private Long tempReservedUserId;
 
     @Column(name ="temp_reserved_expired_at")
     private LocalDateTime tempReservedExpiredAt;
