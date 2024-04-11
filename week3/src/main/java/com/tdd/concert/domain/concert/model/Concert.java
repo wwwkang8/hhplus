@@ -25,15 +25,12 @@ public class Concert {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long concertId;
+  private Long concertId;
 
   @Column(name="concert_date")
   private LocalDate concertDate;
 
   @Column(name="concert_name")
   private String concertName;
-
-  @Column(name = "price")
-  private long price;
 
 }

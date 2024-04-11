@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.concertSeat.component.ConcertReaderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-11T13:18:47" hostname="Jeongui-MacBookPro.local" time="1.134">
+  <properties/>
+  <testcase name="특정날짜 콘서트의 예약 가능죄석 조회하기" classname="com.tdd.concert.concertSeat.component.ConcertReaderTest" time="1.134"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
