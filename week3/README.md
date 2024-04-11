@@ -214,7 +214,8 @@ Response
 |result|String |필수  |좌석예약 성공여부|
 
 ## ERD 구조
-![image](https://github.com/wwwkang8/hhplus/assets/26863285/c8fa4a09-f90f-464f-ab4b-cc212ba4f143)
+![image](https://github.com/wwwkang8/hhplus/assets/26863285/598311f5-4cc5-4a81-b7b5-16a1a3039ca7)
+
 
 1) 사용자 테이블뿐만 아니라 대기열 테이블에도 사용자 아이디를 넣은 이유는 대기열 테이블의 경우 대기상태를 계속해서 체크해야 하므로
 조회 거래가 많을 것으로 예상된다. 다른 테이블과 JOIN을 하여 성능을 저하시키기보다는 애초에 대기열 테이블에 토큰을 넣는 것이 효율적이라고 판단.
