@@ -3,6 +3,7 @@ package com.tdd.concert.domain.concert.infra;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.concert.repository.ConcertCoreRepository;
 import com.tdd.concert.domain.concert.repository.ConcertJpaRepository;
 import com.tdd.concert.domain.concert.status.ReservationStatus;
@@ -25,5 +26,10 @@ public class ConcertCoreRepositoryImpl implements ConcertCoreRepository {
   @Override
   public List<Long> seatNoList(long concertId, LocalDate concertDate, ReservationStatus reservationStatus) {
     return concertJpaRepository.seatNoList(concertId, concertDate, reservationStatus);
+  }
+
+  @Override
+  public Concert findConcertByConcertId(Long concertId) {
+    return concertJpaRepository.findConcertByConcertId(concertId);
   }
 }

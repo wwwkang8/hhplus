@@ -25,7 +25,7 @@ public class Concert {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long concertId;
+  private long concertId;
 
   @Column(name="concert_date")
   private LocalDate concertDate;
