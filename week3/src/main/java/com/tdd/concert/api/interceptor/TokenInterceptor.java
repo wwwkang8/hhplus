@@ -1,8 +1,8 @@
 package com.tdd.concert.api.interceptor;
 
 import com.tdd.concert.domain.token.component.TokenManagerImpl;
-import com.tdd.concert.api.controller.dto.request.TokenRequestDto;
-import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.request.TokenRequest;
+import com.tdd.concert.api.controller.dto.response.TokenResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -25,14 +25,14 @@ public class TokenInterceptor implements HandlerInterceptor {
     log.info("[인터셉터 진입] 사용자가 인터셉터에 진입했습니다.");
 
     String token = request.getHeader("Authorization");
-    TokenRequestDto tokenRequestDto = new TokenRequestDto(token);
-    TokenResponseDto tokenResponseDto = tokenManager.validateToken(tokenRequestDto);
+    TokenRequest tokenRequest = new TokenRequest(token);
+    TokenResponse tokenResponse = tokenManager.validateToken(tokenRequest);
 
-    if(tokenResponseDto.getToken() == null) {
+    if(tokenResponse.getToken() == null) {
       log.info("[인터셉터] 토큰이 존재하지 않습니다. 접근 불가. 토큰 발급받고 다시 오세요");
       return false;
     }else {
-      log.info("[인터셉터] 토큰 확인!. 드루와. 토큰 :  "+ tokenResponseDto.getToken());
+      log.info("[인터셉터] 토큰 확인!. 드루와. 토큰 :  "+ tokenResponse.getToken());
       return true;
     }
 

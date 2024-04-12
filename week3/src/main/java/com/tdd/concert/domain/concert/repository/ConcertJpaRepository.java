@@ -21,4 +21,6 @@ public interface ConcertJpaRepository extends JpaRepository<Concert, Long> {
   List<Long> seatNoList(@Param("concertId") long concertId,
                         @Param("concertDate") LocalDate concertDate,
                         @Param("reservationStatus")ReservationStatus reservationStatus);
+
+  public Concert findConcertByConcertId(Long concertId);
 }

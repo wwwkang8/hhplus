@@ -2,7 +2,7 @@ package com.tdd.concert.api.controller.dto.request;
 
 import java.time.LocalDate;
 
-public class ReservationRequestDto {
+public class PaymentRequest {
 
   private long userId;
 
@@ -14,11 +14,11 @@ public class ReservationRequestDto {
 
   private long seatNo;
 
-  public ReservationRequestDto() {
+  public PaymentRequest() {
   }
 
-  public ReservationRequestDto(long userId, String token, long concertId,
-                               LocalDate concertDate, long seatNo) {
+  public PaymentRequest(long userId, String token, long concertId, LocalDate concertDate,
+                        long seatNo) {
     this.userId = userId;
     this.token = token;
     this.concertId = concertId;

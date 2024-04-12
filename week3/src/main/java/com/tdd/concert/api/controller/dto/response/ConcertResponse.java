@@ -3,7 +3,7 @@ package com.tdd.concert.api.controller.dto.response;
 import java.time.LocalDate;
 import java.util.List;
 
-public class ConcertResponseDto {
+public class ConcertResponse {
 
   private long concertId;
 
@@ -13,30 +13,30 @@ public class ConcertResponseDto {
 
   private List<Long> seatNoList;
 
-  public ConcertResponseDto() {
+  public ConcertResponse() {
   }
 
-  public ConcertResponseDto(long concertId, List<LocalDate> concertDates) {
+  public ConcertResponse(long concertId, List<LocalDate> concertDates) {
     this.concertId = concertId;
     this.concertDates = concertDates;
   }
 
-  public ConcertResponseDto(long concertId, List<LocalDate> concertDates,
-                            List<Long> seatNoList) {
+  public ConcertResponse(long concertId, List<LocalDate> concertDates,
+                         List<Long> seatNoList) {
     this.concertId = concertId;
     this.concertDates = concertDates;
     this.seatNoList = seatNoList;
   }
 
-  public ConcertResponseDto(long concertId, LocalDate concertDate,
-                            List<Long> seatNoList) {
+  public ConcertResponse(long concertId, LocalDate concertDate,
+                         List<Long> seatNoList) {
     this.concertId = concertId;
     this.concertDate = concertDate;
     this.seatNoList = seatNoList;
   }
 
-  public ConcertResponseDto(long concertId, List<LocalDate> concertDates,
-                            LocalDate concertDate, List<Long> seatNoList) {
+  public ConcertResponse(long concertId, List<LocalDate> concertDates,
+                         LocalDate concertDate, List<Long> seatNoList) {
     this.concertId = concertId;
     this.concertDates = concertDates;
     this.concertDate = concertDate;

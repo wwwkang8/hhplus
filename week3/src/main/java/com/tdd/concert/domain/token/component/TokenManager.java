@@ -1,12 +1,12 @@
 package com.tdd.concert.domain.token.component;
 
-import com.tdd.concert.api.controller.dto.request.TokenRequestDto;
-import com.tdd.concert.api.controller.dto.response.TokenResponseDto;
+import com.tdd.concert.api.controller.dto.request.TokenRequest;
+import com.tdd.concert.api.controller.dto.response.TokenResponse;
 
 public interface TokenManager {
 
-  public TokenResponseDto insertQueue(TokenRequestDto tokenRequestDto);
-  public TokenResponseDto validateToken(TokenRequestDto tokenRequestDto);
+  public TokenResponse insertQueue(TokenRequest tokenRequest);
+  public TokenResponse validateToken(TokenRequest tokenRequest);
 
 //  public TokenResponseDto validateToken(TokenRequestDto tokenRequestDto);
 //

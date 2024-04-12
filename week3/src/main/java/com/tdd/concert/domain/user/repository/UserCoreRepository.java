@@ -6,4 +6,6 @@ public interface UserCoreRepository {
 
   public User createUser();
 
+  public User findUserById(Long userId);
+
 }

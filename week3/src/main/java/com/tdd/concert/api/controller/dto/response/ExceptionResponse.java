@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExceptionResponseDto {
+public class ExceptionResponse {
 
   private String errorMessage;
 

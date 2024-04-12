@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.tdd.concert.domain.concert.infra.ConcertCoreRepositoryImpl;
+import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.concert.status.ReservationStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,4 +39,9 @@ public class ConcertReader {
 
     return seatNoList;
   }
+
+  public Concert findConcertByConcertId(Long concertId) {
+    return concertCoreRepository.findConcertByConcertId(concertId);
+  }
+
 }

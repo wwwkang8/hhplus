@@ -2,7 +2,7 @@ package com.tdd.concert.api.controller.dto.response;
 
 import java.time.LocalDateTime;
 
-public class ReservationResponseDto {
+public class ReservationResponse {
 
   private long userId;
 
@@ -12,11 +12,11 @@ public class ReservationResponseDto {
 
   private LocalDateTime expiredAt;
 
-  public ReservationResponseDto() {
+  public ReservationResponse() {
   }
 
-  public ReservationResponseDto(long userId, long concertId, long seatNo,
-                                LocalDateTime expiredAt) {
+  public ReservationResponse(long userId, long concertId, long seatNo,
+                             LocalDateTime expiredAt) {
     this.userId = userId;
     this.concertId = concertId;
     this.seatNo = seatNo;

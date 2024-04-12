@@ -2,7 +2,7 @@ package com.tdd.concert.api.controller;
 
 import java.time.LocalDate;
 
-import com.tdd.concert.api.controller.dto.response.ConcertResponseDto;
+import com.tdd.concert.api.controller.dto.response.ConcertResponse;
 import com.tdd.concert.api.usecase.ConcertDateUseCase;
 import com.tdd.concert.api.usecase.SeatNoUseCase;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class ConcertController {
 
 
     @GetMapping("/{concertId}")
-    public ResponseEntity<ConcertResponseDto> getConcertList(@PathVariable long concertId) {
+    public ResponseEntity<ConcertResponse> getConcertList(@PathVariable long concertId) {
 
         log.info("[/api/concert/{concertId}] 콘서트날짜 조회 진입");
 
@@ -33,8 +33,8 @@ public class ConcertController {
 
 
     @GetMapping("/{concertId}/calendar/{concertDate}")
-    public ResponseEntity<ConcertResponseDto> getSeatNoList(@PathVariable long concertId,
-                                                                      @PathVariable LocalDate concertDate) {
+    public ResponseEntity<ConcertResponse> getSeatNoList(@PathVariable long concertId,
+                                                         @PathVariable LocalDate concertDate) {
 
         return ResponseEntity.ok().body(seatNoUseCase.seatNoList(concertId, concertDate));
     }

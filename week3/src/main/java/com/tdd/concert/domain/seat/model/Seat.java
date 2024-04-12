@@ -1,7 +1,8 @@
-package com.tdd.concert.domain.concert.model;
+package com.tdd.concert.domain.seat.model;
 
 import java.time.LocalDateTime;
 
+import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.concert.status.ReservationStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,10 +25,10 @@ public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long seatId;
+    private long seatId;
 
     @Column(name = "seat_no")
-    private Long seatNo;
+    private long seatNo;
 
     @Column(name="price")
     private int price;

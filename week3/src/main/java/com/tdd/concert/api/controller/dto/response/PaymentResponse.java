@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import com.tdd.concert.api.controller.mockapi.PaymentResult;
 
-public class PaymentResponseDto {
+public class PaymentResponse {
 
   private long userId;
 
@@ -18,12 +18,12 @@ public class PaymentResponseDto {
 
   private PaymentResult paymentResult;
 
-  public PaymentResponseDto() {
+  public PaymentResponse() {
   }
 
-  public PaymentResponseDto(long userId, String token, long concertId,
-                            LocalDate concertDate, long seatNo,
-                            PaymentResult paymentResult) {
+  public PaymentResponse(long userId, String token, long concertId,
+                         LocalDate concertDate, long seatNo,
+                         PaymentResult paymentResult) {
     this.userId = userId;
     this.token = token;
     this.concertId = concertId;
@@ -32,8 +32,8 @@ public class PaymentResponseDto {
     this.paymentResult = paymentResult;
   }
 
-  public PaymentResponseDto(long userId, long concertId, LocalDate concertDate, long seatNo,
-                            PaymentResult paymentResult) {
+  public PaymentResponse(long userId, long concertId, LocalDate concertDate, long seatNo,
+                         PaymentResult paymentResult) {
     this.userId = userId;
     this.concertId = concertId;
     this.concertDate = concertDate;
