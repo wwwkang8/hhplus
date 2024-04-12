@@ -19,4 +19,9 @@ public class UserCoreRepositoryImpl implements UserCoreRepository {
     User user = new User();
     return userRepository.save(user);
   }
+
+  @Override
+  public User findUserById(Long userId) {
+    return userRepository.findUserByUserId(userId);
+  }
 }

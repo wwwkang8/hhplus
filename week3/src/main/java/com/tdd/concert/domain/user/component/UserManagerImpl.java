@@ -11,10 +11,16 @@ import org.springframework.stereotype.Component;
 public class UserManagerImpl implements UserManager{
 
   private final UserStore userStore;
+  private final UserReader userReader;
 
 
   @Override
   public User createUser() {
     return userStore.createUser();
+  }
+
+  @Override
+  public User findUserById(Long userId) {
+    return userReader.findUserById(userId);
   }
 }

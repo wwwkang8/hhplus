@@ -6,4 +6,6 @@ public interface UserManager {
 
   public User createUser();
 
+  public User findUserById(Long userId);
+
 }
