@@ -4,9 +4,9 @@ import com.tdd.concert.api.controller.dto.request.ReservationRequest;
 import com.tdd.concert.api.controller.dto.request.TokenRequest;
 import com.tdd.concert.domain.concert.component.ConcertManager;
 import com.tdd.concert.domain.concert.model.Concert;
-import com.tdd.concert.domain.concert.status.ReservationStatus;
 import com.tdd.concert.domain.seat.component.SeatManager;
 import com.tdd.concert.domain.seat.model.Seat;
+import com.tdd.concert.domain.seat.model.SeatStatus;
 import com.tdd.concert.domain.token.component.TokenManager;
 import com.tdd.concert.domain.user.component.UserManager;
 import com.tdd.concert.domain.user.model.User;
@@ -28,10 +28,10 @@ public class ReservationValidator {
     log.info("[ReservationValidator] validate 메서드 시작");
 
     // 1. 사용자 조회
-    User user = userManager.findUserById(request.getUserId());
+    User user = userManager.findUserById(request.getUser().getUserId());
 
     if(user == null) {
-      throw new RuntimeException("존재하지 않는 사용자입니다. 사용자ID : " + request.getUserId());
+      throw new RuntimeException("존재하지 않는 사용자입니다." );
     }
 
     // 2. 유효한 토큰인지 검증
@@ -39,24 +39,20 @@ public class ReservationValidator {
     tokenManager.validateToken(tokenRequest);
 
     // 3. 콘서트 아이디, 좌석 번호 검증
-    Concert concert = concertManager.findConcertByConcertId(request.getConcertId());
+    Concert concert = concertManager.findConcertByConcertId(request.getConcert().getConcertId());
 
     if(concert == null) {
-      throw new RuntimeException("존재하지 않는 콘서트입니다. 콘서트ID : " + request.getConcertId());
+      throw new RuntimeException("존재하지 않는 콘서트입니다.");
     }
 
     // 4.좌석 번호 검증
-    Seat seat = seatManager.findSeatBySeatNoAndConcert(request.getSeatNo(), concert);
+    Seat seat = seatManager.findSeatBySeatNoAndConcert(request.getSeat().getSeatNo(), concert);
 
     if(seat == null) {
-      throw new RuntimeException("존재하지 않는 좌석번호입니다. 좌석번호 : " + request.getSeatNo());
+      throw new RuntimeException("존재하지 않는 좌석번호입니다.");
     }
 
-    if(seat.getReservationStatus() == ReservationStatus.RESERVED) {
-      throw new RuntimeException("이미 예약된 좌석입니다. 좌석번호 : " + request.getSeatNo());
-    }
 
-    log.info("[ReservationValidator] validate 메서드 종료");
     return true;
   }
 }

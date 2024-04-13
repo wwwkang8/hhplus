@@ -65,6 +65,7 @@ public class TokenManagerImpl implements TokenManager{
 
     // 4. 발급한 토큰 테이블에 저장
     Token savedTokenEntity = tokenGenerator.insertTokenTable(tokenEntity);
+    user.setToken(token);
 
     return TokenResponse.from(savedTokenEntity);
   }

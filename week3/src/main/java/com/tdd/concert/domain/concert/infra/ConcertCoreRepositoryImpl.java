@@ -6,7 +6,7 @@ import java.util.List;
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.concert.repository.ConcertCoreRepository;
 import com.tdd.concert.domain.concert.repository.ConcertJpaRepository;
-import com.tdd.concert.domain.concert.status.ReservationStatus;
+import com.tdd.concert.domain.seat.model.SeatStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -24,8 +24,8 @@ public class ConcertCoreRepositoryImpl implements ConcertCoreRepository {
   }
 
   @Override
-  public List<Long> seatNoList(long concertId, LocalDate concertDate, ReservationStatus reservationStatus) {
-    return concertJpaRepository.seatNoList(concertId, concertDate, reservationStatus);
+  public List<Long> seatNoList(long concertId, LocalDate concertDate, SeatStatus seatStatus) {
+    return concertJpaRepository.seatNoList(concertId, concertDate, seatStatus);
   }
 
   @Override
