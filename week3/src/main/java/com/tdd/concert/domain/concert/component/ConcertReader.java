@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.tdd.concert.domain.concert.infra.ConcertCoreRepositoryImpl;
 import com.tdd.concert.domain.concert.model.Concert;
-import com.tdd.concert.domain.concert.status.ReservationStatus;
+import com.tdd.concert.domain.seat.model.SeatStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -31,7 +31,7 @@ public class ConcertReader {
   public List<Long> seatNoList(long concertId, LocalDate concertDate) {
     List<Long> seatNoList = concertCoreRepository.seatNoList(concertId,
                                                              concertDate,
-                                                             ReservationStatus.AVAILABLE);
+                                                             SeatStatus.AVAILABLE);
 
     if(seatNoList.isEmpty()) {
       throw new RuntimeException("[콘서트아이디 : " + concertId + "] 예약 가능한 좌석이 없습니다.");

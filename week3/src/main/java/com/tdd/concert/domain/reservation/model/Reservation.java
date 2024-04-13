@@ -39,6 +39,9 @@ public class Reservation {
   @Column(name="reservation_date")
   private LocalDate reservationDate;
 
+  @Column(name="reservation_status")
+  private ReservationStatus reservationStatus;
+
   @ManyToOne
   @JoinColumn(name = "concert_id")
   private Concert concert;
@@ -47,25 +50,16 @@ public class Reservation {
   @JoinColumn(name="seat_id")
   private Seat seat;
 
-  public Reservation() {
-
-  }
-
-  public Reservation(long reservationId, User user, LocalDate reservationDate,
-                     Concert concert, Seat seat) {
-    this.reservationId = reservationId;
-    this.user = user;
-    this.reservationDate = reservationDate;
-    this.concert = concert;
-    this.seat = seat;
-  }
-
   // 엔티티 객체에 책임을 부여하기 위해서 예약 생성 메서드 추가
-  public static Reservation makeReservation(User user, Concert concert, Seat seat) {
+  public static Reservation makeReservation(User user,
+                                            Concert concert,
+                                            Seat seat,
+                                            ReservationStatus reservationStatus) {
 
     return Reservation.builder()
                 .user(user)
                 .reservationDate(LocalDate.now())
+                .reservationStatus(reservationStatus)
                 .concert(concert)
                 .seat(seat)
                 .build();

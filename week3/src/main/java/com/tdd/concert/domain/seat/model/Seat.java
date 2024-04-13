@@ -3,7 +3,6 @@ package com.tdd.concert.domain.seat.model;
 import java.time.LocalDateTime;
 
 import com.tdd.concert.domain.concert.model.Concert;
-import com.tdd.concert.domain.concert.status.ReservationStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,8 +32,8 @@ public class Seat {
     @Column(name="price")
     private int price;
 
-    @Column(name ="reservation_status")
-    private ReservationStatus reservationStatus;
+    @Column(name ="seat_status")
+    private SeatStatus seatStatus;
 
     @Column(name ="temp_reserved_user_id")
     private Long tempReservedUserId;

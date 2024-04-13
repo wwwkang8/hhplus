@@ -3,15 +3,13 @@ package com.tdd.concert.concertSeat.component;
 
 import static org.mockito.Mockito.when;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.tdd.concert.domain.concert.component.ConcertReader;
 import com.tdd.concert.domain.concert.infra.ConcertCoreRepositoryImpl;
-import com.tdd.concert.domain.concert.status.ReservationStatus;
-import net.bytebuddy.asm.Advice;
+import com.tdd.concert.domain.seat.model.SeatStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -61,7 +59,7 @@ public class ConcertReaderTest {
     expectedSeatNoList.add(1L);
     expectedSeatNoList.add(2L);
     expectedSeatNoList.add(3L);
-    when(concertCoreRepository.seatNoList(1, LocalDate.now(), ReservationStatus.AVAILABLE)).thenReturn(expectedSeatNoList);
+    when(concertCoreRepository.seatNoList(1, LocalDate.now(), SeatStatus.AVAILABLE)).thenReturn(expectedSeatNoList);
 
 
     // when

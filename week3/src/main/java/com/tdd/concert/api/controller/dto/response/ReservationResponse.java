@@ -1,7 +1,23 @@
 package com.tdd.concert.api.controller.dto.response;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.tdd.concert.domain.concert.model.Concert;
+import com.tdd.concert.domain.reservation.model.Reservation;
+import com.tdd.concert.domain.seat.model.Seat;
+import com.tdd.concert.domain.user.model.User;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Builder
+@Getter
+@Setter
 public class ReservationResponse {
 
   private long userId;
@@ -53,5 +69,15 @@ public class ReservationResponse {
 
   public void setExpiredAt(LocalDateTime expiredAt) {
     this.expiredAt = expiredAt;
+  }
+
+  public static ReservationResponse from(Reservation reservation) {
+
+    return ReservationResponse.builder()
+                               .concertId(reservation.getConcert().getConcertId())
+                               .userId(reservation.getUser().getUserId())
+                               .seatNo(reservation.getSeat().getSeatNo())
+                               .expiredAt(reservation.getSeat().getTempReservedExpiredAt())
+                               .build();
   }
 }

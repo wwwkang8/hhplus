@@ -6,7 +6,7 @@ INSERT INTO concert (concert_date, concert_name) VALUES
 ('2024-04-17',  'Ed Sheeran');
 
 
-INSERT INTO seat (price, reservation_status, concert_id, seat_no, temp_reserved_expired_at, temp_reserved_user_id) VALUES
+INSERT INTO seat (price, seat_status, concert_id, seat_no, temp_reserved_expired_at, temp_reserved_user_id) VALUES
 (100, 0, 1, 1, NULL, NULL),
 (100, 0, 1, 2, NULL, NULL),
 (100, 0, 1, 3, NULL, NULL),

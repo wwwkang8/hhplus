@@ -16,7 +16,7 @@ public class TokenInterceptorConfig implements WebMvcConfigurer {
   public void addInterceptors(InterceptorRegistry registry) {
     registry.addInterceptor(tokenInterceptor)
               //.addPathPatterns("/api/concert/*")
-              .addPathPatterns("/api/payment")
-              .addPathPatterns("api/reservation");
+              .addPathPatterns("/api/payment");
+              //.addPathPatterns("api/reservation");
   }
 }

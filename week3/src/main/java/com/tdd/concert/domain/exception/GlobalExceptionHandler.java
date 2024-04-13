@@ -13,6 +13,7 @@ public class GlobalExceptionHandler {
   public ResponseEntity<ExceptionResponse> handleRuntimeException(RuntimeException ex) {
     // 런타임 에러에 대한 응답생성
     ExceptionResponse response = new ExceptionResponse(ex.getMessage());
+    ex.printStackTrace();
     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
   }
 
