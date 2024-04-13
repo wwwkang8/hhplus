@@ -21,4 +21,9 @@ public class MockUserManagerImpl implements UserManager {
 
     return user;
   }
+
+  @Override
+  public User findUserById(Long userId) {
+    return null;
+  }
 }
