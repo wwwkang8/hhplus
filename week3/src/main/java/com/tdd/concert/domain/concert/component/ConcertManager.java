@@ -17,8 +17,8 @@ public class ConcertManager {
   private final ConcertReader concertReader;
   private final ConcertWriter concertWriter;
 
-  public List<LocalDate> availableConcertDate(long concertId) {
-    return concertReader.availableConcertDate(concertId);
+  public List<LocalDate> availableConcertSchedule(long concertId) {
+    return concertReader.availableConcertSchedule(concertId);
   }
 
 

@@ -11,12 +11,13 @@ import org.springframework.data.repository.query.Param;
 
 public interface ConcertJpaRepository extends JpaRepository<Concert, Long> {
 
-  @Query("SELECT c.concertDate FROM Concert c WHERE c.concertId = :concertId")
-  public List<LocalDate> availableConcertDate(@Param("concertId") long concertId);
+  @Query("SELECT cs.concertDate FROM ConcertSchedule cs JOIN cs.concert c WHERE c.concertId = :concertId")
+  public List<LocalDate> availableConcertSchedule(@Param("concertId") long concertId);
 
-  @Query("SELECT s.seatNo FROM Seat s JOIN s.concert c WHERE c.concertId = :concertId" +
-      " AND c.concertDate = :concertDate" +
-      " AND s.seatStatus = :seatStatus")
+  @Query("SELECT s.seatNo FROM Seat s JOIN s.concertSchedule cs WHERE cs.concert.concertId = :concertId" +
+      " AND cs.concertDate = :concertDate" +
+      " AND s.seatStatus = :seatStatus" +
+      " ORDER BY s.seatNo ASC")
   List<Long> seatNoList(@Param("concertId") long concertId,
                         @Param("concertDate") LocalDate concertDate,
                         @Param("seatStatus") SeatStatus seatStatus);

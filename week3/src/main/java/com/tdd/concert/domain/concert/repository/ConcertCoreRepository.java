@@ -8,7 +8,7 @@ import com.tdd.concert.domain.seat.model.SeatStatus;
 
 public interface ConcertCoreRepository {
 
-  public List<LocalDate> availableConcertDate(long concertId);
+  public List<LocalDate> availableConcertSchedule(long concertId);
 
   public List<Long> seatNoList(long concertId, LocalDate concertDate, SeatStatus seatStatus);
 
