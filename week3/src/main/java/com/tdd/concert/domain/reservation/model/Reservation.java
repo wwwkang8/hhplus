@@ -32,10 +32,6 @@ public class Reservation {
   @Column(name="reservation_id")
   private long reservationId;
 
-  @ManyToOne
-  @JoinColumn(name="user_id")
-  private User user;
-
   @Column(name="reservation_date")
   private LocalDate reservationDate;
 
@@ -45,6 +41,10 @@ public class Reservation {
   @ManyToOne
   @JoinColumn(name = "concert_id")
   private Concert concert;
+
+  @ManyToOne
+  @JoinColumn(name="user_id")
+  private User user;
 
   @OneToOne
   @JoinColumn(name="seat_id")

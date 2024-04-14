@@ -1,6 +1,7 @@
 package com.tdd.concert.domain.user.component;
 
 import com.tdd.concert.domain.user.model.User;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -22,5 +23,28 @@ public class UserManagerImpl implements UserManager{
   @Override
   public User findUserById(Long userId) {
     return userReader.findUserById(userId);
+  }
+
+  @Override
+  @Transactional
+  public User chargePoint(long userId, int amount) {
+    User user = userReader.findUserById(userId);
+    int totalPoint = user.getPoint() + amount;
+    user.setPoint(totalPoint);
+    return user;
+  }
+
+  @Override
+  @Transactional
+  public User usePoint(long userId, int amount) {
+    User user = userReader.findUserById(userId);
+    int totalPoint = user.getPoint() - amount;
+
+    if(totalPoint < 0) {
+      throw new RuntimeException("잔액이 부족합니다. 사용자ID : "+userId+", 잔액:"+user.getPoint());
+    }
+
+    user.setPoint(totalPoint);
+    return user;
   }
 }

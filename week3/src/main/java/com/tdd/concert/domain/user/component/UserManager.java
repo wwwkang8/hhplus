@@ -8,4 +8,7 @@ public interface UserManager {
 
   public User findUserById(Long userId);
 
+  User chargePoint(long userId, int amount);
+
+  User usePoint(long userId, int amount);
 }
