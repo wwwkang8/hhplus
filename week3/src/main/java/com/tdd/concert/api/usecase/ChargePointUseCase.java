@@ -4,6 +4,7 @@ import com.tdd.concert.api.controller.dto.request.PointRequest;
 import com.tdd.concert.api.controller.dto.response.PointResponse;
 import com.tdd.concert.domain.point.component.PointManager;
 import com.tdd.concert.domain.point.model.PointHistory;
+import com.tdd.concert.domain.point.model.PointRscd;
 import com.tdd.concert.domain.user.component.UserManager;
 import com.tdd.concert.domain.user.model.User;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,7 @@ public class ChargePointUseCase {
 
     User user = userManager.chargePoint(request.getUserId(), request.getAmount());
     request.setUser(user);
+    request.setPointRscd(PointRscd.RECEIVE);
     PointHistory pointHistory = pointManager.insertPointHistory(request);
 
     PointResponse response = new PointResponse(user.getUserId(), user.getPoint());
