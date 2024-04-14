@@ -1,7 +1,11 @@
 package com.tdd.concert.domain.seat.repository;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.seat.model.Seat;
+import com.tdd.concert.domain.seat.model.SeatStatus;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
@@ -9,10 +13,14 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface SeatJpaRepository extends JpaRepository<Seat, Long> {
 
-  public Seat findSeatBySeatNoAndConcert(Long seatNo, Concert concert);
+  @Query("SELECT s FROM Seat s WHERE s.seatNo = ?1 AND s.concert.concertId = ?2 AND s.concertSchedule.concertDate = ?3")
+  public Seat findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate);
 
   @Lock(LockModeType.PESSIMISTIC_WRITE)
-  @Query("select s from Seat s where s.seatNo = ?1 AND s.concert.concertId = ?2")
-  public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId);
+  @Query("select s from Seat s where s.seatNo = ?1 AND s.concert.concertId = ?2 AND s.concertSchedule.concertDate = ?3")
+  public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId, LocalDate concertDate);
+
+  @Query("SELECT s FROM Seat s WHERE s.seatStatus = ?1")
+  public List<Seat> findTempReservationExpiredSeatList(SeatStatus seatStatus);
 
 }

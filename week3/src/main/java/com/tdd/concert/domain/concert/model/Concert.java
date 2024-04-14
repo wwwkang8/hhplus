@@ -23,10 +23,10 @@ public class Concert {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long concertId;
 
-  @Column(name="concert_date")
-  private LocalDate concertDate;
+  @Column(name="name")
+  private String name;
 
-  @Column(name="concert_name")
-  private String concertName;
+  @Column(name="singer")
+  private String singer;
 
 }

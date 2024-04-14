@@ -19,7 +19,7 @@ public class ConcertDateUseCase {
 
   public ConcertResponse availableConcertDate(long concertId) {
 
-    List<LocalDate> concertDateList = concertManager.availableConcertDate(concertId);
+    List<LocalDate> concertDateList = concertManager.availableConcertSchedule(concertId);
 
     ConcertResponse concertResponse = new ConcertResponse(concertId, concertDateList);
 

@@ -17,15 +17,15 @@ public class ConcertReader {
 
   private final ConcertCoreRepositoryImpl concertCoreRepository;
 
-  public List<LocalDate> availableConcertDate(long concertId) {
+  public List<LocalDate> availableConcertSchedule(long concertId) {
 
-    List<LocalDate> concertDateList = concertCoreRepository.availableConcertDate(concertId);
+    List<LocalDate> concertSchedule = concertCoreRepository.availableConcertSchedule(concertId);
 
-    if(concertDateList.isEmpty()) {
-      throw new RuntimeException("[콘서트아이디 : " + concertId + "]콘서트 아이디에 해당하는 공연 일자가 없습니다.");
+    if(concertSchedule == null) {
+      throw new RuntimeException("[콘서트아이디 : " + concertId + "] 콘서트 아이디에 해당하는 공연 일자가 없습니다.");
     }
 
-    return concertDateList;
+    return concertSchedule;
   }
 
   public List<Long> seatNoList(long concertId, LocalDate concertDate) {
@@ -33,7 +33,7 @@ public class ConcertReader {
                                                              concertDate,
                                                              SeatStatus.AVAILABLE);
 
-    if(seatNoList.isEmpty()) {
+    if(seatNoList == null) {
       throw new RuntimeException("[콘서트아이디 : " + concertId + "] 예약 가능한 좌석이 없습니다.");
     }
 

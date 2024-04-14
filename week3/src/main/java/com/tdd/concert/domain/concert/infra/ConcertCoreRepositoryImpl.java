@@ -19,8 +19,8 @@ public class ConcertCoreRepositoryImpl implements ConcertCoreRepository {
   private final ConcertJpaRepository concertJpaRepository;
 
   @Override
-  public List<LocalDate> availableConcertDate(long concertId) {
-    return concertJpaRepository.availableConcertDate(concertId);
+  public List<LocalDate> availableConcertSchedule(long concertId) {
+    return concertJpaRepository.availableConcertSchedule(concertId);
   }
 
   @Override

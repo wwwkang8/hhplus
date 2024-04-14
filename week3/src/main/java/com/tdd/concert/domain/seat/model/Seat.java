@@ -3,6 +3,7 @@ package com.tdd.concert.domain.seat.model;
 import java.time.LocalDateTime;
 
 import com.tdd.concert.domain.concert.model.Concert;
+import com.tdd.concert.domain.concert.model.ConcertSchedule;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,5 +45,21 @@ public class Seat {
     @ManyToOne
     @JoinColumn(name ="concert_id")
     private Concert concert;
+
+    @ManyToOne
+    @JoinColumn(name ="concert_schedule_id")
+    private ConcertSchedule concertSchedule;
+
+    public void tempOccupy(Long userId) {
+        this.setTempReservedUserId(userId);
+        this.setTempReservedExpiredAt(LocalDateTime.now().plusMinutes(5));
+        this.setSeatStatus(SeatStatus.TEMPORARY_RESERVED);
+    }
+
+    public void expire() {
+        this.setTempReservedUserId(null);
+        this.setTempReservedExpiredAt(null);
+        this.setSeatStatus(SeatStatus.AVAILABLE);
+    }
 
 }

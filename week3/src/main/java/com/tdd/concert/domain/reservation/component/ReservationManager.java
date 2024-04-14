@@ -18,14 +18,7 @@ public class ReservationManager {
   private final ReservationValidator reservationValidator;
 
 
-  /**
-   * 예약 요건
-   * 1. 좌석정보, 사용자아이디, 콘서트정보, 날짜 받아온다
-   * 2. 좌석정보 => 해당 좌석 임시만료시간, 사용자 아이디 세팅
-   * 3. 콘서트정보, 날짜 유효한지 확인한다.
-   * 4.
-   * */
-
+  /** 좌석 예약 */
   @Transactional
   public Reservation reserve(ReservationRequest request) {
     log.info("[ReservationManager] reserve 메서드 시작");
