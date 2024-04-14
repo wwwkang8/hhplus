@@ -3,6 +3,7 @@ package com.tdd.concert.api.controller;
 import com.tdd.concert.api.controller.dto.request.PointRequest;
 import com.tdd.concert.api.controller.dto.response.PointResponse;
 import com.tdd.concert.api.usecase.ChargePointUseCase;
+import com.tdd.concert.api.usecase.GetPointUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PointController {
 
     private final ChargePointUseCase chargePointUseCase;
+    private final GetPointUseCase getPointUseCase;
 
     @GetMapping("/{userId}")
     public ResponseEntity<PointResponse> getPoint(@PathVariable long userId) {
-        return null;
+        return ResponseEntity.ok().body(getPointUseCase.getPoint(userId));
     }
 
     @PostMapping("/charge")
