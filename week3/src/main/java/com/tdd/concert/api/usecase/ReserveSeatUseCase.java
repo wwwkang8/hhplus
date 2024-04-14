@@ -4,6 +4,7 @@ import com.tdd.concert.api.controller.dto.request.ReservationRequest;
 import com.tdd.concert.api.controller.dto.response.ReservationResponse;
 import com.tdd.concert.domain.concert.component.ConcertManager;
 import com.tdd.concert.domain.concert.model.Concert;
+import com.tdd.concert.domain.concert.model.ConcertSchedule;
 import com.tdd.concert.domain.reservation.component.ReservationManager;
 import com.tdd.concert.domain.reservation.model.Reservation;
 import com.tdd.concert.domain.seat.component.SeatManager;
@@ -40,10 +41,12 @@ public class ReserveSeatUseCase {
       throw new RuntimeException("[좌석 예약] 존재하지  콘서트입니다.");
     }
 
-    // 좌석번호에 대한 좌석을 조회한다.
     /** TODO 만약에 동시에 여러명이 이 좌석을 예약하려고 할 땐??
      * */
-    Seat occupiedSeat = seatManager.occupy(request.getSeatNo(), concert.getConcertId(), user);
+    Seat occupiedSeat = seatManager.occupy(request.getSeatNo(),
+                                           concert.getConcertId(),
+                                           request.getConcertDate(),
+                                           user);
 
     ReservationRequest reservationRequest = new ReservationRequest(user, concert, occupiedSeat);
 
