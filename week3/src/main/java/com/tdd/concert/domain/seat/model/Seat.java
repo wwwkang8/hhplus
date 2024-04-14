@@ -62,4 +62,9 @@ public class Seat {
         this.setSeatStatus(SeatStatus.AVAILABLE);
     }
 
+    public Seat(long seatNo, int price, SeatStatus seatStatus) {
+        this.seatNo = seatNo;
+        this.price = price;
+        this.seatStatus = seatStatus;
+    }
 }

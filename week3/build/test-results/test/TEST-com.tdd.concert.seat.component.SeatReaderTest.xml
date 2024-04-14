@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.seat.component.SeatReaderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-14T02:55:30" hostname="Jeongui-MacBookPro.local" time="1.395">
+  <properties/>
+  <testcase name="좌석조회시 Null을 리턴한다." classname="com.tdd.concert.seat.component.SeatReaderTest" time="1.395"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
