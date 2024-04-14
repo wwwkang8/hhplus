@@ -50,4 +50,10 @@ public class Seat {
     @JoinColumn(name ="concert_schedule_id")
     private ConcertSchedule concertSchedule;
 
+    public void tempOccupy(Long userId) {
+        this.setTempReservedUserId(userId);
+        this.setTempReservedExpiredAt(LocalDateTime.now().plusMinutes(5));
+        this.setSeatStatus(SeatStatus.TEMPORARY_RESERVED);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.tdd.concert.domain.seat.component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.tdd.concert.domain.concert.model.Concert;
@@ -21,33 +22,27 @@ public class SeatManager {
   private final SeatCoreRepository seatCoreRepository;
 
   /** 좌석번호를 조회하는 메서드. */
-  public Seat findSeatBySeatNoAndConcert(Long seatNo, Concert concert) {
-    return seatCoreRepository.findSeatBySeatNoAndConcert(seatNo, concert);
+  public Seat findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate) {
+    return seatCoreRepository.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
   }
 
   /** 비관적락으로 좌석을 조회하는 메서드
    * 좌석예약시에만 활용한다. */
-  public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId) {
-    return seatCoreRepository.findSeatBySeatNoWithExclusiveLock(seatNo, concertId);
+  public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId, LocalDate concertDate) {
+    return seatCoreRepository.findSeatBySeatNoWithExclusiveLock(seatNo, concertId, concertDate);
   }
 
   @Transactional
-  public Seat occupy(Long seatNo, Long concertId, User user) {
+  public Seat occupy(Long seatNo, Long concertId, LocalDate concertDate, User user) {
 
     /** 비관적락으로 Seat 조회 */
-    Seat seat = findSeatBySeatNoWithExclusiveLock(seatNo, concertId);
+    Seat seat = findSeatBySeatNoWithExclusiveLock(seatNo, concertId, concertDate);
 
-    if(seat.getSeatStatus() == SeatStatus.TEMPORARY_RESERVED) {
-      throw new RuntimeException("이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : " + seat.getSeatNo());
-
-    } else if(seat.getSeatStatus() == SeatStatus.SOLDOUT) {
-      throw new RuntimeException("이미 판매완료된 좌석입니다. 좌석번호 : " + seat.getSeatNo());
-    }
+    /** 좌석 검증처리 */
+    seatValidator.validate(seat);
 
     /** 좌석의 임시배정만료시각, 임시배정 사용자아이디, 좌석예약상태를 설정 후 저장. */
-    seat.setTempReservedExpiredAt(LocalDateTime.now().plusMinutes(5));
-    seat.setTempReservedUserId(user.getUserId());
-    seat.setSeatStatus(SeatStatus.TEMPORARY_RESERVED);
+    seat.tempOccupy(user.getUserId());
 
     return seatCoreRepository.save(seat);
   }

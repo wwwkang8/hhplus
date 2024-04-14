@@ -1,5 +1,7 @@
 package com.tdd.concert.domain.seat.infra;
 
+import java.time.LocalDate;
+
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.seat.model.Seat;
 import com.tdd.concert.domain.seat.repository.SeatCoreRepository;
@@ -16,13 +18,13 @@ public class SeatCoreRepositoryImpl implements SeatCoreRepository {
   private final SeatJpaRepository seatJpaRepository;
 
   @Override
-  public Seat findSeatBySeatNoAndConcert(Long seatNo, Concert concert) {
-    return seatJpaRepository.findSeatBySeatNoAndConcert(seatNo, concert);
+  public Seat findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate) {
+    return seatJpaRepository.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
   }
 
   @Override
-  public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId) {
-    return seatJpaRepository.findSeatBySeatNoWithExclusiveLock(seatNo, concertId);
+  public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId, LocalDate concertDate) {
+    return seatJpaRepository.findSeatBySeatNoWithExclusiveLock(seatNo, concertId, concertDate);
   }
 
   @Override
