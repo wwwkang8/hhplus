@@ -1,10 +1,24 @@
 package com.tdd.concert.api.controller.dto.request;
 
+import com.tdd.concert.domain.point.model.PointRscd;
+import com.tdd.concert.domain.user.model.User;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.SecondaryRow;
+
+@Getter
+@Setter
+@ToString
 public class PointRequest {
 
   private long userId;
 
   private int amount;
+
+  private PointRscd pointRscd;
+
+  private User user;
 
   public PointRequest() {
   }
@@ -14,19 +28,9 @@ public class PointRequest {
     this.amount = amount;
   }
 
-  public long getUserId() {
-    return userId;
-  }
-
-  public void setUserId(long userId) {
+  public PointRequest(long userId, int amount, PointRscd pointRscd) {
     this.userId = userId;
-  }
-
-  public int getAmount() {
-    return amount;
-  }
-
-  public void setAmount(int amount) {
     this.amount = amount;
+    this.pointRscd = pointRscd;
   }
 }
