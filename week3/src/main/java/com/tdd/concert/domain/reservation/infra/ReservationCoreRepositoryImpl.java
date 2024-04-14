@@ -22,4 +22,9 @@ public class ReservationCoreRepositoryImpl implements ReservationCoreRepository 
 
     return reservationJpaRepository.save(reservation);
   }
+
+  @Override
+  public Reservation findReservationByUserIdAndSeatId(Long userId, Long seatId) {
+    return reservationJpaRepository.findReservationByUserIdAndSeatId(userId, seatId);
+  }
 }

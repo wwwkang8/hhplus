@@ -21,6 +21,9 @@ public class SeatManager {
   private final SeatValidator seatValidator;
   private final SeatReader seatReader;
 
+  public Seat findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate) {
+    return seatReader.findSeatBySeatNoWithExclusiveLock(seatNo, concertId, concertDate);
+  }
 
   @Transactional
   public Seat occupy(Long seatNo, Long concertId, LocalDate concertDate, User user) {

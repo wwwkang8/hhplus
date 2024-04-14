@@ -99,4 +99,9 @@ public class Token {
   public TokenResponse to(long userId, String token, long waitNo) {
     return new TokenResponse(userId, token, waitNo);
   }
+
+  public void expireToken() {
+    this.setProgressStatus(ProgressStatus.FINISHED);
+    this.setUpdatedAt(LocalDateTime.now());
+  }
 }

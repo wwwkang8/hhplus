@@ -78,4 +78,10 @@ public class TokenManagerImpl implements TokenManager{
     return tokenResponse;
   }
 
+  @Override
+  public void expireToken(String token) {
+    Token usedToken = tokenReader.findTokenByToken(token);
+    usedToken.expireToken();
+  }
+
 }

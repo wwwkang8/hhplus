@@ -35,6 +35,10 @@ public class ReservationManager {
     return reservationStore.reserveSeat(reservation);
   }
 
+  public Reservation findReservationByReservationId(Long userId, Long seatId) {
+    return reservationReader.findReservationByReservationId(userId, seatId);
+  }
+
 
 
 
