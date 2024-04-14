@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.seat.component.SeatReaderTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-04-14T04:18:54" hostname="Jeongui-MacBookPro.local" time="0.021">
+  <properties/>
+  <testcase name="좌석번호를 조회한다." classname="com.tdd.concert.seat.component.SeatReaderTest" time="0.007"/>
+  <testcase name="비관적락으로 좌석번호를 조회한다" classname="com.tdd.concert.seat.component.SeatReaderTest" time="0.005"/>
+  <testcase name="없는 좌석조회시 Null을 리턴한다." classname="com.tdd.concert.seat.component.SeatReaderTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

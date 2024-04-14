@@ -1,4 +1,4 @@
-package com.tdd.concert.concertSeat.component;
+package com.tdd.concert.concert.component;
 
 
 import static org.mockito.ArgumentMatchers.anyLong;

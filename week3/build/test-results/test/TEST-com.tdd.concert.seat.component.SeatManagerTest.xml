@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.seat.component.SeatManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-14T04:18:53" hostname="Jeongui-MacBookPro.local" time="1.219">
+  <properties/>
+  <testcase name="좌석을 임시배정한다." classname="com.tdd.concert.seat.component.SeatManagerTest" time="1.219"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
