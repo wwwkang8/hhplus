@@ -56,4 +56,10 @@ public class Seat {
         this.setSeatStatus(SeatStatus.TEMPORARY_RESERVED);
     }
 
+    public void expire() {
+        this.setTempReservedUserId(null);
+        this.setTempReservedExpiredAt(null);
+        this.setSeatStatus(SeatStatus.AVAILABLE);
+    }
+
 }

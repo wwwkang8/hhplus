@@ -1,9 +1,11 @@
 package com.tdd.concert.domain.seat.infra;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.seat.model.Seat;
+import com.tdd.concert.domain.seat.model.SeatStatus;
 import com.tdd.concert.domain.seat.repository.SeatCoreRepository;
 import com.tdd.concert.domain.seat.repository.SeatJpaRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,11 @@ public class SeatCoreRepositoryImpl implements SeatCoreRepository {
   @Override
   public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId, LocalDate concertDate) {
     return seatJpaRepository.findSeatBySeatNoWithExclusiveLock(seatNo, concertId, concertDate);
+  }
+
+  @Override
+  public List<Seat> findTempReservationExpiredSeatList(SeatStatus seatStatus) {
+    return seatJpaRepository.findTempReservationExpiredSeatList(seatStatus);
   }
 
   @Override
