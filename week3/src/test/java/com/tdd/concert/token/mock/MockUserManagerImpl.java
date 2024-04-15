@@ -26,4 +26,14 @@ public class MockUserManagerImpl implements UserManager {
   public User findUserById(Long userId) {
     return null;
   }
+
+  @Override
+  public User chargePoint(long userId, int amount) {
+    return null;
+  }
+
+  @Override
+  public User usePoint(long userId, int amount) {
+    return null;
+  }
 }

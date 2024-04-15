@@ -88,7 +88,7 @@ public class PaymentUseCase {
      * 유저ID, 좌석ID를 사용해서 예약내역 조회.
      * 조회한 예약내역의 상태값을 SUCCESS(예약성공)로 변경한다.
      * */
-    Reservation reservation = reservationManager.findReservationByReservationId(user.getUserId(), seat.getSeatId());
+    Reservation reservation = reservationManager.findReservationByUserIdAndSeatId(user.getUserId(), seat.getSeatId());
     reservation.setReservationStatus(ReservationStatus.RESERVATION_SUCCESS);
 
     // 결제 매니저로 포인트 차감하고, 결제내역 생성

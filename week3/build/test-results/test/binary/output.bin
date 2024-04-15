@@ -1,1 +1,1 @@
-�13:35:55.137 [Test worker] INFO com.tdd.concert.domain.reservation.component.ReservationManager -- [ReservationManager] reserve 메서드 시작
+�23:41:08.627 [Test worker] INFO com.tdd.concert.domain.reservation.component.ReservationValidator -- [ReservationValidator] validate 메서드 시작
