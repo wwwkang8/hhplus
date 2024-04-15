@@ -9,4 +9,6 @@ public interface ReservationCoreRepository {
 
   public Reservation reserveSeat(Reservation reservation);
 
+  public Reservation findReservationByUserIdAndSeatId(Long userId, Long seatId);
+
 }

@@ -3,7 +3,17 @@ package com.tdd.concert.api.controller.dto.response;
 import java.time.LocalDate;
 
 import com.tdd.concert.api.controller.mockapi.PaymentResult;
+import com.tdd.concert.domain.payment.model.Payment;
+import com.tdd.concert.domain.reservation.model.Reservation;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Getter
+@Setter
+@ToString
+@Builder
 public class PaymentResponse {
 
   private long userId;
@@ -41,51 +51,17 @@ public class PaymentResponse {
     this.paymentResult = paymentResult;
   }
 
-  public long getUserId() {
-    return userId;
-  }
+  public static PaymentResponse from(Payment payment) {
 
-  public void setUserId(long userId) {
-    this.userId = userId;
-  }
+    return PaymentResponse.builder()
+                          .userId(payment.getUser().getUserId())
+                          .token(payment.getUser().getToken())
+                          .concertId(payment.getReservation().getConcert().getConcertId())
+                          .concertDate(payment.getReservation().getSeat().getConcertSchedule()
+                              .getConcertDate())
+                          .seatNo(payment.getReservation().getSeat().getSeatNo())
+                          .paymentResult(PaymentResult.SUCCESS)
+                          .build();
 
-  public String getToken() {
-    return token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public long getConcertId() {
-    return concertId;
-  }
-
-  public void setConcertId(long concertId) {
-    this.concertId = concertId;
-  }
-
-  public LocalDate getConcertDate() {
-    return concertDate;
-  }
-
-  public void setConcertDate(LocalDate concertDate) {
-    this.concertDate = concertDate;
-  }
-
-  public long getSeatNo() {
-    return seatNo;
-  }
-
-  public void setSeatNo(long seatNo) {
-    this.seatNo = seatNo;
-  }
-
-  public PaymentResult getPaymentResult() {
-    return paymentResult;
-  }
-
-  public void setPaymentResult(PaymentResult paymentResult) {
-    this.paymentResult = paymentResult;
   }
 }

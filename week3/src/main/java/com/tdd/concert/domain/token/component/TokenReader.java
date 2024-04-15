@@ -1,5 +1,6 @@
 package com.tdd.concert.domain.token.component;
 
+import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import jdk.jfr.Registered;
@@ -38,6 +39,10 @@ public class TokenReader {
     }else{
       return ProgressStatus.WAIT;
     }
+  }
+
+  public Token findTokenByToken(String token) {
+    return tokenCoreRepository.findByToken(token);
   }
 
 }
