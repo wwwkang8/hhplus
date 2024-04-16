@@ -1,6 +1,7 @@
 package com.tdd.concert.domain.token.component;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
@@ -37,12 +38,23 @@ public class TokenScheduler {
                     // 토큰의 속성을 변경하고 저장하는 부분
                     token.setExpiredAtAndStatus(LocalDateTime.now().plusMinutes(10)
                                                 , ProgressStatus.ONGOING);
-
-                    // @Transactional 어노테이션 때문에 save 메서드 불필요
-                    //tokenCoreRepository.save(token);
                 }
 
             }
         }
     }
+
+
+    @Scheduled(cron = "0 * * * * *")
+    @Transactional
+    public void dropToken() {
+        List<Token> tokenList = tokenCoreRepository.findExpiredTokenList(ProgressStatus.ONGOING);
+
+        for(Token token : tokenList) {
+            if(token.getExpiredAt().isBefore(LocalDateTime.now())) {
+                token.dropToken();
+            }
+        }
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.tdd.concert.domain.token.infra;
 
+import java.util.List;
+
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.repository.TokenCoreRepository;
 import com.tdd.concert.domain.token.repository.TokenJpaRepository;
@@ -43,5 +45,10 @@ public class TokenCoreRepositoryImpl implements TokenCoreRepository {
   @Override
   public Long getProgressStatusCount(ProgressStatus status) {
     return tokenJpaRepository.getProgressStatusCount(status);
+  }
+
+  @Override
+  public List<Token> findExpiredTokenList(ProgressStatus status) {
+    return tokenJpaRepository.findExpiredTokenList(status);
   }
 }
