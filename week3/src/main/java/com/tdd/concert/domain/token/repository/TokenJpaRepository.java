@@ -1,5 +1,7 @@
 package com.tdd.concert.domain.token.repository;
 
+import java.util.List;
+
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,5 +23,8 @@ public interface TokenJpaRepository extends JpaRepository<Token, Long> {
 
   @Query("SELECT MIN(t.waitNo) FROM Token t WHERE t.progressStatus = :progressStatus")
   public Long getNextPriorityWaitNo(@Param("progressStatus") ProgressStatus progressStatus);
+
+  @Query("SELECT t FROM Token t WHERE t.progressStatus = :progressStatus")
+  public List<Token> findExpiredTokenList(ProgressStatus progressStatus);
 
 }

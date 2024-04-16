@@ -100,8 +100,15 @@ public class Token {
     return new TokenResponse(userId, token, waitNo);
   }
 
+  /** 결제처리가 완료되어 토큰이 만료처리 */
   public void expireToken() {
     this.setProgressStatus(ProgressStatus.FINISHED);
+    this.setUpdatedAt(LocalDateTime.now());
+  }
+
+  /** 토큰 만료시각이 지나서 토큰 만료처리 */
+  public void dropToken() {
+    this.setProgressStatus(ProgressStatus.DROP);
     this.setUpdatedAt(LocalDateTime.now());
   }
 }
