@@ -28,6 +28,11 @@ public class UserManagerImpl implements UserManager{
   @Override
   @Transactional
   public User chargePoint(long userId, int amount) {
+
+    if(amount <= 0) {
+      throw new RuntimeException("0원 이하는 충전할 수 없습니다.");
+    }
+
     User user = userReader.findUserById(userId);
     int totalPoint = user.getPoint() + amount;
     user.setPoint(totalPoint);
@@ -39,6 +44,10 @@ public class UserManagerImpl implements UserManager{
   public User usePoint(long userId, int amount) {
     User user = userReader.findUserById(userId);
     int totalPoint = user.getPoint() - amount;
+
+    if(amount <= 0) {
+      throw new RuntimeException("0원 이하는 사용할 수 없습니다.");
+    }
 
     if(totalPoint < 0) {
       throw new RuntimeException("잔액이 부족합니다. 사용자ID : "+userId+", 잔액:"+user.getPoint());
