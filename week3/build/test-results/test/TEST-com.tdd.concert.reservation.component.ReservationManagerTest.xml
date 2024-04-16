@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.reservation.component.ReservationManagerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-04-16T14:14:16" hostname="Jeongui-MacBookPro.local" time="0.179">
-  <properties/>
-  <testcase name="[좌석예약처리] 좌석예약이 정상적으로 실행." classname="com.tdd.concert.reservation.component.ReservationManagerTest" time="0.164"/>
-  <testcase name="[좌석예약처리2] 좌석예약시 상태는 임시배정상태" classname="com.tdd.concert.reservation.component.ReservationManagerTest" time="0.012"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
