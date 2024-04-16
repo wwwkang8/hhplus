@@ -1,5 +1,6 @@
 package com.tdd.concert.api.controller;
 
+import com.tdd.concert.api.controller.dto.request.TokenRequest;
 import com.tdd.concert.api.controller.dto.response.TokenResponse;
 import com.tdd.concert.api.usecase.CreateTokenUseCase;
 import com.tdd.concert.api.usecase.ValidateTokenUseCase;
@@ -24,11 +25,19 @@ public class TokenController {
 
   @PostMapping("")
   public ResponseEntity<TokenResponse> insertQueue(HttpServletRequest request) {
-    return ResponseEntity.ok().body(createTokenUseCase.insertQueue(request));
+
+    String token = request.getHeader("Authorization");
+    TokenRequest tokenRequest = new TokenRequest(token);
+
+    return ResponseEntity.ok().body(createTokenUseCase.insertQueue(tokenRequest));
   }
 
   @GetMapping("")
   public ResponseEntity<TokenResponse> validateToken(HttpServletRequest request) {
-    return ResponseEntity.ok().body(validateTokenUseCase.validateToken(request));
+
+    String token = request.getHeader("Authorization");
+    TokenRequest tokenRequest = new TokenRequest(token);
+
+    return ResponseEntity.ok().body(validateTokenUseCase.validateToken(tokenRequest));
   }
 }

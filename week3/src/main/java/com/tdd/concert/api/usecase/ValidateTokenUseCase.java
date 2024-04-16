@@ -15,11 +15,7 @@ public class ValidateTokenUseCase {
 
     private final TokenManager tokenManager;
 
-    public TokenResponse validateToken(HttpServletRequest request) {
-
-        String token = request.getHeader("Authorization");
-        TokenRequest tokenRequest = new TokenRequest(token);
-
+    public TokenResponse validateToken(TokenRequest tokenRequest) {
         return tokenManager.validateToken(tokenRequest);
     }
 }

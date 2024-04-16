@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - CreateTokenIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>CreateTokenIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.tdd.concert.api.usecase.html">com.tdd.concert.api.usecase</a> &gt; CreateTokenIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1.328s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">토큰이 없어서 토큰을 발급한다.</td>
+<td class="success">case1()</td>
+<td class="success">0.713s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">현재 존재하는 사용자의 토큰인 경우 토큰으로 사용자조회</td>
+<td class="success">case2()</td>
+<td class="success">0.087s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">50명이 넘는 사용자가 대기열에 들어오는 경우 51번쨰 사용자는 대기상태</td>
+<td class="success">case3()</td>
+<td class="success">0.528s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>02:47:12.812 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.CreateTokenIntegrationTest]: CreateTokenIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:47:12.951 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.CreateTokenIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-04-17T02:47:13.388+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.a.u.CreateTokenIntegrationTest     : Starting CreateTokenIntegrationTest using Java 17.0.10 with PID 10543 (started by jeonghokang in /Users/jeonghokang/IdeaProjects/hhplus/week3)
+2024-04-17T02:47:13.391+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.a.u.CreateTokenIntegrationTest     : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-04-17T02:47:14.230+09:00  INFO 10543 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-17T02:47:14.333+09:00  INFO 10543 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 8 JPA repository interfaces.
+2024-04-17T02:47:14.842+09:00  INFO 10543 --- [concert] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-17T02:47:14.891+09:00  INFO 10543 --- [concert] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-17T02:47:14.929+09:00  INFO 10543 --- [concert] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-17T02:47:15.167+09:00  INFO 10543 --- [concert] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-17T02:47:15.196+09:00  INFO 10543 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-17T02:47:15.548+09:00  INFO 10543 --- [concert] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@638977e0
+2024-04-17T02:47:15.550+09:00  INFO 10543 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-17T02:47:16.460+09:00  INFO 10543 --- [concert] [    Test worker] o.h.m.i.EntityInstantiatorPojoStandard   : HHH000182: No default (no-argument) constructor for class: com.tdd.concert.domain.concert.model.ConcertSchedule (class must be instantiated by Interceptor)
+2024-04-17T02:47:16.615+09:00  INFO 10543 --- [concert] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: alter table concert_schedule drop foreign key FK3ry7aiaia6ooa3ajwf6w6soci
+Hibernate: alter table payment drop foreign key FKrewpj5f9v9xehy4ga8g221nw1
+Hibernate: alter table payment drop foreign key FK4spfnm9si9dowsatcqs5or42i
+Hibernate: alter table point_history drop foreign key FK9yptgx9qhcp768sokuopwxncm
+Hibernate: alter table reservation drop foreign key FKjnsh2q045ch4uso5vnb0477dq
+Hibernate: alter table reservation drop foreign key FKewd3sohjspqf2sjjvdcmcefpb
+Hibernate: alter table reservation drop foreign key FKm4oimk0l1757o9pwavorj6ljg
+Hibernate: alter table seat drop foreign key FKg0ccmmdn3894408ig1rdcgm9g
+Hibernate: alter table seat drop foreign key FKjtsoupodivwr6xa4vk02e2qol
+Hibernate: alter table token drop foreign key FKe32ek7ixanakfqsdaokm4q9y2
+Hibernate: drop table if exists concert
+Hibernate: drop table if exists concert_schedule
+Hibernate: drop table if exists payment
+Hibernate: drop table if exists point_history
+Hibernate: drop table if exists reservation
+Hibernate: drop table if exists seat
+Hibernate: drop table if exists token
+Hibernate: drop table if exists user
+Hibernate: create table concert (concert_id bigint not null auto_increment, name varchar(255), singer varchar(255), primary key (concert_id)) engine=InnoDB
+Hibernate: create table concert_schedule (concert_date date, concert_id bigint, concert_schedule_id bigint not null auto_increment, primary key (concert_schedule_id)) engine=InnoDB
+Hibernate: create table payment (pay_amount integer, created_at datetime(6), payment_id bigint not null auto_increment, reservation_id bigint, user_id bigint, primary key (payment_id)) engine=InnoDB
+Hibernate: create table point_history (amount integer, point_rscd tinyint check (point_rscd between 0 and 1), created_at datetime(6), point_history_id bigint not null auto_increment, user_id bigint, primary key (point_history_id)) engine=InnoDB
+Hibernate: create table reservation (reservation_date date, reservation_status tinyint check (reservation_status between 0 and 2), concert_id bigint, reservation_id bigint not null auto_increment, seat_id bigint, user_id bigint, primary key (reservation_id)) engine=InnoDB
+Hibernate: create table seat (price integer, seat_status tinyint check (seat_status between 0 and 2), concert_id bigint, concert_schedule_id bigint, seat_id bigint not null auto_increment, seat_no bigint, temp_reserved_expired_at datetime(6), temp_reserved_user_id bigint, primary key (seat_id)) engine=InnoDB
+Hibernate: create table token (progress_status tinyint check (progress_status between 0 and 3), created_at datetime(6), expired_at datetime(6), token_id bigint not null auto_increment, updated_at datetime(6), user_id bigint, wait_no bigint, token varchar(255), primary key (token_id)) engine=InnoDB
+Hibernate: create table user (point integer, user_id bigint not null auto_increment, token varchar(255), primary key (user_id)) engine=InnoDB
+Hibernate: alter table payment add constraint UK_3llq7oxcs9j7vlujfdf16jmu unique (reservation_id)
+Hibernate: alter table reservation add constraint UK_cpo7s1xo509p8s2b4nocw6cq5 unique (seat_id)
+Hibernate: alter table concert_schedule add constraint FK3ry7aiaia6ooa3ajwf6w6soci foreign key (concert_id) references concert (concert_id)
+Hibernate: alter table payment add constraint FKrewpj5f9v9xehy4ga8g221nw1 foreign key (reservation_id) references reservation (reservation_id)
+Hibernate: alter table payment add constraint FK4spfnm9si9dowsatcqs5or42i foreign key (user_id) references user (user_id)
+Hibernate: alter table point_history add constraint FK9yptgx9qhcp768sokuopwxncm foreign key (user_id) references user (user_id)
+Hibernate: alter table reservation add constraint FKjnsh2q045ch4uso5vnb0477dq foreign key (concert_id) references concert (concert_id)
+Hibernate: alter table reservation add constraint FKewd3sohjspqf2sjjvdcmcefpb foreign key (seat_id) references seat (seat_id)
+Hibernate: alter table reservation add constraint FKm4oimk0l1757o9pwavorj6ljg foreign key (user_id) references user (user_id)
+Hibernate: alter table seat add constraint FKg0ccmmdn3894408ig1rdcgm9g foreign key (concert_id) references concert (concert_id)
+Hibernate: alter table seat add constraint FKjtsoupodivwr6xa4vk02e2qol foreign key (concert_schedule_id) references concert_schedule (concert_schedule_id)
+Hibernate: alter table token add constraint FKe32ek7ixanakfqsdaokm4q9y2 foreign key (user_id) references user (user_id)
+2024-04-17T02:47:17.054+09:00  INFO 10543 --- [concert] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-17T02:47:17.305+09:00  INFO 10543 --- [concert] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-17T02:47:18.447+09:00  WARN 10543 --- [concert] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-17T02:47:18.976+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.a.u.CreateTokenIntegrationTest     : Started CreateTokenIntegrationTest in 5.864 seconds (process running for 7.095)
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.575+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c4ca4238-a0b9-3382-8dcc-509a6f75849b, 사용자ID : 1
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.668+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 0
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.713+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c81e728d-9d4c-3f63-af06-7f89cc14862c, 사용자ID : 2
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.718+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 1
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.801+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : eccbc87e-4b5c-32fe-a830-8fd9f2a7baf3, 사용자ID : 3
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.805+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 2
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.812+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a87ff679-a2f3-371d-9181-a67b7542122c, 사용자ID : 4
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.816+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 3
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.823+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : e4da3b7f-bbce-3345-9777-2b0674a318d5, 사용자ID : 5
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.827+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 4
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.833+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 1679091c-5a88-3faf-afb5-e6087eb1b2dc, 사용자ID : 6
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.837+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 5
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.843+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 8f14e45f-ceea-367a-9a36-dedd4bea2543, 사용자ID : 7
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.847+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 6
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.854+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c9f0f895-fb98-3b91-99f5-1fd0297e236d, 사용자ID : 8
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.857+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 7
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.865+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 45c48cce-2e2d-3fbd-aa1a-fc51c7c6ad26, 사용자ID : 9
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.869+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 8
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.875+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : d3d94468-02a4-3259-b55d-38e6d163e820, 사용자ID : 10
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.880+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 9
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.887+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 6512bd43-d9ca-36e0-ac99-0b0a82652dca, 사용자ID : 11
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.890+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 10
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.897+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c20ad4d7-6fe9-3759-aa27-a0c99bff6710, 사용자ID : 12
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.901+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 11
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.909+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c51ce410-c124-310e-8db5-e4b97fc2af39, 사용자ID : 13
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.914+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 12
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.921+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : aab32389-22bc-325a-af60-6eb525ffdc56, 사용자ID : 14
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.924+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 13
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.931+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 9bf31c7f-f062-336a-96d3-c8bd1f8f2ff3, 사용자ID : 15
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.935+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 14
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.943+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c74d97b0-1eae-357e-84aa-9d5bade97baf, 사용자ID : 16
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.947+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 15
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.954+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 70efdf2e-c9b0-3607-9795-c442636b55fb, 사용자ID : 17
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.958+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 16
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.964+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 6f4922f4-5568-361a-8cdf-4ad2299f6d23, 사용자ID : 18
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.968+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 17
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.975+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 1f0e3dad-9990-3345-b743-9f8ffabdffc4, 사용자ID : 19
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.978+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 18
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.985+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 98f13708-2101-34c4-b568-7be6106a3b84, 사용자ID : 20
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.988+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 19
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:19.994+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 3c59dc04-8e88-3024-bbe8-079a5c74d079, 사용자ID : 21
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:19.997+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 20
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.003+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : b6d767d2-f8ed-3d21-a44b-0e5886680cb9, 사용자ID : 22
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.006+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 21
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.014+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 37693cfc-7480-39e4-9d87-b8c7d8b9aacd, 사용자ID : 23
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.018+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 22
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.024+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 1ff1de77-4005-38da-93f4-2943881c655f, 사용자ID : 24
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.027+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 23
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.034+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 8e296a06-7a37-3633-b0de-d05f5a3bf3ec, 사용자ID : 25
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.037+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 24
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.043+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 4e732ced-3463-306d-a0ca-9a15b6153677, 사용자ID : 26
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.046+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 25
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.052+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 02e74f10-e032-3ad8-a8d1-38f2b4fdd6f0, 사용자ID : 27
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.056+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 26
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.062+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 33e75ff0-9dd6-31bb-a69f-351039152189, 사용자ID : 28
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.065+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 27
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.072+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 6ea9ab1b-aa0e-3b9e-9909-4440c317e21b, 사용자ID : 29
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.075+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 28
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.081+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 34173cb3-8f07-389d-9beb-c2ac9128303f, 사용자ID : 30
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.084+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 29
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.090+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c16a5320-fa47-3530-9958-3c34fd356ef5, 사용자ID : 31
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.094+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 30
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.100+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 6364d3f0-f495-36ab-9dcf-8d3b5c6e0b01, 사용자ID : 32
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.104+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 31
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.110+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 182be0c5-cdcd-3072-bb18-64cdee4d3d6e, 사용자ID : 33
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.113+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 32
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.119+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : e369853d-f766-3a44-a1ed-0ff613f563bd, 사용자ID : 34
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.123+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 33
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.131+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 1c383cd3-0b7c-398a-b502-93adfecb7b18, 사용자ID : 35
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.135+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 34
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.144+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 19ca14e7-ea63-38a4-ae0e-b13d585e4c22, 사용자ID : 36
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.147+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 35
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.155+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a5bfc9e0-7964-38dd-9eb9-5fc584cd965d, 사용자ID : 37
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.159+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 36
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.166+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a5771bce-93e2-30c3-af7c-d9dfd0e5deaa, 사용자ID : 38
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.170+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 37
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.178+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : d67d8ab4-f4c1-3bf2-aaa3-53e27879133c, 사용자ID : 39
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.181+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 38
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.188+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : d645920e-395f-3dad-bbbb-ed0eca3fe2e0, 사용자ID : 40
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.192+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 39
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.199+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 3416a75f-4cea-3109-907c-acd8e2f2aefc, 사용자ID : 41
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.202+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 40
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.210+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a1d0c6e8-3f02-3327-9846-1063f4ac58a6, 사용자ID : 42
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.213+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 41
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.221+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 17e62166-fc85-36df-a4d1-bc0e1742c08b, 사용자ID : 43
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.225+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 42
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.233+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : f7177163-c833-3ff4-b38f-c8d2872f1ec6, 사용자ID : 44
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.236+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 43
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.242+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 6c8349cc-7260-3e62-a3b1-396831a8398f, 사용자ID : 45
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.246+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 44
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.253+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : d9d4f495-e875-32e0-b5a1-a4a6e1b9770f, 사용자ID : 46
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.256+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 45
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.261+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 67c6a1e7-ce56-33d6-ba74-8ab6d9af3fd7, 사용자ID : 47
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.264+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 46
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.269+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 642e92ef-b794-3173-8881-b53e1e1b18b6, 사용자ID : 48
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.273+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 47
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.279+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : f457c545-a9de-388f-98ec-ee47145a72c0, 사용자ID : 49
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.282+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 48
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.288+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c0c7c76d-30bd-3dca-afc9-6f40275bdc0a, 사용자ID : 50
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.292+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 49
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.297+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 2838023a-778d-3aec-9c21-2708f721b788, 사용자ID : 51
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.300+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 50
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.306+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 9a115815-4dfa-32ca-9dbd-0694a4e9bdc8, 사용자ID : 52
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.309+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 50
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T02:47:20.315+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : d82c8d16-19ad-3176-9665-453cfb2e55f0, 사용자ID : 53
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-17T02:47:20.318+09:00  INFO 10543 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 50
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 17. 오전 2:47:20</p>
+</div>
+</div>
+</body>
+</html>

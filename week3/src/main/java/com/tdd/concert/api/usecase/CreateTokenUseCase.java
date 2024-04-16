@@ -16,11 +16,7 @@ public class CreateTokenUseCase {
   private final TokenManager tokenManager;
 
 
-  public TokenResponse insertQueue(HttpServletRequest request) {
-
-    String token = request.getHeader("Authorization");
-    TokenRequest tokenRequest = new TokenRequest(token);
-
+  public TokenResponse insertQueue(TokenRequest tokenRequest) {
     if(tokenRequest.getToken() == null) {
       return tokenManager.insertQueue(tokenRequest);
     }else {
