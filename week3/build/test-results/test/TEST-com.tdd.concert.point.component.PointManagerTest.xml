@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.point.component.PointManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-16T13:45:09" hostname="Jeongui-MacBookPro.local" time="1.458">
+  <properties/>
+  <testcase name="포인트 내역을 생성한다." classname="com.tdd.concert.point.component.PointManagerTest" time="1.458"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
