@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - ChargePointIntegrationTest</title>
+<title>Test results - ConcertDateIntegrationTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>ChargePointIntegrationTest</h1>
+<h1>ConcertDateIntegrationTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/com.tdd.concert.api.usecase.html">com.tdd.concert.api.usecase</a> &gt; ChargePointIntegrationTest</div>
+<a href="../packages/com.tdd.concert.api.usecase.html">com.tdd.concert.api.usecase</a> &gt; ConcertDateIntegrationTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">2</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.777s</div>
+<div class="counter">1.020s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,9 +79,15 @@
 </tr>
 </thead>
 <tr>
-<td class="success">포인트가 음수인 경우 오류발생</td>
-<td class="success">case3()</td>
-<td class="success">0.777s</td>
+<td class="success">예약가능한 콘서트 날짜 조회</td>
+<td class="success">case1()</td>
+<td class="success">0.986s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">예약가능한 콘서트 날짜 조회</td>
+<td class="success">case2()</td>
+<td class="success">0.034s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -89,8 +95,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>01:11:25.794 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ChargePointIntegrationTest]: ChargePointIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-01:11:25.969 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ChargePointIntegrationTest
+<pre>01:51:28.553 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ConcertDateIntegrationTest]: ConcertDateIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:51:28.723 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ConcertDateIntegrationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -100,18 +106,19 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.4)
 
-2024-04-17T01:11:26.486+09:00  INFO 8243 --- [concert] [    Test worker] c.t.c.a.u.ChargePointIntegrationTest     : Starting ChargePointIntegrationTest using Java 17.0.10 with PID 8243 (started by jeonghokang in /Users/jeonghokang/IdeaProjects/hhplus/week3)
-2024-04-17T01:11:26.488+09:00  INFO 8243 --- [concert] [    Test worker] c.t.c.a.u.ChargePointIntegrationTest     : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-04-17T01:11:27.587+09:00  INFO 8243 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-17T01:11:27.686+09:00  INFO 8243 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.
-2024-04-17T01:11:28.221+09:00  INFO 8243 --- [concert] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-17T01:11:28.300+09:00  INFO 8243 --- [concert] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-04-17T01:11:28.342+09:00  INFO 8243 --- [concert] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-17T01:11:28.647+09:00  INFO 8243 --- [concert] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-17T01:11:28.681+09:00  INFO 8243 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-04-17T01:11:29.028+09:00  INFO 8243 --- [concert] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75bf9e67
-2024-04-17T01:11:29.031+09:00  INFO 8243 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-04-17T01:11:30.450+09:00  INFO 8243 --- [concert] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-17T01:51:29.286+09:00  INFO 9194 --- [concert] [    Test worker] c.t.c.a.u.ConcertDateIntegrationTest     : Starting ConcertDateIntegrationTest using Java 17.0.10 with PID 9194 (started by jeonghokang in /Users/jeonghokang/IdeaProjects/hhplus/week3)
+2024-04-17T01:51:29.288+09:00  INFO 9194 --- [concert] [    Test worker] c.t.c.a.u.ConcertDateIntegrationTest     : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-04-17T01:51:30.349+09:00  INFO 9194 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-17T01:51:30.457+09:00  INFO 9194 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 8 JPA repository interfaces.
+2024-04-17T01:51:30.998+09:00  INFO 9194 --- [concert] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-17T01:51:31.079+09:00  INFO 9194 --- [concert] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-17T01:51:31.120+09:00  INFO 9194 --- [concert] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-17T01:51:31.420+09:00  INFO 9194 --- [concert] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-17T01:51:31.459+09:00  INFO 9194 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-17T01:51:31.826+09:00  INFO 9194 --- [concert] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f20b6fe
+2024-04-17T01:51:31.828+09:00  INFO 9194 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-17T01:51:32.949+09:00  INFO 9194 --- [concert] [    Test worker] o.h.m.i.EntityInstantiatorPojoStandard   : HHH000182: No default (no-argument) constructor for class: com.tdd.concert.domain.concert.model.ConcertSchedule (class must be instantiated by Interceptor)
+2024-04-17T01:51:33.171+09:00  INFO 9194 --- [concert] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: alter table concert_schedule drop foreign key FK3ry7aiaia6ooa3ajwf6w6soci
 Hibernate: alter table payment drop foreign key FKrewpj5f9v9xehy4ga8g221nw1
 Hibernate: alter table payment drop foreign key FK4spfnm9si9dowsatcqs5or42i
@@ -150,11 +157,24 @@ Hibernate: alter table reservation add constraint FKm4oimk0l1757o9pwavorj6ljg fo
 Hibernate: alter table seat add constraint FKg0ccmmdn3894408ig1rdcgm9g foreign key (concert_id) references concert (concert_id)
 Hibernate: alter table seat add constraint FKjtsoupodivwr6xa4vk02e2qol foreign key (concert_schedule_id) references concert_schedule (concert_schedule_id)
 Hibernate: alter table token add constraint FKe32ek7ixanakfqsdaokm4q9y2 foreign key (user_id) references user (user_id)
-2024-04-17T01:11:30.983+09:00  INFO 8243 --- [concert] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-17T01:11:31.308+09:00  INFO 8243 --- [concert] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-04-17T01:11:32.819+09:00  WARN 8243 --- [concert] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-17T01:11:33.522+09:00  INFO 8243 --- [concert] [    Test worker] c.t.c.a.u.ChargePointIntegrationTest     : Started ChargePointIntegrationTest in 7.353 seconds (process running for 8.769)
-Hibernate: insert into user (point,token) values (?,?)
+2024-04-17T01:51:33.691+09:00  INFO 9194 --- [concert] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-17T01:51:34.042+09:00  INFO 9194 --- [concert] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-17T01:51:35.487+09:00  WARN 9194 --- [concert] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-17T01:51:36.187+09:00  INFO 9194 --- [concert] [    Test worker] c.t.c.a.u.ConcertDateIntegrationTest     : Started ConcertDateIntegrationTest in 7.269 seconds (process running for 8.847)
+Hibernate: insert into concert (name,singer) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: select cs1_0.concert_date from concert_schedule cs1_0 join concert c1_0 on c1_0.concert_id=cs1_0.concert_id where c1_0.concert_id=?
+Hibernate: insert into concert (name,singer) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: select cs1_0.concert_date from concert_schedule cs1_0 join concert c1_0 on c1_0.concert_id=cs1_0.concert_id where c1_0.concert_id=?
 </pre>
 </span>
 </div>
@@ -166,7 +186,7 @@ Hibernate: insert into user (point,token) values (?,?)
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 17. 오전 1:11:34</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 17. 오전 1:51:37</p>
 </div>
 </div>
 </body>
