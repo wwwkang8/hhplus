@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.ConcertApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-16T14:14:15" hostname="Jeongui-MacBookPro.local" time="0.664">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.tdd.concert.ConcertApplicationTests" time="0.664"/>
+  <system-out><![CDATA[23:14:07.144 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tdd.concert.ConcertApplicationTests]: ConcertApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:14:07.316 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.ConcertApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-04-16T23:14:07.964+09:00  INFO 4563 --- [concert] [    Test worker] c.tdd.concert.ConcertApplicationTests    : Starting ConcertApplicationTests using Java 17.0.10 with PID 4563 (started by jeonghokang in /Users/jeonghokang/IdeaProjects/hhplus/week3)
+2024-04-16T23:14:07.966+09:00  INFO 4563 --- [concert] [    Test worker] c.tdd.concert.ConcertApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-04-16T23:14:09.107+09:00  INFO 4563 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-16T23:14:09.230+09:00  INFO 4563 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 7 JPA repository interfaces.
+2024-04-16T23:14:09.826+09:00  INFO 4563 --- [concert] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-16T23:14:09.920+09:00  INFO 4563 --- [concert] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-16T23:14:09.968+09:00  INFO 4563 --- [concert] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-16T23:14:10.288+09:00  INFO 4563 --- [concert] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-16T23:14:10.327+09:00  INFO 4563 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-16T23:14:10.999+09:00  INFO 4563 --- [concert] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@73a49597
+2024-04-16T23:14:11.003+09:00  INFO 4563 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-16T23:14:12.491+09:00  INFO 4563 --- [concert] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: alter table concert_schedule drop foreign key FK3ry7aiaia6ooa3ajwf6w6soci
+Hibernate: alter table payment drop foreign key FKrewpj5f9v9xehy4ga8g221nw1
+Hibernate: alter table payment drop foreign key FK4spfnm9si9dowsatcqs5or42i
+Hibernate: alter table point_history drop foreign key FK9yptgx9qhcp768sokuopwxncm
+Hibernate: alter table reservation drop foreign key FKjnsh2q045ch4uso5vnb0477dq
+Hibernate: alter table reservation drop foreign key FKewd3sohjspqf2sjjvdcmcefpb
+Hibernate: alter table reservation drop foreign key FKm4oimk0l1757o9pwavorj6ljg
+Hibernate: alter table seat drop foreign key FKg0ccmmdn3894408ig1rdcgm9g
+Hibernate: alter table seat drop foreign key FKjtsoupodivwr6xa4vk02e2qol
+Hibernate: alter table token drop foreign key FKe32ek7ixanakfqsdaokm4q9y2
+Hibernate: drop table if exists concert
+Hibernate: drop table if exists concert_schedule
+Hibernate: drop table if exists payment
+Hibernate: drop table if exists point_history
+Hibernate: drop table if exists reservation
+Hibernate: drop table if exists seat
+Hibernate: drop table if exists token
+Hibernate: drop table if exists user
+Hibernate: create table concert (concert_id bigint not null auto_increment, name varchar(255), singer varchar(255), primary key (concert_id)) engine=InnoDB
+Hibernate: create table concert_schedule (concert_date date, concert_id bigint, concert_schedule_id bigint not null auto_increment, primary key (concert_schedule_id)) engine=InnoDB
+Hibernate: create table payment (pay_amount integer, created_at datetime(6), payment_id bigint not null auto_increment, reservation_id bigint, user_id bigint, primary key (payment_id)) engine=InnoDB
+Hibernate: create table point_history (amount integer, point_rscd tinyint check (point_rscd between 0 and 1), created_at datetime(6), point_history_id bigint not null auto_increment, user_id bigint, primary key (point_history_id)) engine=InnoDB
+Hibernate: create table reservation (reservation_date date, reservation_status tinyint check (reservation_status between 0 and 2), concert_id bigint, reservation_id bigint not null auto_increment, seat_id bigint, user_id bigint, primary key (reservation_id)) engine=InnoDB
+Hibernate: create table seat (price integer, seat_status tinyint check (seat_status between 0 and 2), concert_id bigint, concert_schedule_id bigint, seat_id bigint not null auto_increment, seat_no bigint, temp_reserved_expired_at datetime(6), temp_reserved_user_id bigint, primary key (seat_id)) engine=InnoDB
+Hibernate: create table token (progress_status tinyint check (progress_status between 0 and 3), created_at datetime(6), expired_at datetime(6), token_id bigint not null auto_increment, updated_at datetime(6), user_id bigint, wait_no bigint, token varchar(255), primary key (token_id)) engine=InnoDB
+Hibernate: create table user (point integer, user_id bigint not null auto_increment, token varchar(255), primary key (user_id)) engine=InnoDB
+Hibernate: alter table payment add constraint UK_3llq7oxcs9j7vlujfdf16jmu unique (reservation_id)
+Hibernate: alter table reservation add constraint UK_cpo7s1xo509p8s2b4nocw6cq5 unique (seat_id)
+Hibernate: alter table concert_schedule add constraint FK3ry7aiaia6ooa3ajwf6w6soci foreign key (concert_id) references concert (concert_id)
+Hibernate: alter table payment add constraint FKrewpj5f9v9xehy4ga8g221nw1 foreign key (reservation_id) references reservation (reservation_id)
+Hibernate: alter table payment add constraint FK4spfnm9si9dowsatcqs5or42i foreign key (user_id) references user (user_id)
+Hibernate: alter table point_history add constraint FK9yptgx9qhcp768sokuopwxncm foreign key (user_id) references user (user_id)
+Hibernate: alter table reservation add constraint FKjnsh2q045ch4uso5vnb0477dq foreign key (concert_id) references concert (concert_id)
+Hibernate: alter table reservation add constraint FKewd3sohjspqf2sjjvdcmcefpb foreign key (seat_id) references seat (seat_id)
+Hibernate: alter table reservation add constraint FKm4oimk0l1757o9pwavorj6ljg foreign key (user_id) references user (user_id)
+Hibernate: alter table seat add constraint FKg0ccmmdn3894408ig1rdcgm9g foreign key (concert_id) references concert (concert_id)
+Hibernate: alter table seat add constraint FKjtsoupodivwr6xa4vk02e2qol foreign key (concert_schedule_id) references concert_schedule (concert_schedule_id)
+Hibernate: alter table token add constraint FKe32ek7ixanakfqsdaokm4q9y2 foreign key (user_id) references user (user_id)
+2024-04-16T23:14:13.147+09:00  INFO 4563 --- [concert] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-16T23:14:13.490+09:00  INFO 4563 --- [concert] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-16T23:14:14.905+09:00  WARN 4563 --- [concert] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-16T23:14:15.571+09:00  INFO 4563 --- [concert] [    Test worker] c.tdd.concert.ConcertApplicationTests    : Started ConcertApplicationTests in 8.018 seconds (process running for 9.512)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

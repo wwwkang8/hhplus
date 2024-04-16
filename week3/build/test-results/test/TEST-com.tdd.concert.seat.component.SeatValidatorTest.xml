@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.seat.component.SeatValidatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-04-16T14:14:17" hostname="Jeongui-MacBookPro.local" time="0.012">
+  <properties/>
+  <testcase name="임시배정이 되지 않은 좌석은 정상 통과." classname="com.tdd.concert.seat.component.SeatValidatorTest" time="0.003"/>
+  <testcase name="이미 임시배정된 좌석을 다시 임시배정하는 경우 오류발생." classname="com.tdd.concert.seat.component.SeatValidatorTest" time="0.003"/>
+  <testcase name="이미 판매완료된 좌석을 다시 임시배정하는 경우 오류발생." classname="com.tdd.concert.seat.component.SeatValidatorTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
