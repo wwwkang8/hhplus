@@ -37,11 +37,11 @@ public class CreateTokenIntegrationTest {
   @DisplayName("토큰이 없어서 토큰을 발급한다.")
   @Test
   void case1() {
-    // given
+    // given : 빈 토큰으로 TokenRequest 객체 생성한다.
     String token = null;
     TokenRequest request = new TokenRequest(token);
 
-    // when
+    // when : 토큰이 없는 경우 신규토큰을 발행
     TokenResponse response = createTokenUseCase.insertQueue(request);
 
     // then
@@ -55,13 +55,14 @@ public class CreateTokenIntegrationTest {
     String expectedTime = LocalDateTime.now().plusMinutes(10).format(formatter);
     String actualTime = response.getExpiredAt().format(formatter);
 
+    // 토큰 만료시각을 검증
     assertEquals(expectedTime, actualTime);
   }
 
   @DisplayName("현재 존재하는 사용자의 토큰인 경우 토큰으로 사용자조회")
   @Test
   void case2() {
-    // given
+    // given : 토큰을 일부러 1개 신규 생성
     String token = null;
     TokenRequest request = new TokenRequest(token);
     TokenResponse response1 = createTokenUseCase.insertQueue(request);
@@ -69,7 +70,7 @@ public class CreateTokenIntegrationTest {
     String token2 = response1.getToken();
     TokenRequest request2 = new TokenRequest(token2);
 
-    // when
+    // when : 생성된 토큰을 가지고 TokenRequest를 생성하여 대기열 추가 메서드 호출
     TokenResponse response = createTokenUseCase.insertQueue(request2);
 
     // then

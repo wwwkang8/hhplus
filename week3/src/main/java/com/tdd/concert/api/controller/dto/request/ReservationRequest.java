@@ -45,4 +45,23 @@ public class ReservationRequest {
     this.concertId = concertId;
     this.concertDate = concertDate;
   }
+
+  public ReservationRequest(long userId, String token, long concertId,
+                            LocalDate concertDate, long seatNo) {
+    this.userId = userId;
+    this.token = token;
+    this.concertId = concertId;
+    this.concertDate = concertDate;
+    this.seatNo = seatNo;
+  }
+
+  public ReservationRequest(long userId, String token, long concertId,
+                            LocalDate concertDate, Seat seat) {
+    this.userId = userId;
+    this.token = token;
+    this.concertId = concertId;
+    this.concertDate = concertDate;
+    this.seat = seat;
+  }
+
 }

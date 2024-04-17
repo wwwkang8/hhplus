@@ -34,4 +34,9 @@ public class Concert {
 
   @Column(name="singer")
   private String singer;
+
+  public Concert(String name, String singer) {
+    this.name = name;
+    this.singer = singer;
+  }
 }
