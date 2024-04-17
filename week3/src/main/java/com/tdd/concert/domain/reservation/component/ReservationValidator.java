@@ -45,13 +45,6 @@ public class ReservationValidator {
       throw new RuntimeException("존재하지 않는 콘서트입니다.");
     }
 
-    // 4.좌석 번호 검증
-    //Seat seat = seatManager.findSeatBySeatNoAndConcert(request.getSeat().getSeatNo(), concert);
-
-//    if(seat == null) {
-//      throw new RuntimeException("존재하지 않는 좌석번호입니다.");
-//    }
-
 
     return true;
   }

@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +24,7 @@ import lombok.ToString;
 @ToString
 @Setter
 @NoArgsConstructor
+@Builder
 public class Seat {
 
     @Id
@@ -68,5 +70,19 @@ public class Seat {
         this.seatNo = seatNo;
         this.price = price;
         this.seatStatus = seatStatus;
+    }
+
+    public Seat(long seatId, long seatNo, int price,
+                SeatStatus seatStatus, Long tempReservedUserId,
+                LocalDateTime tempReservedExpiredAt,
+                Concert concert, ConcertSchedule concertSchedule) {
+        this.seatId = seatId;
+        this.seatNo = seatNo;
+        this.price = price;
+        this.seatStatus = seatStatus;
+        this.tempReservedUserId = tempReservedUserId;
+        this.tempReservedExpiredAt = tempReservedExpiredAt;
+        this.concert = concert;
+        this.concertSchedule = concertSchedule;
     }
 }
