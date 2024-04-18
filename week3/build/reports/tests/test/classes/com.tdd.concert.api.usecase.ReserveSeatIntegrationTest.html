@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ReserveSeatIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ReserveSeatIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.tdd.concert.api.usecase.html">com.tdd.concert.api.usecase</a> &gt; ReserveSeatIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">1</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.051s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox skipped" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">사용자가 좌석을 예약한다</td>
+<td class="success">case1()</td>
+<td class="success">0.050s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="skipped">다수의 요청자가 1개의 좌석을 동시에 예약하려고 한다.</td>
+<td class="skipped">case4()</td>
+<td class="skipped">-</td>
+<td class="skipped">ignored</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2024-04-18T23:25:01.894+09:00  INFO 4019 --- [concert] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ReserveSeatIntegrationTest]: ReserveSeatIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-18T23:25:01.895+09:00  INFO 4019 --- [concert] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ReserveSeatIntegrationTest
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-18T23:25:01.902+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : e2c420d9-28d4-3f8c-a0ff-2ec19b371514, 사용자ID : 71
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-18T23:25:01.905+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 5
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: insert into concert (name,singer) values (?,?)
+Hibernate: insert into concert_schedule (concert_id,concert_date) values (?,?)
+Hibernate: insert into seat (concert_id,concert_schedule_id,price,seat_no,seat_status,temp_reserved_expired_at,temp_reserved_user_id) values (?,?,?,?,?,?,?)
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: update user set point=?,token=? where user_id=?
+2024-04-18T23:25:01.924+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.api.usecase.ReserveSeatUseCase     : [ReserveSeatUseCase] 예약 시작
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+2024-04-18T23:25:01.927+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.api.usecase.ReserveSeatUseCase     : [ReserveSeatUseCase] 사용자 검증 완료
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+2024-04-18T23:25:01.930+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.api.usecase.ReserveSeatUseCase     : [ReserveSeatUseCase] 콘서트 조회완료
+Hibernate: select s1_0.seat_id,s1_0.concert_id,s1_0.concert_schedule_id,s1_0.price,s1_0.seat_no,s1_0.seat_status,s1_0.temp_reserved_expired_at,s1_0.temp_reserved_user_id from seat s1_0 join concert_schedule cs1_0 on cs1_0.concert_schedule_id=s1_0.concert_schedule_id where s1_0.seat_no=? and s1_0.concert_id=? and cs1_0.concert_date=? for update
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+Hibernate: select cs1_0.concert_schedule_id,c1_0.concert_id,c1_0.name,c1_0.singer,cs1_0.concert_date from concert_schedule cs1_0 left join concert c1_0 on c1_0.concert_id=cs1_0.concert_id where cs1_0.concert_schedule_id=?
+Hibernate: update seat set concert_id=?,concert_schedule_id=?,price=?,seat_no=?,seat_status=?,temp_reserved_expired_at=?,temp_reserved_user_id=? where seat_id=?
+2024-04-18T23:25:01.938+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.api.usecase.ReserveSeatUseCase     : [ReserveSeatUseCase] 좌석 Occupy 완료
+2024-04-18T23:25:01.939+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.r.c.ReservationValidator         : [ReservationValidator] validate 메서드 시작
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+Hibernate: insert into reservation (concert_id,reservation_date,reservation_status,seat_id,user_id) values (?,?,?,?,?)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 18. 오후 11:25:03</p>
+</div>
+</div>
+</body>
+</html>

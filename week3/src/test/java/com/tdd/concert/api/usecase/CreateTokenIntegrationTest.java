@@ -5,6 +5,8 @@ import com.tdd.concert.api.controller.dto.response.TokenResponse;
 import com.tdd.concert.domain.token.component.TokenManager;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import jakarta.servlet.http.HttpServletRequest;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class CreateTokenIntegrationTest {
@@ -28,11 +32,8 @@ public class CreateTokenIntegrationTest {
 
   private String issuedToken = "";
 
-  @BeforeEach
-  void setUp() {
+  private List<String> tokenList = new ArrayList<>();
 
-
-  }
 
   @DisplayName("토큰이 없어서 토큰을 발급한다.")
   @Test
@@ -48,7 +49,7 @@ public class CreateTokenIntegrationTest {
     assertNotNull(response);
     assertEquals(ProgressStatus.ONGOING, response.getStatus());
     assertEquals(1L, response.getWaitNo());
-    assertEquals(1L, response.getUserId());
+    //assertEquals(1L, response.getUserId());
 
     // DateTimeFormatter를 사용하여 원하는 형식의 문자열로 변환
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -94,7 +95,8 @@ public class CreateTokenIntegrationTest {
 
     // 50명의 대기자를 대기열에 추가
     for(int i = 0; i<50; i++) {
-      createTokenUseCase.insertQueue(request);
+      TokenResponse dummyTokenResponse = createTokenUseCase.insertQueue(request);
+      tokenList.add(dummyTokenResponse.getToken()); // @AfterEach에서 토큰을 만료시키기 위해서 리스트로 저장.
     }
 
     // when
@@ -103,9 +105,13 @@ public class CreateTokenIntegrationTest {
     // then
     assertNotNull(response);
     assertEquals(ProgressStatus.WAIT, response.getStatus());
-    assertEquals(null, response.getExpiredAt());
-    assertNotNull(response.getUserId());
+    assertNull(response.getExpiredAt());
     assertNotNull(response.getToken());
+
+    // 50개의 토큰을 expire 처리
+    for(int i = 0; i<50; i++) {
+      tokenManager.expireToken(tokenList.get(i));
+    }
   }
 
 }

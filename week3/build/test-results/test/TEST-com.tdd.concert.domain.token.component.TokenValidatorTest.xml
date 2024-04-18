@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.domain.token.component.TokenValidatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-04-18T14:25:03" hostname="Jeongui-MacBookPro.local" time="0.014">
+  <properties/>
+  <testcase name="대기열에 존재하지 않는 토큰 조회" classname="com.tdd.concert.domain.token.component.TokenValidatorTest" time="0.004"/>
+  <testcase name="만료시각이 지난 토큰" classname="com.tdd.concert.domain.token.component.TokenValidatorTest" time="0.004"/>
+  <testcase name="만료시각이 지난 토큰" classname="com.tdd.concert.domain.token.component.TokenValidatorTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

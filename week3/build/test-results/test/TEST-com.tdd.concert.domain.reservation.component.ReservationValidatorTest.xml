@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.domain.reservation.component.ReservationValidatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-04-18T14:25:02" hostname="Jeongui-MacBookPro.local" time="0.187">
+  <properties/>
+  <testcase name="[예약검증] User가 존재하지 않는 경우 오류" classname="com.tdd.concert.domain.reservation.component.ReservationValidatorTest" time="0.176"/>
+  <testcase name="[예약검증] 콘서트가 존재하지 않는 경우 오류" classname="com.tdd.concert.domain.reservation.component.ReservationValidatorTest" time="0.009"/>
+  <system-out><![CDATA[2024-04-18T23:25:02.833+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.r.c.ReservationValidator         : [ReservationValidator] validate 메서드 시작
+2024-04-18T23:25:02.844+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.r.c.ReservationValidator         : [ReservationValidator] validate 메서드 시작
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

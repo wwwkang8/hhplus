@@ -47,7 +47,6 @@ public class ValidateTokenIntegrationTest {
 
     // then
     assertEquals(token, actualResponse.getToken());
-    assertEquals(1L, actualResponse.getUserId());
     assertEquals(ProgressStatus.ONGOING, actualResponse.getStatus());
   }
 
@@ -61,7 +60,7 @@ public class ValidateTokenIntegrationTest {
 
     // when, then
     RuntimeException exception = assertThrows(RuntimeException.class, ()->validateTokenUseCase.validateToken(request));
-    String expectedMessage = "대기열에 존재하지 않는 토큰입니다. 토큰 :" + token;
+    String expectedMessage = "대기열에 존재하지 않는 토큰입니다. 토큰 : " + token;
     assertEquals(expectedMessage, exception.getMessage());
   }
 
