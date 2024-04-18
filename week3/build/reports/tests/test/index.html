@@ -20,7 +20,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">61</div>
 <p>tests</p>
 </div>
 </td>
@@ -32,13 +32,13 @@
 </td>
 <td>
 <div class="infoBox" id="ignored">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>ignored</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.965s</div>
+<div class="counter">3.485s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,7 +47,7 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
+<div class="infoBox skipped" id="successRate">
 <div class="percent">100%</div>
 <p>successful</p>
 </div>
@@ -58,13 +58,25 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Packages</a>
+<a href="#tab0">Ignored tests</a>
 </li>
 <li>
-<a href="#tab1">Classes</a>
+<a href="#tab1">Packages</a>
+</li>
+<li>
+<a href="#tab2">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Ignored tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/com.tdd.concert.api.usecase.ReserveSeatIntegrationTest.html">ReserveSeatIntegrationTest</a>.
+<a href="classes/com.tdd.concert.api.usecase.ReserveSeatIntegrationTest.html#case4()">다수의 요청자가 1개의 좌석을 동시에 예약하려고 한다.</a>
+</li>
+</ul>
+</div>
+<div id="tab1" class="tab">
 <h2>Packages</h2>
 <table>
 <thead>
@@ -80,18 +92,98 @@
 <tbody>
 <tr>
 <td class="success">
-<a href="packages/com.tdd.concert.api.usecase.html">com.tdd.concert.api.usecase</a>
+<a href="packages/com.tdd.concert.html">com.tdd.concert</a>
 </td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0.965s</td>
+<td>0.003s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="skipped">
+<a href="packages/com.tdd.concert.api.usecase.html">com.tdd.concert.api.usecase</a>
+</td>
+<td>25</td>
+<td>0</td>
+<td>1</td>
+<td>2.411s</td>
+<td class="skipped">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.tdd.concert.domain.concert.component.html">com.tdd.concert.domain.concert.component</a>
+</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0.220s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.tdd.concert.domain.payment.component.html">com.tdd.concert.domain.payment.component</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.070s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.tdd.concert.domain.point.component.html">com.tdd.concert.domain.point.component</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.095s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.tdd.concert.domain.reservation.component.html">com.tdd.concert.domain.reservation.component</a>
+</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0.400s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.tdd.concert.domain.seat.component.html">com.tdd.concert.domain.seat.component</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0.108s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.tdd.concert.domain.token.component.html">com.tdd.concert.domain.token.component</a>
+</td>
+<td>11</td>
+<td>0</td>
+<td>0</td>
+<td>0.116s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/com.tdd.concert.domain.user.component.html">com.tdd.concert.domain.user.component</a>
+</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0.062s</td>
 <td class="success">100%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -107,12 +199,232 @@
 <tbody>
 <tr>
 <td class="success">
-<a href="classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html">com.tdd.concert.api.usecase.ValidateTokenIntegrationTest</a>
+<a href="classes/com.tdd.concert.ConcertApplicationTests.html">com.tdd.concert.ConcertApplicationTests</a>
 </td>
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0.965s</td>
+<td>0.003s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html">com.tdd.concert.api.usecase.ChargePointIntegrationTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0.030s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.api.usecase.ConcertDateIntegrationTest.html">com.tdd.concert.api.usecase.ConcertDateIntegrationTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.049s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html">com.tdd.concert.api.usecase.CreateTokenIntegrationTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>1.764s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.api.usecase.GetPointIntegrationTest.html">com.tdd.concert.api.usecase.GetPointIntegrationTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.020s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">com.tdd.concert.api.usecase.PaymentIntegrationTest</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0.373s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="skipped">
+<a href="classes/com.tdd.concert.api.usecase.ReserveSeatIntegrationTest.html">com.tdd.concert.api.usecase.ReserveSeatIntegrationTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0.051s</td>
+<td class="skipped">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.api.usecase.SeatNoIntegrationTest.html">com.tdd.concert.api.usecase.SeatNoIntegrationTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.038s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html">com.tdd.concert.api.usecase.ValidateTokenIntegrationTest</a>
+</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0.086s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.concert.component.ConcertReaderTest.html">com.tdd.concert.domain.concert.component.ConcertReaderTest</a>
+</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0.220s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.payment.component.PaymentManagerTest.html">com.tdd.concert.domain.payment.component.PaymentManagerTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.070s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.point.component.PointManagerTest.html">com.tdd.concert.domain.point.component.PointManagerTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.095s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.reservation.component.ReservationManagerTest.html">com.tdd.concert.domain.reservation.component.ReservationManagerTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.156s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.reservation.component.ReservationReaderTest.html">com.tdd.concert.domain.reservation.component.ReservationReaderTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.055s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.reservation.component.ReservationStoreTest.html">com.tdd.concert.domain.reservation.component.ReservationStoreTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.004s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.reservation.component.ReservationValidatorTest.html">com.tdd.concert.domain.reservation.component.ReservationValidatorTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.185s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.seat.component.SeatManagerTest.html">com.tdd.concert.domain.seat.component.SeatManagerTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.095s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.seat.component.SeatReaderTest.html">com.tdd.concert.domain.seat.component.SeatReaderTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0.007s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.seat.component.SeatValidatorTest.html">com.tdd.concert.domain.seat.component.SeatValidatorTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0.006s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.token.component.TokenGeneratorTest.html">com.tdd.concert.domain.token.component.TokenGeneratorTest</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0.020s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.token.component.TokenManagerTest.html">com.tdd.concert.domain.token.component.TokenManagerTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.085s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.token.component.TokenValidatorTest.html">com.tdd.concert.domain.token.component.TokenValidatorTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0.011s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/com.tdd.concert.domain.user.component.UserManagerTest.html">com.tdd.concert.domain.user.component.UserManagerTest</a>
+</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0.062s</td>
 <td class="success">100%</td>
 </tr>
 </tbody>
@@ -126,7 +438,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 18. 오전 1:35:44</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 18. 오후 11:25:03</p>
 </div>
 </div>
 </body>

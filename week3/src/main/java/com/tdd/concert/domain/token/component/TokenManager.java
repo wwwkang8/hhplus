@@ -9,5 +9,6 @@ public interface TokenManager {
   public TokenResponse insertQueue(TokenRequest tokenRequest);
   public TokenResponse validateToken(TokenRequest tokenRequest);
   public void expireToken(String token);
+  public Token findTokenByToken(String token);
 
 }

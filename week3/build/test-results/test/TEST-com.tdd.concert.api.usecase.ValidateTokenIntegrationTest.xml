@@ -1,78 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-17T16:35:43" hostname="Jeongui-MacBookPro.local" time="0.965">
+<testsuite name="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-04-18T14:25:01" hostname="Jeongui-MacBookPro.local" time="0.089">
   <properties/>
-  <testcase name="예약이 완료되어 만료된 토큰인 경우 오류 발생" classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.965"/>
-  <system-out><![CDATA[01:35:34.823 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ValidateTokenIntegrationTest]: ValidateTokenIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-01:35:35.050 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ValidateTokenIntegrationTest
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.4)
-
-2024-04-18T01:35:35.635+09:00  INFO 80207 --- [concert] [    Test worker] c.t.c.a.u.ValidateTokenIntegrationTest   : Starting ValidateTokenIntegrationTest using Java 17.0.10 with PID 80207 (started by jeonghokang in /Users/jeonghokang/IdeaProjects/hhplus/week3)
-2024-04-18T01:35:35.637+09:00  INFO 80207 --- [concert] [    Test worker] c.t.c.a.u.ValidateTokenIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
-2024-04-18T01:35:36.988+09:00  INFO 80207 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-18T01:35:37.121+09:00  INFO 80207 --- [concert] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121 ms. Found 8 JPA repository interfaces.
-2024-04-18T01:35:37.666+09:00  INFO 80207 --- [concert] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-18T01:35:37.748+09:00  INFO 80207 --- [concert] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-04-18T01:35:37.810+09:00  INFO 80207 --- [concert] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-18T01:35:38.206+09:00  INFO 80207 --- [concert] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-18T01:35:38.241+09:00  INFO 80207 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-04-18T01:35:38.630+09:00  INFO 80207 --- [concert] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55b62db8
-2024-04-18T01:35:38.633+09:00  INFO 80207 --- [concert] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-04-18T01:35:39.764+09:00  INFO 80207 --- [concert] [    Test worker] o.h.m.i.EntityInstantiatorPojoStandard   : HHH000182: No default (no-argument) constructor for class: com.tdd.concert.domain.concert.model.ConcertSchedule (class must be instantiated by Interceptor)
-2024-04-18T01:35:39.978+09:00  INFO 80207 --- [concert] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: alter table concert_schedule drop foreign key FK3ry7aiaia6ooa3ajwf6w6soci
-Hibernate: alter table payment drop foreign key FKrewpj5f9v9xehy4ga8g221nw1
-Hibernate: alter table payment drop foreign key FK4spfnm9si9dowsatcqs5or42i
-Hibernate: alter table point_history drop foreign key FK9yptgx9qhcp768sokuopwxncm
-Hibernate: alter table reservation drop foreign key FKjnsh2q045ch4uso5vnb0477dq
-Hibernate: alter table reservation drop foreign key FKewd3sohjspqf2sjjvdcmcefpb
-Hibernate: alter table reservation drop foreign key FKm4oimk0l1757o9pwavorj6ljg
-Hibernate: alter table seat drop foreign key FKg0ccmmdn3894408ig1rdcgm9g
-Hibernate: alter table seat drop foreign key FKjtsoupodivwr6xa4vk02e2qol
-Hibernate: alter table token drop foreign key FKe32ek7ixanakfqsdaokm4q9y2
-Hibernate: drop table if exists concert
-Hibernate: drop table if exists concert_schedule
-Hibernate: drop table if exists payment
-Hibernate: drop table if exists point_history
-Hibernate: drop table if exists reservation
-Hibernate: drop table if exists seat
-Hibernate: drop table if exists token
-Hibernate: drop table if exists user
-Hibernate: create table concert (concert_id bigint not null auto_increment, name varchar(255), singer varchar(255), primary key (concert_id)) engine=InnoDB
-Hibernate: create table concert_schedule (concert_date date, concert_id bigint, concert_schedule_id bigint not null auto_increment, primary key (concert_schedule_id)) engine=InnoDB
-Hibernate: create table payment (pay_amount integer, created_at datetime(6), payment_id bigint not null auto_increment, reservation_id bigint, user_id bigint, primary key (payment_id)) engine=InnoDB
-Hibernate: create table point_history (amount integer, point_rscd tinyint check (point_rscd between 0 and 1), created_at datetime(6), point_history_id bigint not null auto_increment, user_id bigint, primary key (point_history_id)) engine=InnoDB
-Hibernate: create table reservation (reservation_date date, reservation_status tinyint check (reservation_status between 0 and 2), concert_id bigint, reservation_id bigint not null auto_increment, seat_id bigint, user_id bigint, primary key (reservation_id)) engine=InnoDB
-Hibernate: create table seat (price integer, seat_status tinyint check (seat_status between 0 and 2), concert_id bigint, concert_schedule_id bigint, seat_id bigint not null auto_increment, seat_no bigint, temp_reserved_expired_at datetime(6), temp_reserved_user_id bigint, primary key (seat_id)) engine=InnoDB
-Hibernate: create table token (progress_status tinyint check (progress_status between 0 and 3), created_at datetime(6), expired_at datetime(6), token_id bigint not null auto_increment, updated_at datetime(6), user_id bigint, wait_no bigint, token varchar(255), primary key (token_id)) engine=InnoDB
-Hibernate: create table user (point integer, user_id bigint not null auto_increment, token varchar(255), primary key (user_id)) engine=InnoDB
-Hibernate: alter table payment add constraint UK_3llq7oxcs9j7vlujfdf16jmu unique (reservation_id)
-Hibernate: alter table reservation add constraint UK_cpo7s1xo509p8s2b4nocw6cq5 unique (seat_id)
-Hibernate: alter table concert_schedule add constraint FK3ry7aiaia6ooa3ajwf6w6soci foreign key (concert_id) references concert (concert_id)
-Hibernate: alter table payment add constraint FKrewpj5f9v9xehy4ga8g221nw1 foreign key (reservation_id) references reservation (reservation_id)
-Hibernate: alter table payment add constraint FK4spfnm9si9dowsatcqs5or42i foreign key (user_id) references user (user_id)
-Hibernate: alter table point_history add constraint FK9yptgx9qhcp768sokuopwxncm foreign key (user_id) references user (user_id)
-Hibernate: alter table reservation add constraint FKjnsh2q045ch4uso5vnb0477dq foreign key (concert_id) references concert (concert_id)
-Hibernate: alter table reservation add constraint FKewd3sohjspqf2sjjvdcmcefpb foreign key (seat_id) references seat (seat_id)
-Hibernate: alter table reservation add constraint FKm4oimk0l1757o9pwavorj6ljg foreign key (user_id) references user (user_id)
-Hibernate: alter table seat add constraint FKg0ccmmdn3894408ig1rdcgm9g foreign key (concert_id) references concert (concert_id)
-Hibernate: alter table seat add constraint FKjtsoupodivwr6xa4vk02e2qol foreign key (concert_schedule_id) references concert_schedule (concert_schedule_id)
-Hibernate: alter table token add constraint FKe32ek7ixanakfqsdaokm4q9y2 foreign key (user_id) references user (user_id)
-2024-04-18T01:35:40.501+09:00  INFO 80207 --- [concert] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-18T01:35:40.838+09:00  INFO 80207 --- [concert] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-04-18T01:35:42.461+09:00  WARN 80207 --- [concert] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-18T01:35:43.295+09:00  INFO 80207 --- [concert] [    Test worker] c.t.c.a.u.ValidateTokenIntegrationTest   : Started ValidateTokenIntegrationTest in 8.041 seconds (process running for 9.631)
+  <testcase name="유효한 토큰인 경우" classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.018"/>
+  <testcase name="존재하지 않는 토큰인 경우 오류 발생." classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.015"/>
+  <testcase name="만료시각이 지난 토큰의 경우 오류 발생." classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.029"/>
+  <testcase name="예약이 완료되어 만료된 토큰인 경우 오류 발생" classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.024"/>
+  <system-out><![CDATA[2024-04-18T23:25:01.268+09:00  INFO 4019 --- [concert] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ValidateTokenIntegrationTest]: ValidateTokenIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-18T23:25:01.270+09:00  INFO 4019 --- [concert] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ValidateTokenIntegrationTest
 Hibernate: insert into user (point,token) values (?,?)
-2024-04-18T01:35:44.044+09:00  INFO 80207 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c4ca4238-a0b9-3382-8dcc-509a6f75849b, 사용자ID : 1
+2024-04-18T23:25:01.279+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a684ecee-e76f-3522-b732-86a895bc8436, 사용자ID : 54
 Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
 Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
-2024-04-18T01:35:44.146+09:00  INFO 80207 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 0
+2024-04-18T23:25:01.282+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 2
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-18T23:25:01.295+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : b53b3a3d-6ab9-3ce0-a682-29151c9bde11, 사용자ID : 55
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-18T23:25:01.298+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 3
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-18T23:25:01.312+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 9f61408e-3afb-333e-90cd-f1b20de6f466, 사용자ID : 56
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-18T23:25:01.314+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 4
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,u1_0.user_id,u1_0.point,u1_0.token,t1_0.wait_no from token t1_0 left join user u1_0 on u1_0.user_id=t1_0.user_id where t1_0.token_id=?
+Hibernate: update token set created_at=?,expired_at=?,progress_status=?,token=?,updated_at=?,user_id=?,wait_no=? where token_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: insert into user (point,token) values (?,?)
+2024-04-18T23:25:01.341+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 72b32a1f-754b-31c0-9b36-95e0cb6cde7f, 사용자ID : 57
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-04-18T23:25:01.344+09:00  INFO 4019 --- [concert] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 5
 Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no) values (?,?,?,?,?,?,?)
 Hibernate: update user set point=?,token=? where user_id=?
 Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?

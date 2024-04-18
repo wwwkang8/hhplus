@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.api.usecase.ChargePointIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-04-18T14:25:01" hostname="Jeongui-MacBookPro.local" time="0.033">
+  <properties/>
+  <testcase name="포인트 충전" classname="com.tdd.concert.api.usecase.ChargePointIntegrationTest" time="0.014"/>
+  <testcase name="포인트를 0원 충전하면 오류발생" classname="com.tdd.concert.api.usecase.ChargePointIntegrationTest" time="0.009"/>
+  <testcase name="포인트가 음수인 경우 오류발생" classname="com.tdd.concert.api.usecase.ChargePointIntegrationTest" time="0.007"/>
+  <system-out><![CDATA[2024-04-18T23:25:01.382+09:00  INFO 4019 --- [concert] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ChargePointIntegrationTest]: ChargePointIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-18T23:25:01.383+09:00  INFO 4019 --- [concert] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ChargePointIntegrationTest
+Hibernate: insert into user (point,token) values (?,?)
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into point_history (amount,created_at,point_rscd,user_id) values (?,?,?,?)
+Hibernate: insert into user (point,token) values (?,?)
+Hibernate: insert into user (point,token) values (?,?)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.domain.payment.component.PaymentManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-18T14:25:02" hostname="Jeongui-MacBookPro.local" time="0.07">
+  <properties/>
+  <testcase name="결제내역 저장" classname="com.tdd.concert.domain.payment.component.PaymentManagerTest" time="0.07"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

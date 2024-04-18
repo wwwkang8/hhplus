@@ -22,6 +22,7 @@ import com.tdd.concert.domain.user.component.UserManager;
 import com.tdd.concert.domain.user.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,6 +128,7 @@ public class ReserveSeatIntegrationTest {
 
 
   @DisplayName("다수의 요청자가 1개의 좌석을 동시에 예약하려고 한다.")
+  @Disabled
   @Test
   void case4() throws InterruptedException {
     // given

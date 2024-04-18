@@ -79,9 +79,15 @@ public class TokenManagerImpl implements TokenManager{
   }
 
   @Override
+  @Transactional
   public void expireToken(String token) {
     Token usedToken = tokenReader.findTokenByToken(token);
     usedToken.expireToken();
+  }
+
+  @Override
+  public Token findTokenByToken(String token) {
+    return tokenReader.findTokenByToken(token);
   }
 
 }

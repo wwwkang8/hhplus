@@ -36,6 +36,11 @@ public class TokenValidator {
       throw new RuntimeException("예약이 완료된 토큰입니다. 토큰 : " + selectedToken.getToken() + ", 토큰 상태 : " + selectedToken.getProgressStatus());
     }
 
+    // 토큰 스케쥴러에 의해서 토큰이 만료된 경우(drop)
+    if(selectedToken.getProgressStatus() == ProgressStatus.DROP) {
+      throw new RuntimeException("만료된 토큰입니다. 토큰 : " + selectedToken.getToken() + ", 토큰 상태 : " + selectedToken.getProgressStatus());
+    }
+
     return TokenResponse.from(selectedToken);
 
   }
