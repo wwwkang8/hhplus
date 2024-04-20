@@ -17,6 +17,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @Table
@@ -25,6 +26,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @Builder
+@Slf4j
 public class Seat {
 
     @Id
@@ -55,9 +57,13 @@ public class Seat {
     private ConcertSchedule concertSchedule;
 
     public void tempOccupy(Long userId) {
+        log.info("[Seat 엔티티 내부] tempOccupy 메서드 진입");
+
         this.setTempReservedUserId(userId);
         this.setTempReservedExpiredAt(LocalDateTime.now().plusMinutes(5));
         this.setSeatStatus(SeatStatus.TEMPORARY_RESERVED);
+
+        log.info("[Seat 엔티티 내부] tempOccupy 메서드 완료");
     }
 
     public void expire() {
