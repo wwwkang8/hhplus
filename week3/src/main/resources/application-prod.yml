@@ -1,0 +1,21 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: concert-prod
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name:
+  jpa:
+    show-sql: true         # 쿼리를 표준 출력으로
+    properties:
+      hibernate:
+        format_sql: false  # 아름답게 출력
+    hibernate:
+      ddl-auto: none # 테이블에 변경이 있을 경우 변경, 없는 경우 생성
+  sql:
+    init:
+      mode: always
