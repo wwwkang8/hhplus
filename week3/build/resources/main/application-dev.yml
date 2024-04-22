@@ -1,0 +1,22 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: concert-dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/concert
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true         # 쿼리를 표준 출력으로
+    properties:
+      hibernate:
+        format_sql: true  # 아름답게 출력
+    hibernate:
+      ddl-auto: create # 서버 기동시마다 테이블을 drop - create - insert 를 한다
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always

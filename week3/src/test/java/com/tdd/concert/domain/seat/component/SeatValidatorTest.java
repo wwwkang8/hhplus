@@ -20,8 +20,7 @@ public class SeatValidatorTest {
 
   @BeforeEach
   void setUp() {
-    SeatCoreRepository seatCoreRepository = mock(SeatCoreRepository.class);
-    seatValidator = new SeatValidator(seatCoreRepository);
+    seatValidator = new SeatValidator();
   }
 
   @DisplayName("임시배정이 되지 않은 좌석은 정상 통과.")

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.ConcertApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-18T14:25:01" hostname="Jeongui-MacBookPro.local" time="0.003">
-  <properties/>
-  <testcase name="contextLoads()" classname="com.tdd.concert.ConcertApplicationTests" time="0.003"/>
-  <system-out><![CDATA[2024-04-18T23:25:01.364+09:00  INFO 4019 --- [concert] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tdd.concert.ConcertApplicationTests]: ConcertApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-04-18T23:25:01.375+09:00  INFO 4019 --- [concert] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.ConcertApplicationTests
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
