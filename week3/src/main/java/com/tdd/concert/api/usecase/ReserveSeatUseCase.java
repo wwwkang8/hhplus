@@ -11,6 +11,7 @@ import com.tdd.concert.domain.seat.component.SeatManager;
 import com.tdd.concert.domain.seat.model.Seat;
 import com.tdd.concert.domain.user.component.UserManager;
 import com.tdd.concert.domain.user.model.User;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -27,25 +28,25 @@ public class ReserveSeatUseCase {
 
 
   /** 좌석 예약 */
+  @Transactional
   public ReservationResponse reserve(ReservationRequest request) {
     log.info("[ReserveSeatUseCase] 예약 시작");
 
-    // 사용자를 조회한다.
+    // 석1. 사용자를 조회한다.
     User user = userManager.findUserById(request.getUserId());
     if(user == null) {
       throw new RuntimeException("[좌석 예약] 존재하지 않는 사용자입니다.");
     }
     log.info("[ReserveSeatUseCase] 사용자 검증 완료");
 
-    // 콘서트를 조회한다.
+    // 2. 콘서트를 조회한다.
     Concert concert = concertManager.findConcertByConcertId(request.getConcertId());
     if(concert == null) {
       throw new RuntimeException("[좌석 예약] 존재하지  콘서트입니다.");
     }
     log.info("[ReserveSeatUseCase] 콘서트 조회완료");
 
-    /** TODO 만약에 동시에 여러명이 이 좌석을 예약하려고 할 땐??
-     * */
+    // 3. 좌석을 임시배정한다.
     Seat occupiedSeat = seatManager.occupy(request.getSeatNo(),
                                            concert.getConcertId(),
                                            request.getConcertDate(),

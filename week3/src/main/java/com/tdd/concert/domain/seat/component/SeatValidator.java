@@ -15,9 +15,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class SeatValidator {
 
-  private final SeatCoreRepository seatCoreRepository;
-
   public void validate(Seat seat) {
+    log.info("[SeatValidator] 좌석 validate 메서드 진입");
 
     if(seat.getSeatStatus() == SeatStatus.TEMPORARY_RESERVED) {
       throw new RuntimeException("이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : " + seat.getSeatNo());
@@ -26,6 +25,7 @@ public class SeatValidator {
       throw new RuntimeException("이미 판매완료된 좌석입니다. 좌석번호 : " + seat.getSeatNo());
     }
 
+    log.info("[SeatValidator] 좌석 validate 메서드 끝");
   }
 
 

@@ -128,7 +128,6 @@ public class ReserveSeatIntegrationTest {
 
 
   @DisplayName("다수의 요청자가 1개의 좌석을 동시에 예약하려고 한다.")
-  @Disabled
   @Test
   void case4() throws InterruptedException {
     // given
