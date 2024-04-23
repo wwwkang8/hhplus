@@ -1,0 +1,27 @@
+name: Dev continuous integration
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+env:
+  PROFILE: develop
+
+jobs:
+  build-push:
+    name: Continuous Delivery develop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+
+      - name: Build with Gradle
+        run: ./gradlew build
