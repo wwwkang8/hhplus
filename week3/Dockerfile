@@ -2,7 +2,7 @@
 FROM gradle:7.5-jdk17 AS builder
 
 # 작업 디렉토리를 설정합니다.
-WORKDIR /Users/jeonghokang/IdeaProjects/dockerfile-folder/build/libs/
+WORKDIR /app/hhplus
 
 # 호스트의 소스코드를 현재 Docker 이미지의 작업 디렉토리로 복사합니다.
 COPY . .
@@ -14,10 +14,10 @@ RUN gradle build -x test
 FROM openjdk:17-jdk-slim
 
 # 작업 디렉토리를 설정합니다.
-WORKDIR /Users/jeonghokang/IdeaProjects/dockerfile-folder
+WORKDIR /app/hhplus
 
 # 첫 번째 단계에서 빌드한 JAR 파일을 복사합니다.
-COPY --from=builder /Users/jeonghokang/IdeaProjects/dockerfile-folder/build/libs/concert.jar ./
+COPY --from=builder /app/hhplus/concert.jar ./
 
 # Spring Boot 애플리케이션을 실행합니다.
 CMD ["java", "-jar", "concert.jar"]
