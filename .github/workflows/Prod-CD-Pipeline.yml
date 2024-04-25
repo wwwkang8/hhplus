@@ -1,0 +1,45 @@
+name: CI Pipeline
+
+# push, pull request시에 github action 실행
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+# 1. Ubuntu 최신버전에서 빌드
+# 2. Set up JDK 17 : 자바 17버전으로 환경설정
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            **/.gradle
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-gradle-
+
+      - name: Permission go Gradlew
+        run : |
+              cd ./week3
+              chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: |
+             cd ./week3
+             ./gradlew -x test
