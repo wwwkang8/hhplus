@@ -35,7 +35,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle-
 
       - name: Change directory to project folder
-        run: cd /week3
+        run: cd week3
 
       - name: Permission go Gradlew
         run: chmod +x ./gradlew
