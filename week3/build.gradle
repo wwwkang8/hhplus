@@ -2,6 +2,13 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.4'
     id 'io.spring.dependency-management' version '1.1.4'
+    id 'checkstyle'
+}
+
+checkstyle {
+    toolVersion = '8.44' // 사용하려는 Checkstyle 버전
+    configFile = file('config/checkstyle/checkstyle.xml') // Checkstyle 구성 파일 경로
+    ignoreFailures = false // Checkstyle 오류를 무시할지 여부
 }
 
 group = 'com.tdd'
