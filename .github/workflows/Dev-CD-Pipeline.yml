@@ -38,7 +38,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Change directory to project folder
-        run: cd /week3
+        run: cd /hhplus/week3
 
       - name: Build with Gradle
         run: ./gradlew build
