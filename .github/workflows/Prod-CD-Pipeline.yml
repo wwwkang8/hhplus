@@ -46,4 +46,4 @@ jobs:
       - name: Build with Gradle
         run: |
              cd ./week3
-             ./gradlew -x test
+             ./gradlew build
