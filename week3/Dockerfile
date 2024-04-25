@@ -1,23 +1,11 @@
-# 첫 번째 단계: 빌드 단계
-FROM gradle:7.5-jdk17 AS builder
+FROM openjdk:17
 
-# 작업 디렉토리를 설정합니다.
-WORKDIR /app/hhplus
+ENV TZ=Asia/Seoul
 
-# 호스트의 소스코드를 현재 Docker 이미지의 작업 디렉토리로 복사합니다.
-COPY . .
+COPY build/libs/concert-0.0.1-SNAPSHOT.jar /app/concert-0.0.1-SNAPSHOT.jar
 
-# 애플리케이션을 빌드합니다.(임시로 테스트 스킵)
-RUN gradle build -x test
+EXPOSE 8000
 
-# 두 번째 단계: 실행 단계
-FROM openjdk:17-jdk-slim
-
-# 작업 디렉토리를 설정합니다.
-WORKDIR /app/hhplus
-
-# 첫 번째 단계에서 빌드한 JAR 파일을 복사합니다.
-COPY --from=builder /app/hhplus/concert.jar ./
-
-# Spring Boot 애플리케이션을 실행합니다.
-CMD ["java", "-jar", "concert.jar"]
+ENTRYPOINT java \
+  -jar /app/concert-0.0.1-SNAPSHOT.jar \
+  --spring.profiles.active=dev \
