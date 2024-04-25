@@ -34,11 +34,11 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: ${{ runner.os }}-gradle-
 
+      - name: Change directory to project folder
+        run: cd /week3
+
       - name: Permission go Gradlew
         run: chmod +x ./gradlew
-
-      - name: Change directory to project folder
-        run: cd /hhplus/week3
 
       - name: Build with Gradle
         run: ./gradlew build
