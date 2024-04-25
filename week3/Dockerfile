@@ -8,4 +8,4 @@ EXPOSE 8000
 
 ENTRYPOINT java \
   -jar /app/concert-0.0.1-SNAPSHOT.jar \
-  --spring.profiles.active=dev \
+  --spring.profiles.active=${PROFILE} \
