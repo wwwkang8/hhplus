@@ -33,6 +33,11 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: ${{ runner.os }}-gradle-
 
+      - name: Run Checkstyle
+        run: |
+             cd ./week3
+             ./gradlew checkstyleMain checkstyleTest
+
       - name: Permission go Gradlew
         run : |
               cd ./week3
