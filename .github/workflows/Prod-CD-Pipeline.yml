@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Prod CI/CD Pipeline
 
 # push, pull request시에 github action 실행
 on:
