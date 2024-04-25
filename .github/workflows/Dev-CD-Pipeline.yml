@@ -37,8 +37,8 @@ jobs:
       - name: Change directory to project folder
         run: cd week3
 
-      - name: Permission go Gradlew
-        run: chmod +x ./gradlew
+     # - name: Permission go Gradlew
+     #   run: chmod +x ./gradlew
 
       - name: Build with Gradle
         run: ./gradlew build
