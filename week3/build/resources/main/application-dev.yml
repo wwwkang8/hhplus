@@ -4,11 +4,16 @@ server:
 spring:
   application:
     name: concert-dev
+  #datasource:
+    #url: jdbc:mysql://127.0.0.1:3306/concert
+    #username: root
+    #password: root
+    #driver-class-name: com.mysql.cj.jdbc.Driver
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/concert
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
   jpa:
     show-sql: true         # 쿼리를 표준 출력으로
     properties:
