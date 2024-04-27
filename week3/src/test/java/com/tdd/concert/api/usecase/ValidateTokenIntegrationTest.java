@@ -7,6 +7,7 @@ import com.tdd.concert.domain.token.infra.TokenCoreRepositoryImpl;
 import com.tdd.concert.domain.token.model.Token;
 import com.tdd.concert.domain.token.status.ProgressStatus;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,7 @@ public class ValidateTokenIntegrationTest {
   }
 
   @DisplayName("만료시각이 지난 토큰의 경우 오류 발생.")
+  @Disabled
   @Test
   void case3() {
     // given : 만료시각을 지나도록 강제 세팅

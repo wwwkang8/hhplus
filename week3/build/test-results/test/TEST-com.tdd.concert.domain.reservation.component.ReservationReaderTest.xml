@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.domain.reservation.component.ReservationReaderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:50:19" hostname="Jeongui-MacBookPro.local" time="0.062">
-  <properties/>
-  <testcase name="[예약조회] userId, seatId로 예약내역 조회" classname="com.tdd.concert.domain.reservation.component.ReservationReaderTest" time="0.062"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

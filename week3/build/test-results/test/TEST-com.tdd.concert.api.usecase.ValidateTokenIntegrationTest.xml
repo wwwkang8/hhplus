@@ -1,12 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:50:18" hostname="Jeongui-MacBookPro.local" time="0.101">
+<testsuite name="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:52:55" hostname="Jeongui-MacBookPro.local" time="1.034">
   <properties/>
-  <testcase name="유효한 토큰인 경우" classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.017"/>
+  <testcase name="유효한 토큰인 경우" classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.941"/>
   <testcase name="존재하지 않는 토큰인 경우 오류 발생." classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.02"/>
-  <testcase name="만료시각이 지난 토큰의 경우 오류 발생." classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.031"/>
-  <testcase name="예약이 완료되어 만료된 토큰인 경우 오류 발생" classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.027"/>
-  <system-out><![CDATA[2024-04-28T00:50:18.179+09:00  INFO 6651 --- [concert-dev] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ValidateTokenIntegrationTest]: ValidateTokenIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-04-28T00:50:18.181+09:00  INFO 6651 --- [concert-dev] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ValidateTokenIntegrationTest
+  <testcase name="만료시각이 지난 토큰의 경우 오류 발생." classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.033"/>
+  <testcase name="예약이 완료되어 만료된 토큰인 경우 오류 발생" classname="com.tdd.concert.api.usecase.ValidateTokenIntegrationTest" time="0.034"/>
+  <system-out><![CDATA[00:52:47.981 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.ValidateTokenIntegrationTest]: ValidateTokenIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:52:48.320 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.ValidateTokenIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-04-28T00:52:49.101+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.a.u.ValidateTokenIntegrationTest   : Starting ValidateTokenIntegrationTest using Java 17.0.10 with PID 7105 (started by jeonghokang in /Users/jeonghokang/IdeaProjects/hhplus/week3)
+2024-04-28T00:52:49.103+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.a.u.ValidateTokenIntegrationTest   : The following 1 profile is active: "dev"
+2024-04-28T00:52:50.186+09:00  INFO 7105 --- [concert-dev] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-28T00:52:50.296+09:00  INFO 7105 --- [concert-dev] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 8 JPA repository interfaces.
+2024-04-28T00:52:50.866+09:00  INFO 7105 --- [concert-dev] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-28T00:52:50.952+09:00  INFO 7105 --- [concert-dev] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-28T00:52:51.001+09:00  INFO 7105 --- [concert-dev] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-28T00:52:51.357+09:00  INFO 7105 --- [concert-dev] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-28T00:52:51.393+09:00  INFO 7105 --- [concert-dev] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-28T00:52:51.598+09:00  INFO 7105 --- [concert-dev] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-04-28T00:52:51.600+09:00  INFO 7105 --- [concert-dev] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-28T00:52:52.902+09:00  INFO 7105 --- [concert-dev] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists concert cascade 
+Hibernate: 
+    drop table if exists concert_schedule cascade 
+Hibernate: 
+    drop table if exists payment cascade 
+Hibernate: 
+    drop table if exists point_history cascade 
+Hibernate: 
+    drop table if exists reservation cascade 
+Hibernate: 
+    drop table if exists seat cascade 
+Hibernate: 
+    drop table if exists token cascade 
+Hibernate: 
+    drop table if exists user cascade 
+Hibernate: 
+    create table concert (
+        concert_id bigint generated by default as identity,
+        name varchar(255),
+        singer varchar(255),
+        primary key (concert_id)
+    )
+Hibernate: 
+    create table concert_schedule (
+        concert_date date,
+        concert_id bigint,
+        concert_schedule_id bigint generated by default as identity,
+        primary key (concert_schedule_id)
+    )
+Hibernate: 
+    create table payment (
+        pay_amount integer,
+        created_at timestamp(6),
+        payment_id bigint generated by default as identity,
+        reservation_id bigint unique,
+        user_id bigint,
+        primary key (payment_id)
+    )
+Hibernate: 
+    create table point_history (
+        amount integer,
+        point_rscd tinyint check (point_rscd between 0 and 1),
+        created_at timestamp(6),
+        point_history_id bigint generated by default as identity,
+        user_id bigint,
+        primary key (point_history_id)
+    )
+Hibernate: 
+    create table reservation (
+        reservation_date date,
+        reservation_status tinyint check (reservation_status between 0 and 2),
+        concert_id bigint,
+        reservation_id bigint generated by default as identity,
+        seat_id bigint unique,
+        user_id bigint,
+        primary key (reservation_id)
+    )
+Hibernate: 
+    create table seat (
+        price integer,
+        seat_status tinyint check (seat_status between 0 and 2),
+        concert_id bigint,
+        concert_schedule_id bigint,
+        seat_id bigint generated by default as identity,
+        seat_no bigint,
+        temp_reserved_expired_at timestamp(6),
+        temp_reserved_user_id bigint,
+        primary key (seat_id)
+    )
+Hibernate: 
+    create table token (
+        progress_status tinyint check (progress_status between 0 and 3),
+        created_at timestamp(6),
+        expired_at timestamp(6),
+        token_id bigint generated by default as identity,
+        updated_at timestamp(6),
+        user_id bigint,
+        wait_no bigint,
+        token varchar(255),
+        primary key (token_id)
+    )
+Hibernate: 
+    create table user (
+        point integer,
+        user_id bigint generated by default as identity,
+        token varchar(255),
+        primary key (user_id)
+    )
+Hibernate: 
+    alter table if exists concert_schedule 
+       add constraint FK3ry7aiaia6ooa3ajwf6w6soci 
+       foreign key (concert_id) 
+       references concert
+Hibernate: 
+    alter table if exists payment 
+       add constraint FKrewpj5f9v9xehy4ga8g221nw1 
+       foreign key (reservation_id) 
+       references reservation
+Hibernate: 
+    alter table if exists payment 
+       add constraint FK4spfnm9si9dowsatcqs5or42i 
+       foreign key (user_id) 
+       references user
+Hibernate: 
+    alter table if exists point_history 
+       add constraint FK9yptgx9qhcp768sokuopwxncm 
+       foreign key (user_id) 
+       references user
+Hibernate: 
+    alter table if exists reservation 
+       add constraint FKjnsh2q045ch4uso5vnb0477dq 
+       foreign key (concert_id) 
+       references concert
+Hibernate: 
+    alter table if exists reservation 
+       add constraint FKewd3sohjspqf2sjjvdcmcefpb 
+       foreign key (seat_id) 
+       references seat
+Hibernate: 
+    alter table if exists reservation 
+       add constraint FKm4oimk0l1757o9pwavorj6ljg 
+       foreign key (user_id) 
+       references user
+Hibernate: 
+    alter table if exists seat 
+       add constraint FKg0ccmmdn3894408ig1rdcgm9g 
+       foreign key (concert_id) 
+       references concert
+Hibernate: 
+    alter table if exists seat 
+       add constraint FKjtsoupodivwr6xa4vk02e2qol 
+       foreign key (concert_schedule_id) 
+       references concert_schedule
+Hibernate: 
+    alter table if exists token 
+       add constraint FKe32ek7ixanakfqsdaokm4q9y2 
+       foreign key (user_id) 
+       references user
+2024-04-28T00:52:53.018+09:00  INFO 7105 --- [concert-dev] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-28T00:52:53.410+09:00  INFO 7105 --- [concert-dev] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-28T00:52:55.042+09:00  WARN 7105 --- [concert-dev] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-28T00:52:55.740+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.a.u.ValidateTokenIntegrationTest   : Started ValidateTokenIntegrationTest in 7.1 seconds (process running for 9.007)
 Hibernate: 
     insert 
     into
@@ -14,7 +178,7 @@ Hibernate:
         (point, token, user_id) 
     values
         (?, ?, default)
-2024-04-28T00:50:18.189+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a3f390d8-8e4c-31f2-b47b-fa2f1b5f87db, 사용자ID : 68
+2024-04-28T00:52:56.482+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c4ca4238-a0b9-3382-8dcc-509a6f75849b, 사용자ID : 1
 Hibernate: 
     select
         (coalesce(max(t1_0.wait_no), 0)+1) 
@@ -27,7 +191,7 @@ Hibernate:
         token t1_0 
     where
         t1_0.progress_status=?
-2024-04-28T00:50:18.192+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 3
+2024-04-28T00:52:56.590+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 0
 Hibernate: 
     insert 
     into
@@ -73,7 +237,7 @@ Hibernate:
         (point, token, user_id) 
     values
         (?, ?, default)
-2024-04-28T00:50:18.209+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 14bfa6bb-1487-3e45-bba0-28a21ed38046, 사용자ID : 69
+2024-04-28T00:52:56.711+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c81e728d-9d4c-3f63-af06-7f89cc14862c, 사용자ID : 2
 Hibernate: 
     select
         (coalesce(max(t1_0.wait_no), 0)+1) 
@@ -86,7 +250,7 @@ Hibernate:
         token t1_0 
     where
         t1_0.progress_status=?
-2024-04-28T00:50:18.213+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 4
+2024-04-28T00:52:56.716+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 1
 Hibernate: 
     insert 
     into
@@ -123,7 +287,7 @@ Hibernate:
         (point, token, user_id) 
     values
         (?, ?, default)
-2024-04-28T00:50:18.230+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : 7cbbc409-ec99-3f19-878c-75bd1e06f215, 사용자ID : 70
+2024-04-28T00:52:56.731+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : eccbc87e-4b5c-32fe-a830-8fd9f2a7baf3, 사용자ID : 3
 Hibernate: 
     select
         (coalesce(max(t1_0.wait_no), 0)+1) 
@@ -136,7 +300,7 @@ Hibernate:
         token t1_0 
     where
         t1_0.progress_status=?
-2024-04-28T00:50:18.234+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 5
+2024-04-28T00:52:56.735+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 2
 Hibernate: 
     insert 
     into
@@ -237,7 +401,7 @@ Hibernate:
         (point, token, user_id) 
     values
         (?, ?, default)
-2024-04-28T00:50:18.264+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : e2c420d9-28d4-3f8c-a0ff-2ec19b371514, 사용자ID : 71
+2024-04-28T00:52:56.767+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a87ff679-a2f3-371d-9181-a67b7542122c, 사용자ID : 4
 Hibernate: 
     select
         (coalesce(max(t1_0.wait_no), 0)+1) 
@@ -250,7 +414,7 @@ Hibernate:
         token t1_0 
     where
         t1_0.progress_status=?
-2024-04-28T00:50:18.268+09:00  INFO 6651 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 6
+2024-04-28T00:52:56.774+09:00  INFO 7105 --- [concert-dev] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 3
 Hibernate: 
     insert 
     into
