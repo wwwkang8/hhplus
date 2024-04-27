@@ -1,12 +1,17 @@
-name: Dev CI/CD Pipeline
+name: Prod CI/CD Pipeline
 
 # push, pull request시에 github action 실행
 on:
   push:
     branches:
-      - develop
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
+# 1. Ubuntu 최신버전에서 빌드
+# 2. Set up JDK 17 : 자바 17버전으로 환경설정
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,6 +33,11 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: ${{ runner.os }}-gradle-
 
+      - name: Run Checkstyle
+        run: |
+             cd ./week3
+             ./gradlew checkstyleMain checkstyleTest
+
       - name: Permission go Gradlew
         run : |
               cd ./week3
@@ -37,14 +47,3 @@ jobs:
         run: |
              cd ./week3
              ./gradlew build
-             
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-            aws-region: ${{ secrets.AWS_REGION }}
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      - name: Login AWS ECR service
-        id: ecr-login
-        uses: aws-actions/amazon-ecr-login@v2
