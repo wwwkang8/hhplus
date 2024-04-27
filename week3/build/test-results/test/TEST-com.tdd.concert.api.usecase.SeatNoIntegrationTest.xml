@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.api.usecase.SeatNoIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-04-25T15:52:42" hostname="Jeongui-MacBookPro.local" time="0.052">
+<testsuite name="com.tdd.concert.api.usecase.SeatNoIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:50:18" hostname="Jeongui-MacBookPro.local" time="0.046">
   <properties/>
-  <testcase name="예약가능한 좌석 정보 조회" classname="com.tdd.concert.api.usecase.SeatNoIntegrationTest" time="0.031"/>
-  <testcase name="예약가능한 좌석이 없는 경우" classname="com.tdd.concert.api.usecase.SeatNoIntegrationTest" time="0.02"/>
-  <system-out><![CDATA[2024-04-26T00:52:42.016+09:00  INFO 10370 --- [concert-dev] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.SeatNoIntegrationTest]: SeatNoIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-04-26T00:52:42.018+09:00  INFO 10370 --- [concert-dev] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.SeatNoIntegrationTest
+  <testcase name="예약가능한 좌석 정보 조회" classname="com.tdd.concert.api.usecase.SeatNoIntegrationTest" time="0.028"/>
+  <testcase name="예약가능한 좌석이 없는 경우" classname="com.tdd.concert.api.usecase.SeatNoIntegrationTest" time="0.016"/>
+  <system-out><![CDATA[2024-04-28T00:50:18.371+09:00  INFO 6651 --- [concert-dev] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.tdd.concert.api.usecase.SeatNoIntegrationTest]: SeatNoIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-28T00:50:18.373+09:00  INFO 6651 --- [concert-dev] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.usecase.SeatNoIntegrationTest
 Hibernate: 
     insert 
     into

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.domain.point.component.PointManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T15:52:42" hostname="Jeongui-MacBookPro.local" time="0.16">
+<testsuite name="com.tdd.concert.domain.point.component.PointManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:50:18" hostname="Jeongui-MacBookPro.local" time="0.104">
   <properties/>
-  <testcase name="포인트 내역을 생성한다." classname="com.tdd.concert.domain.point.component.PointManagerTest" time="0.16"/>
+  <testcase name="포인트 내역을 생성한다." classname="com.tdd.concert.domain.point.component.PointManagerTest" time="0.104"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

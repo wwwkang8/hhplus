@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.domain.reservation.component.ReservationStoreTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T15:52:42" hostname="Jeongui-MacBookPro.local" time="0.004">
+<testsuite name="com.tdd.concert.domain.reservation.component.ReservationStoreTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:50:19" hostname="Jeongui-MacBookPro.local" time="0.004">
   <properties/>
   <testcase name="[예약생성] userId, seatId로 예약내역 조회" classname="com.tdd.concert.domain.reservation.component.ReservationStoreTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>

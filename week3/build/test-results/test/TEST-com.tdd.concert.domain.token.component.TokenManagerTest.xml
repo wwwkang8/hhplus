@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.domain.token.component.TokenManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T15:52:43" hostname="Jeongui-MacBookPro.local" time="0.178">
+<testsuite name="com.tdd.concert.domain.token.component.TokenManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:50:19" hostname="Jeongui-MacBookPro.local" time="0.148">
   <properties/>
-  <testcase name="사용자를 대기열에 추가하기" classname="com.tdd.concert.domain.token.component.TokenManagerTest" time="0.178"/>
+  <testcase name="사용자를 대기열에 추가하기" classname="com.tdd.concert.domain.token.component.TokenManagerTest" time="0.148"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

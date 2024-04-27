@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tdd.concert.domain.payment.component.PaymentManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-25T15:52:42" hostname="Jeongui-MacBookPro.local" time="0.089">
+<testsuite name="com.tdd.concert.domain.payment.component.PaymentManagerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-27T15:50:18" hostname="Jeongui-MacBookPro.local" time="0.084">
   <properties/>
-  <testcase name="결제내역 저장" classname="com.tdd.concert.domain.payment.component.PaymentManagerTest" time="0.089"/>
+  <testcase name="결제내역 저장" classname="com.tdd.concert.domain.payment.component.PaymentManagerTest" time="0.084"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

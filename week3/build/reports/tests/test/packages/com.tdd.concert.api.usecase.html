@@ -28,7 +28,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">20</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -40,7 +40,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.599s</div>
+<div class="counter">2.763s</div>
 <p>duration</p>
 </div>
 </td>
@@ -49,8 +49,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">16%</div>
+<div class="infoBox skipped" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -60,101 +60,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Ignored tests</a>
 </li>
 <li>
-<a href="#tab1">Ignored tests</a>
-</li>
-<li>
-<a href="#tab2">Classes</a>
+<a href="#tab1">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<ul class="linkList">
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html">ChargePointIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html#case1()">포인트 충전</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html">ChargePointIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html#case2()">포인트를 0원 충전하면 오류발생</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html">ChargePointIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html#case3()">포인트가 음수인 경우 오류발생</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html">CreateTokenIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html#case1()">토큰이 없어서 토큰을 발급한다.</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html">CreateTokenIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html#case2()">현재 존재하는 사용자의 토큰인 경우 토큰으로 사용자조회</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html">CreateTokenIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html#case3()">50명이 넘는 사용자가 대기열에 들어오는 경우 51번쨰 사용자는 대기상태</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.GetPointIntegrationTest.html">GetPointIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.GetPointIntegrationTest.html#case1()">유저의 포인트를 조회한다</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.GetPointIntegrationTest.html">GetPointIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.GetPointIntegrationTest.html#case2()">존재하지 않는 유저의 포인트 조회</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html#case1()">예약된 좌석을 결제처리한다.</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html#case2()">만료시각이 지나서 사용자의 토큰이 만료된 경우 오류발생</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html#case3()">이미 예약을 완료하여 토큰이 만료된 경우 오류 발생</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html#case4()">토큰이 존재하지 않는 경우 오류발생.</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html#case5()">임시배정이 되지 않은 좌석인 경우 예약 불가</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html#case6()">이미 판매가 완료된 좌석의 경우 오류 발생</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html#case7()">임시배정한 사용자ID와 결제요청한 사용자ID가 다른 경우 오류발생.</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ReserveSeatIntegrationTest.html">ReserveSeatIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ReserveSeatIntegrationTest.html#case1()">사용자가 좌석을 예약한다</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html">ValidateTokenIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html#case1()">유효한 토큰인 경우</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html">ValidateTokenIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html#case2()">존재하지 않는 토큰인 경우 오류 발생.</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html">ValidateTokenIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html#case3()">만료시각이 지난 토큰의 경우 오류 발생.</a>
-</li>
-<li>
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html">ValidateTokenIntegrationTest</a>.
-<a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html#case4()">예약이 완료되어 만료된 토큰인 경우 오류 발생</a>
-</li>
-</ul>
-</div>
-<div id="tab1" class="tab">
 <h2>Ignored tests</h2>
 <ul class="linkList">
 <li>
@@ -163,7 +75,7 @@
 </li>
 </ul>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -177,14 +89,14 @@
 </tr>
 </thead>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="../classes/com.tdd.concert.api.usecase.ChargePointIntegrationTest.html">ChargePointIntegrationTest</a>
 </td>
 <td>3</td>
-<td>3</td>
 <td>0</td>
-<td>0.091s</td>
-<td class="failures">0%</td>
+<td>0</td>
+<td>0.954s</td>
+<td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
@@ -193,48 +105,48 @@
 <td>2</td>
 <td>0</td>
 <td>0</td>
-<td>0.239s</td>
+<td>0.037s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="../classes/com.tdd.concert.api.usecase.CreateTokenIntegrationTest.html">CreateTokenIntegrationTest</a>
 </td>
 <td>3</td>
-<td>3</td>
 <td>0</td>
-<td>0.038s</td>
-<td class="failures">0%</td>
+<td>0</td>
+<td>0.917s</td>
+<td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="../classes/com.tdd.concert.api.usecase.GetPointIntegrationTest.html">GetPointIntegrationTest</a>
 </td>
 <td>2</td>
-<td>2</td>
 <td>0</td>
-<td>0.033s</td>
-<td class="failures">0%</td>
+<td>0</td>
+<td>0.027s</td>
+<td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="../classes/com.tdd.concert.api.usecase.PaymentIntegrationTest.html">PaymentIntegrationTest</a>
 </td>
 <td>7</td>
-<td>7</td>
 <td>0</td>
-<td>0.104s</td>
-<td class="failures">0%</td>
+<td>0</td>
+<td>0.628s</td>
+<td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="skipped">
 <a href="../classes/com.tdd.concert.api.usecase.ReserveSeatIntegrationTest.html">ReserveSeatIntegrationTest</a>
 </td>
 <td>2</td>
+<td>0</td>
 <td>1</td>
-<td>1</td>
-<td>0.011s</td>
-<td class="failures">0%</td>
+<td>0.061s</td>
+<td class="skipped">100%</td>
 </tr>
 <tr>
 <td class="success">
@@ -243,18 +155,18 @@
 <td>2</td>
 <td>0</td>
 <td>0</td>
-<td>0.051s</td>
+<td>0.044s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="../classes/com.tdd.concert.api.usecase.ValidateTokenIntegrationTest.html">ValidateTokenIntegrationTest</a>
 </td>
 <td>4</td>
-<td>4</td>
 <td>0</td>
-<td>0.032s</td>
-<td class="failures">0%</td>
+<td>0</td>
+<td>0.095s</td>
+<td class="success">100%</td>
 </tr>
 </table>
 </div>
@@ -266,7 +178,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 26. 오전 12:52:44</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at 2024. 4. 28. 오전 12:50:20</p>
 </div>
 </div>
 </body>

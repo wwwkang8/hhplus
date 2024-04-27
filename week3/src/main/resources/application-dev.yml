@@ -10,7 +10,7 @@ spring:
     #password: root
     #driver-class-name: com.mysql.cj.jdbc.Driver
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:testdb;NON_KEYWORDS=USER
     username: sa
     password:
     driver-class-name: org.h2.Driver
@@ -19,6 +19,7 @@ spring:
     properties:
       hibernate:
         format_sql: true  # 아름답게 출력
+
     hibernate:
       ddl-auto: create # 서버 기동시마다 테이블을 drop - create - insert 를 한다
     defer-datasource-initialization: true
