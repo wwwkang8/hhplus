@@ -1,0 +1,42 @@
+INSERT INTO concert (name, singer) VALUES
+('아이유콘서트', '아이유'),
+('트와이스드림콘서트', '트와이스'),
+('흠뻑쇼', '싸이'),
+('랩콘서트', '빈지노');
+
+
+INSERT INTO concert_schedule (concert_date, concert_id) VALUES
+('2024-05-01', 1),
+('2024-05-02', 2),
+('2024-05-03', 3),
+('2024-05-04', 4),
+('2024-05-05', 1),
+('2024-05-06', 2),
+('2024-05-07', 3),
+('2024-05-08', 4),
+('2024-05-09', 1),
+('2024-05-10', 2);
+
+INSERT INTO seat (price, seat_status, concert_id, concert_schedule_id, seat_no)
+SELECT
+    100, -- 가격 설정
+    0,   -- 좌석 상태 (0: available)
+    1,   -- 콘서트 ID
+    cs.concert_schedule_id,   -- 콘서트 스케줄 ID
+    s.seat_no   -- 좌석 번호
+FROM
+    (SELECT
+         cs.concert_schedule_id
+     FROM
+         concert_schedule cs
+     WHERE
+         cs.concert_date BETWEEN '2024-05-01' AND '2024-05-04') cs
+        CROSS JOIN
+    (SELECT
+             (a.a + (10 * b.a)) + 1 AS seat_no
+     FROM
+         (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a
+             CROSS JOIN
+         (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b
+    ) s
+    LIMIT 50;
