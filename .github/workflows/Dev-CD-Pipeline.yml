@@ -45,6 +45,21 @@ jobs:
              cd ./week3
              ./gradlew build
              
+      - name: Login Docker
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build Docker image and Push
+        env:
+          NAME: ${{ secrets.DOCKERHUB_NAME }}
+          REPO: ${{ secrets.DOCKERHUB_REPO_NAME }}
+        run: |
+             cd ./week3
+             docker build -t "${{ env.NAME }}/${{ env.REPO }}:latest" -f Dockerfile .
+             docker push "${{ env.NAME }}/${{ env.REPO }}:latest"
+             
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
