@@ -20,6 +20,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Set YML
+        run: |
+          cd ./week3
+          mkdir -p src/main/resources
+          echo "${{ secrets.APPLICATION_PROD_YML }}" | base64 --decode > src/main/resources/application.yml
+          find src
+
       - name: Cache Gradle packages
         uses: actions/cache@v3
         with:
