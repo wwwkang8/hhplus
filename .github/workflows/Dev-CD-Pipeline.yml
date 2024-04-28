@@ -56,8 +56,9 @@ jobs:
           NAME: ${{ secrets.DOCKER_NAME }}
           REPO: ${{ secrets.DOCKER_REPO_NAME }}
         run: |
-          docker build -t $NAME/$REPO -t $NAME/$REPO:latest -f Dockerfile .
-          docker push $NAME/$REPO
+             cd ./week3
+             docker build -t $NAME/$REPO:latest -f Dockerfile .
+             docker push $NAME/$REPO:latest
              
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
