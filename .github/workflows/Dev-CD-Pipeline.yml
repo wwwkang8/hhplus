@@ -56,6 +56,7 @@ jobs:
           NAME: ${{ secrets.DOCKERHUB_NAME }}
           REPO: ${{ secrets.DOCKERHUB_REPO_NAME }}
         run: |
+             cd ./week3
              docker build -t "${{ env.NAME }}/${{ env.REPO }}:latest" -f Dockerfile .
              docker push "${{ env.NAME }}/${{ env.REPO }}:latest"
              
