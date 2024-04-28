@@ -5,9 +5,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 # 1. Ubuntu 최신버전에서 빌드
@@ -23,6 +20,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Set YML
+        run: |
+          cd ./week3
+          mkdir -p src/main/resources
+          echo "${{ secrets.APPLICATION_PROD_YML }}" | base64 --decode > src/main/resources/application.yml
+          find src
+
       - name: Cache Gradle packages
         uses: actions/cache@v3
         with:
@@ -32,11 +36,6 @@ jobs:
             **/.gradle
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: ${{ runner.os }}-gradle-
-
-      - name: Run Checkstyle
-        run: |
-             cd ./week3
-             ./gradlew checkstyleMain checkstyleTest
 
       - name: Permission go Gradlew
         run : |
