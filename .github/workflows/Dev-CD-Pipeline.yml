@@ -53,8 +53,8 @@ jobs:
 
       - name: Build Docker image and Push
         env:
-          NAME: ${{ secrets.DOCKER_NAME }}
-          REPO: ${{ secrets.DOCKER_REPO_NAME }}
+          NAME: ${{ secrets.DOCKERHUB_NAME }}
+          REPO: ${{ secrets.DOCKERHUB_REPO_NAME }}
         run: |
              docker build -t "${{ env.NAME }}/${{ env.REPO }}:latest" -f Dockerfile .
              docker push "${{ env.NAME }}/${{ env.REPO }}:latest"
