@@ -56,9 +56,8 @@ jobs:
           NAME: ${{ secrets.DOCKER_NAME }}
           REPO: ${{ secrets.DOCKER_REPO_NAME }}
         run: |
-          export SHORT_SHA=$(echo ${{ github.sha }} | cut -c 1-8)
-          docker build -t $NAME/$REPO:$SHORT_SHA -t $NAME/$REPO:latest -f Dockerfile .
-          docker push $NAME/$REPO:$SHORT_SHA
+          docker build -t $NAME/$REPO -t $NAME/$REPO:latest -f Dockerfile .
+          docker push $NAME/$REPO
              
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
