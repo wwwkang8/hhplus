@@ -3,7 +3,6 @@ package com.tdd.concert.domain.seat.infra;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.seat.model.Seat;
 import com.tdd.concert.domain.seat.model.SeatStatus;
 import com.tdd.concert.domain.seat.repository.SeatCoreRepository;
@@ -38,4 +37,5 @@ public class SeatCoreRepositoryImpl implements SeatCoreRepository {
   public Seat save(Seat seat) {
     return seatJpaRepository.save(seat);
   }
+
 }

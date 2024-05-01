@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import com.tdd.concert.domain.seat.model.Seat;
 import com.tdd.concert.domain.seat.repository.SeatCoreRepository;
-import jdk.jfr.Registered;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -27,4 +26,5 @@ public class SeatReader {
   public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId, LocalDate concertDate) {
     return seatCoreRepository.findSeatBySeatNoWithExclusiveLock(seatNo, concertId, concertDate);
   }
+
 }

@@ -4,7 +4,6 @@ import com.tdd.concert.api.controller.dto.request.ReservationRequest;
 import com.tdd.concert.api.controller.dto.response.ReservationResponse;
 import com.tdd.concert.domain.concert.component.ConcertManager;
 import com.tdd.concert.domain.concert.model.Concert;
-import com.tdd.concert.domain.concert.model.ConcertSchedule;
 import com.tdd.concert.domain.reservation.component.ReservationManager;
 import com.tdd.concert.domain.reservation.model.Reservation;
 import com.tdd.concert.domain.seat.component.SeatManager;
@@ -32,7 +31,7 @@ public class ReserveSeatUseCase {
   public ReservationResponse reserve(ReservationRequest request) {
     log.info("[ReserveSeatUseCase] 예약 시작");
 
-    // 석1. 사용자를 조회한다.
+    // 1. 사용자를 조회한다.
     User user = userManager.findUserById(request.getUserId());
     if(user == null) {
       throw new RuntimeException("[좌석 예약] 존재하지 않는 사용자입니다.");
@@ -46,6 +45,9 @@ public class ReserveSeatUseCase {
     }
     log.info("[ReserveSeatUseCase] 콘서트 조회완료");
 
+    //Seat seat = seatManager.findSeatBySeatNoAndConcert(request.getSeatNo(), request.getConcertId(), request.getConcertDate());
+
+    log.info("[ReserveSeatUseCase] 좌석 조회완료");
     // 3. 좌석을 임시배정한다.
     Seat occupiedSeat = seatManager.occupy(request.getSeatNo(),
                                            concert.getConcertId(),

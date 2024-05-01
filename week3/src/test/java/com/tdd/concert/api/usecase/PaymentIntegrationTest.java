@@ -1,5 +1,8 @@
 package com.tdd.concert.api.usecase;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.time.LocalDate;
 
 import com.tdd.concert.api.controller.dto.request.PaymentRequest;
@@ -32,7 +35,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class PaymentIntegrationTest {
@@ -280,52 +282,6 @@ public class PaymentIntegrationTest {
     String expectedMessage = "[PaymentUseCase] 임시배정된 사용자ID와 결제 요청한 사용자ID가 다릅니다.";
     assertEquals(expectedMessage, exception.getMessage());
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -1,16 +1,8 @@
 package com.tdd.concert.api.controller.dto.response;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.reservation.model.Reservation;
-import com.tdd.concert.domain.seat.model.Seat;
-import com.tdd.concert.domain.user.model.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -79,5 +71,16 @@ public class ReservationResponse {
                                .seatNo(reservation.getSeat().getSeatNo())
                                .expiredAt(reservation.getSeat().getTempReservedExpiredAt())
                                .build();
+  }
+
+  /** 낙관적락을 위한 ReservationResponse */
+  public static ReservationResponse fromO(Long concertId, Long userId, Long seatNo, LocalDateTime expiredAt) {
+
+    return ReservationResponse.builder()
+        .concertId(concertId)
+        .userId(userId)
+        .seatNo(seatNo)
+        .expiredAt(expiredAt)
+        .build();
   }
 }

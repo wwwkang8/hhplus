@@ -1,5 +1,6 @@
 package com.tdd.concert.api.controller;
 
+import com.tdd.concert.api.concurrency.ReserveSeatOptimisticLock;
 import com.tdd.concert.api.controller.dto.request.ReservationRequest;
 import com.tdd.concert.api.controller.dto.response.ReservationResponse;
 import com.tdd.concert.api.usecase.ReserveSeatUseCase;
@@ -18,10 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReservationController {
 
     private final ReserveSeatUseCase reserveSeatUseCase;
+    private final ReserveSeatOptimisticLock reserveSeatOptimisticLock;
 
     @PostMapping("")
     public ResponseEntity<ReservationResponse> reserveConcertSeat(@RequestBody ReservationRequest request) {
         return ResponseEntity.ok().body(reserveSeatUseCase.reserve(request));
+    }
+
+    @PostMapping("/optimistic")
+    public ResponseEntity<ReservationResponse> reserveConcertSeatOptimistic(@RequestBody ReservationRequest request) {
+        return ResponseEntity.ok().body(reserveSeatOptimisticLock.reserve(request));
     }
 
 }

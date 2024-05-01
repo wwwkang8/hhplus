@@ -1,19 +1,23 @@
 package com.tdd.concert.api.usecase;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import com.tdd.concert.api.controller.dto.request.ReservationRequest;
 import com.tdd.concert.api.controller.dto.request.TokenRequest;
 import com.tdd.concert.api.controller.dto.response.ReservationResponse;
 import com.tdd.concert.api.controller.dto.response.TokenResponse;
-import com.tdd.concert.domain.concert.component.ConcertManager;
-import com.tdd.concert.domain.concert.infra.ConcertCoreRepositoryImpl;
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.concert.model.ConcertSchedule;
 import com.tdd.concert.domain.concert.repository.ConcertJpaRepository;
 import com.tdd.concert.domain.concert.repository.ConcertScheduleJpaRepository;
-import com.tdd.concert.domain.reservation.component.ReservationManager;
-import com.tdd.concert.domain.reservation.model.Reservation;
-import com.tdd.concert.domain.reservation.model.ReservationStatus;
-import com.tdd.concert.domain.seat.component.SeatManager;
 import com.tdd.concert.domain.seat.model.Seat;
 import com.tdd.concert.domain.seat.model.SeatStatus;
 import com.tdd.concert.domain.seat.repository.SeatJpaRepository;
@@ -22,21 +26,10 @@ import com.tdd.concert.domain.user.component.UserManager;
 import com.tdd.concert.domain.user.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @SpringBootTest
 @Slf4j
@@ -128,7 +121,6 @@ public class ReserveSeatIntegrationTest {
 
 
   @DisplayName("다수의 요청자가 1개의 좌석을 동시에 예약하려고 한다.")
-  @Disabled
   @Test
   void case4() throws InterruptedException {
     // given

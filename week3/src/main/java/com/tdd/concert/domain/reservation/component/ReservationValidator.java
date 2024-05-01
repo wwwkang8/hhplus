@@ -5,8 +5,6 @@ import com.tdd.concert.api.controller.dto.request.TokenRequest;
 import com.tdd.concert.domain.concert.component.ConcertManager;
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.seat.component.SeatManager;
-import com.tdd.concert.domain.seat.model.Seat;
-import com.tdd.concert.domain.seat.model.SeatStatus;
 import com.tdd.concert.domain.token.component.TokenManager;
 import com.tdd.concert.domain.user.component.UserManager;
 import com.tdd.concert.domain.user.model.User;
@@ -45,6 +43,7 @@ public class ReservationValidator {
       throw new RuntimeException("존재하지 않는 콘서트입니다.");
     }
 
+    log.info("[ReservationValidator] validate 메서드 종료");
 
     return true;
   }
