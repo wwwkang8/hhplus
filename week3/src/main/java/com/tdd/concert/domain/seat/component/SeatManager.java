@@ -1,14 +1,9 @@
 package com.tdd.concert.domain.seat.component;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.seat.model.Seat;
-import com.tdd.concert.domain.seat.model.SeatStatus;
-import com.tdd.concert.domain.seat.repository.SeatCoreRepository;
 import com.tdd.concert.domain.user.model.User;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -34,7 +29,7 @@ public class SeatManager {
 
 
     /** 좌석 검증처리 */
-    seatValidator.validate(seat);
+    //seatValidator.validate(seat);
 
     log.info("[SeatManager] 좌석 검증처리 완료");
 
@@ -43,7 +38,6 @@ public class SeatManager {
 
     log.info("[SeatManager] 좌석 tempOccupy 완료");
 
-    // return seatCoreRepository.save(seat);
     return seat;
   }
 }
