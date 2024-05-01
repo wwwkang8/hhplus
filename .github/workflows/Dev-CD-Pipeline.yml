@@ -4,7 +4,7 @@ name: Dev CI/CD Pipeline
 on:
   push:
     branches:
-      - develop
+      - develop2
   workflow_dispatch:
 
 jobs:
