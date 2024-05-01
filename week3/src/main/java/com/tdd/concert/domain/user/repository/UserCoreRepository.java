@@ -8,4 +8,6 @@ public interface UserCoreRepository {
 
   public User findUserById(Long userId);
 
+  public User findUserByUserIdWithExclusiveLock(Long userId);
+
 }

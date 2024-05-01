@@ -33,7 +33,9 @@ public class UserManagerImpl implements UserManager{
       throw new RuntimeException("0원 이하는 충전할 수 없습니다.");
     }
 
-    User user = userReader.findUserById(userId);
+    //User user = userReader.findUserById(userId);
+    /** 사용자 포인트 충전의 요청을 순차적으로 받기 위해 비관적 락을 사용 */
+    User user = userReader.findUserByUserIdWithExclusiveLock(userId);
     int totalPoint = user.getPoint() + amount;
     user.setPoint(totalPoint);
     return user;

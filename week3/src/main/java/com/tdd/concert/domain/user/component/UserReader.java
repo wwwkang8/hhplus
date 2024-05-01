@@ -17,4 +17,8 @@ public class UserReader {
 
     return userCoreRepository.findUserById(userId);
   }
+
+  public User findUserByUserIdWithExclusiveLock(Long userId) {
+    return userCoreRepository.findUserByUserIdWithExclusiveLock(userId);
+  }
 }
