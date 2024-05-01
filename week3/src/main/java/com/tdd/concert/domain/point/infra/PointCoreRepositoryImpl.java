@@ -1,6 +1,7 @@
 package com.tdd.concert.domain.point.infra;
 
 import com.tdd.concert.domain.point.model.PointHistory;
+import com.tdd.concert.domain.point.model.PointRscd;
 import com.tdd.concert.domain.point.repository.PointCoreRepository;
 import com.tdd.concert.domain.point.repository.PointJpaRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +16,10 @@ public class PointCoreRepositoryImpl implements PointCoreRepository {
   @Override
   public PointHistory save(PointHistory pointHistory) {
     return pointJpaRepository.save(pointHistory);
+  }
+
+  @Override
+  public int countPointHistoriesByUserId(PointRscd pointRscd) {
+    return pointJpaRepository.countPointHistoriesByUserId(pointRscd);
   }
 }
