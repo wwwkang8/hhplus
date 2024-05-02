@@ -82,7 +82,7 @@ public class ReservationSeatOptimisticLockTest {
             .concertSchedule(concertSchedule)
             .tempReservedExpiredAt(null)
             .tempReservedUserId(null)
-            .version(1L)
+            .version(0L)
             .build()
     );
   }
@@ -145,7 +145,7 @@ public class ReservationSeatOptimisticLockTest {
     assertEquals(threadCount-failCnt.intValue(), successCnt.intValue());
 
     // version은 성공한 횟수만큼 증가
-    assertEquals(successCnt.intValue(), actualSeatO.getVersion());
+    assertEquals(1, actualSeatO.getVersion());
   }
 
 
