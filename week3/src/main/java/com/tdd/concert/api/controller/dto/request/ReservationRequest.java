@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.seat.model.Seat;
+import com.tdd.concert.domain.seat_distribute.model.SeatD;
 import com.tdd.concert.domain.seat_optimistic.model.SeatO;
 import com.tdd.concert.domain.seat_pessimistic.model.SeatP;
 import com.tdd.concert.domain.user.model.User;
@@ -19,6 +20,8 @@ import lombok.Setter;
 public class ReservationRequest {
 
   private long userId;
+
+  private long seatId;
 
   private String token;
 
@@ -38,6 +41,8 @@ public class ReservationRequest {
 
   private SeatO seatO;
 
+  private SeatD seatD;
+
   public ReservationRequest(User user, Concert concert, Seat seat) {
     this.user = user;
     this.concert = concert;
@@ -54,6 +59,12 @@ public class ReservationRequest {
     this.user = user;
     this.concert = concert;
     this.seatO = seatO;
+  }
+
+  public ReservationRequest(User user, Concert concert, SeatD seatD) {
+    this.user = user;
+    this.concert = concert;
+    this.seatD = seatD;
   }
 
   public ReservationRequest(long userId, String token, long concertId,
@@ -99,5 +110,15 @@ public class ReservationRequest {
     this.concertId = concertId;
     this.concertDate = concertDate;
     this.seatP = seatP;
+  }
+
+  public ReservationRequest(long userId, String token, long concertId,
+                            LocalDate concertDate,
+                            SeatD seatD) {
+    this.userId = userId;
+    this.token = token;
+    this.concertId = concertId;
+    this.concertDate = concertDate;
+    this.seatD = seatD;
   }
 }

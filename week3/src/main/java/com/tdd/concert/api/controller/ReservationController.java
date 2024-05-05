@@ -1,5 +1,6 @@
 package com.tdd.concert.api.controller;
 
+import com.tdd.concert.api.concurrency.ReserveSeatDistributedLock;
 import com.tdd.concert.api.concurrency.ReserveSeatOptimisticLock;
 import com.tdd.concert.api.concurrency.ReserveSeatPessimisticLock;
 import com.tdd.concert.api.controller.dto.request.ReservationRequest;
@@ -22,6 +23,7 @@ public class ReservationController {
     private final ReserveSeatUseCase reserveSeatUseCase;
     private final ReserveSeatOptimisticLock reserveSeatOptimisticLock;
     private final ReserveSeatPessimisticLock reserveSeatPessimisticLock;
+    private final ReserveSeatDistributedLock reserveSeatDistributedLock;
 
     @PostMapping("")
     public ResponseEntity<ReservationResponse> reserveConcertSeat(@RequestBody ReservationRequest request) {
@@ -36,6 +38,11 @@ public class ReservationController {
     @PostMapping("/pessimistic")
     public ResponseEntity<ReservationResponse> reserveConcertSeatPessimistic(@RequestBody ReservationRequest request) {
         return ResponseEntity.ok().body(reserveSeatPessimisticLock.reserve(request));
+    }
+
+    @PostMapping("/distributed")
+    public ResponseEntity<ReservationResponse> reserveConcertSeatDistributed(@RequestBody ReservationRequest request) {
+        return ResponseEntity.ok().body(reserveSeatDistributedLock.reserve(request));
     }
 
 }

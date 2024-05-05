@@ -6,8 +6,8 @@ import com.tdd.concert.domain.concert.component.ConcertManager;
 import com.tdd.concert.domain.concert.model.Concert;
 import com.tdd.concert.domain.reservation.component.ReservationManager;
 import com.tdd.concert.domain.reservation.model.Reservation;
-import com.tdd.concert.domain.seat_pessimistic.component.SeatManagerP;
-import com.tdd.concert.domain.seat_pessimistic.model.SeatP;
+import com.tdd.concert.domain.seat_distribute.component.SeatManagerD;
+import com.tdd.concert.domain.seat_distribute.model.SeatD;
 import com.tdd.concert.domain.user.component.UserManager;
 import com.tdd.concert.domain.user.model.User;
 import jakarta.transaction.Transactional;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class ReserveSeatPessimisticLock {
+public class ReserveSeatDistributedLock {
 
   /**
    * 동시성 테스트를 위한 UseCase
@@ -30,7 +30,7 @@ public class ReserveSeatPessimisticLock {
   private final ReservationManager reservationManager;
   private final UserManager userManager;
   private final ConcertManager concertManager;
-  private final SeatManagerP seatManagerP;
+  private final SeatManagerD seatManagerD;
 
 
   /** 좌석 예약 */
@@ -45,8 +45,8 @@ public class ReserveSeatPessimisticLock {
 
     Concert concert = concertManager.findConcertByConcertId(request.getConcertId());
 
-    // 3. occupy에서 좌석을 비관적락으로 잠그고, 트랜잭션 처리를 한다.
-    SeatP occupiedSeat = seatManagerP.occupy(request.getSeatId(), user);
+    // 3. occupy에서 좌석을 분산락으로 잠근다
+    SeatD occupiedSeat = seatManagerD.occupy(request.getSeatD().getSeatId(), user);
 
     ReservationRequest reservationRequest = new ReservationRequest(user, concert, occupiedSeat);
 
