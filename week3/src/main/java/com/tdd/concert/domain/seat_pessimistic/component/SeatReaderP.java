@@ -16,7 +16,7 @@ public class SeatReaderP {
   private final SeatCoreRepositoryP seatCoreRepositoryP;
 
   public SeatP findSeatPBySeatId(Long seatId) {
-    return seatCoreRepositoryP.findSeatP(seatId);
+    return seatCoreRepositoryP.findSeatPBySeatId(seatId);
   }
 
 
