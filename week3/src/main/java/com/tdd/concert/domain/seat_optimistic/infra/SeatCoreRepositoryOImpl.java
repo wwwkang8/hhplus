@@ -24,8 +24,8 @@ public class SeatCoreRepositoryOImpl implements SeatCoreRepositoryO {
   }
 
   @Override
-  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatNo, Long concertId, LocalDate concertDate) {
-    return seatJpaRepositoryO.findSeatBySeatNoWithOptimisticLock(seatNo, concertId, concertDate);
+  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatId) {
+    return seatJpaRepositoryO.findSeatBySeatNoWithOptimisticLock(seatId);
   }
 
   @Override

@@ -1,7 +1,5 @@
 package com.tdd.concert.domain.seat_optimistic.component;
 
-import java.time.LocalDate;
-
 import com.tdd.concert.domain.seat_optimistic.model.SeatO;
 import com.tdd.concert.domain.seat_optimistic.repository.SeatCoreRepositoryO;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +20,8 @@ public class SeatReaderO {
 
   /** 비관적락으로 좌석을 조회하는 메서드
    * 좌석예약시에만 활용한다. */
-  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatNo, Long concertId, LocalDate concertDate) {
-    return seatCoreRepositoryO.findSeatBySeatNoWithOptimisticLock(seatNo, concertId, concertDate);
+  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatId) {
+    return seatCoreRepositoryO.findSeatBySeatNoWithOptimisticLock(seatId);
   }
 
 }

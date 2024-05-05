@@ -63,7 +63,6 @@ public class SeatO {
     private ConcertSchedule concertSchedule;
 
     public void tempOccupy(Long userId) {
-        log.info("[SeatO 엔티티 내부] tempOccupy 메서드 진입");
 
         if(this.getSeatStatusO() != SeatStatusO.AVAILABLE) {
             throw new RuntimeException("예약가능한 좌석이 아닙니다.. 좌석번호 : " + this.getSeatNo() + ", 좌석 상태 : " + this.getSeatStatusO());
@@ -72,7 +71,7 @@ public class SeatO {
         this.setTempReservedExpiredAt(LocalDateTime.now().plusMinutes(5));
         this.setSeatStatusO(SeatStatusO.TEMPORARY_RESERVED);
 
-        log.info("[SeatO 엔티티 내부] tempOccupy 메서드 완료");
+        log.info("[SeatO 엔티티 내부] tempOccupy 임시배정 완료. 사용자ID : " + userId);
     }
 
     public void expire() {

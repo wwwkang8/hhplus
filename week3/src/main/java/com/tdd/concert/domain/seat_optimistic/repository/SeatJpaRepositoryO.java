@@ -1,6 +1,5 @@
 package com.tdd.concert.domain.seat_optimistic.repository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import com.tdd.concert.domain.seat_optimistic.model.SeatO;
@@ -16,8 +15,8 @@ public interface SeatJpaRepositoryO extends JpaRepository<SeatO, Long> {
 
   // 동시성 제어를 위한 낙관적락
   @Lock(LockModeType.OPTIMISTIC)
-  @Query("select s from SeatO s where s.seatNo = ?1 AND s.concert.concertId = ?2 AND s.concertSchedule.concertDate = ?3")
-  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatNo, Long concertId, LocalDate concertDate);
+  @Query("select s from SeatO s where s.seatId = ?1")
+  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatId);
 
 
   @Query("SELECT s FROM SeatO s WHERE s.seatStatusO = ?1")
