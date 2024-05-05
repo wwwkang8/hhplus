@@ -49,7 +49,7 @@ public class ReserveSeatOptimisticLock {
     }
 
     // 3. 좌석을 임시배정한다.
-    SeatO occupiedSeat = seatManagerO.occupy(request.getSeatO().getSeatId(), user);
+    SeatO occupiedSeat = seatManagerO.occupy(request.getSeatId(), user);
 
     ReservationRequest reservationRequest = new ReservationRequest(user, concert, occupiedSeat);
 

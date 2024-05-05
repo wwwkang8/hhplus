@@ -82,3 +82,19 @@ FROM
         CROSS JOIN
     (SELECT (a.a + (10 * b.a)) + 1 AS seat_no FROM (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a CROSS JOIN (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b ) s
     LIMIT 50;
+
+
+INSERT INTO seatD (price, seat_status, concert_id, concert_schedule, seat_no, temp_reserved_user_id, temp_reserved_expired_at)
+SELECT
+    100,                         -- 가격 설정
+    0,                           -- 좌석 상태 (0: available)
+    1,                           -- 콘서트 ID
+    cs.concert_date,             -- 콘서트 스케줄 날짜
+    s.seat_no,                   -- 좌석 번호
+    NULL,                        -- 임시 예약 사용자 ID (NULL로 초기화)
+    NULL                         -- 임시 예약 만료 시각 (NULL로 초기화)
+FROM
+    (SELECT DISTINCT concert_date FROM concert_schedule WHERE concert_date BETWEEN '2024-05-01' AND '2024-05-04') cs
+        CROSS JOIN
+    (SELECT (a.a + (10 * b.a)) + 1 AS seat_no FROM (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS a CROSS JOIN (SELECT 0 AS a UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) AS b ) s
+    LIMIT 50;
