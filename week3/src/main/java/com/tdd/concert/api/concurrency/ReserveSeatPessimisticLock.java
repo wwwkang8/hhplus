@@ -36,30 +36,26 @@ public class ReserveSeatPessimisticLock {
   /** 좌석 예약 */
   @Transactional
   public ReservationResponse reserve(ReservationRequest request) {
-    log.info("[ReserveSeatUseCase] 예약 시작");
 
     // 1. 사용자를 조회한다.
     User user = userManager.findUserById(request.getUserId());
     if(user == null) {
       throw new RuntimeException("[좌석 예약] 존재하지 않는 사용자입니다.");
     }
-    log.info("[ReserveSeatUseCase] 사용자 검증 완료");
 
-    Concert concert = Concert.builder().concertId(1L).build();
+    Concert concert = concertManager.findConcertByConcertId(request.getConcertId());
 
-
-    SeatP seatP = seatManagerP.findSeatBySeatNoAndConcert(request.getSeatNo(), request.getConcertId(), request.getConcertDate());
-
-    // 3. 좌석을 임시배정한다.
-    SeatP occupiedSeat = seatManagerP.occupy(seatP, user);
-
-    log.info("[ReserveSeatUseCase] 좌석 Occupy 완료");
+    // 3. occupy에서 좌석을 비관적락으로 잠그고, 트랜잭션 처리를 한다.
+    SeatP occupiedSeat = seatManagerP.occupy(request.getSeatP().getSeatId(), user);
 
     ReservationRequest reservationRequest = new ReservationRequest(user, concert, occupiedSeat);
 
     Reservation reservation = reservationManager.reserve(reservationRequest);
 
-    return ReservationResponse.from(reservation);
+    return ReservationResponse.fromP(reservation.getConcert().getConcertId(),
+                                      reservation.getUser().getUserId(),
+                                      occupiedSeat.getSeatNo(),
+                                      occupiedSeat.getTempReservedExpiredAt());
   }
 
 }

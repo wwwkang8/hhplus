@@ -14,7 +14,7 @@ public interface SeatJpaRepositoryP extends JpaRepository<SeatP, Long> {
 
   public SeatP findSeatPBySeatId(Long seatId);
 
-  @Query("SELECT s FROM SeatP s WHERE s.seatNo = ?1 AND s.concert.concertId = ?2 AND s.concertSchedule.concertDate = ?3")
+  @Query("SELECT s FROM SeatP s WHERE s.seatNo = ?1 AND s.concertId = ?2 AND s.concertSchedule = ?3")
   public SeatP findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate);
 
   // 동시성 제어를 위한 비관적락
@@ -23,7 +23,7 @@ public interface SeatJpaRepositoryP extends JpaRepository<SeatP, Long> {
   public SeatP findSeatBySeatNoWithExclusiveLock(Long seatId);
 
 
-  @Query("SELECT s FROM SeatP s WHERE s.seatStatus = ?1")
+  @Query("SELECT s FROM SeatP s WHERE s.seatStatusP = ?1")
   public List<SeatP> findTempReservationExpiredSeatList(SeatStatusP seatStatus);
 
 }

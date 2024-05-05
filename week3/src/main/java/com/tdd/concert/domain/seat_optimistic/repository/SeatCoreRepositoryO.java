@@ -10,7 +10,7 @@ public interface SeatCoreRepositoryO {
 
   public SeatO findSeatOBySeatId(Long seatId);
 
-  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatNo, Long concertId, LocalDate concertDate);
+  public SeatO findSeatBySeatNoWithOptimisticLock(Long seatId);
 
   public List<SeatO> findTempReservationExpiredSeatList(SeatStatusO seatStatus);
 

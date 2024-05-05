@@ -1,6 +1,7 @@
 package com.tdd.concert.domain.seat_pessimistic.component;
 
 import com.tdd.concert.domain.seat_pessimistic.model.SeatP;
+import com.tdd.concert.domain.seat_pessimistic.model.SeatStatusP;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -10,17 +11,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class SeatValidatorP {
 
-  public void validate(SeatP seat) {
-    log.info("[SeatValidator] 좌석 validate 메서드 진입");
+  public void validate(SeatP seatP) {
 
-//    if(seat.getSeatStatus() == SeatStatus.TEMPORARY_RESERVED) {
-//      throw new RuntimeException("이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : " + seat.getSeatNo());
-//
-//    } else if(seat.getSeatStatus() == SeatStatus.SOLDOUT) {
-//      throw new RuntimeException("이미 판매완료된 좌석입니다. 좌석번호 : " + seat.getSeatNo());
-//    }
+    if(seatP.getSeatStatusP() == SeatStatusP.TEMPORARY_RESERVED) {
+      throw new RuntimeException("이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : " + seatP.getSeatNo());
 
-    log.info("[SeatValidator] 좌석 validate 메서드 끝");
+    } else if(seatP.getSeatStatusP() == SeatStatusP.SOLDOUT) {
+      throw new RuntimeException("이미 판매완료된 좌석입니다. 좌석번호 : " + seatP.getSeatNo());
+    }
+
   }
 
 

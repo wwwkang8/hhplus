@@ -16,31 +16,31 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 public class SeatCoreRepositoryPImpl implements SeatCoreRepositoryP {
 
-  private final SeatJpaRepositoryP seatJpaRepository;
+  private final SeatJpaRepositoryP seatJpaRepositoryP;
 
   @Override
   public SeatP findSeatP(Long seatId) {
-    return seatJpaRepository.findSeatPBySeatId(seatId);
+    return seatJpaRepositoryP.findSeatPBySeatId(seatId);
   }
 
   @Override
   public SeatP findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate) {
-    return seatJpaRepository.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
+    return seatJpaRepositoryP.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
   }
 
   @Override
   public SeatP findSeatBySeatNoWithExclusiveLock(Long seatId) {
-    return seatJpaRepository.findSeatBySeatNoWithExclusiveLock(seatId);
+    return seatJpaRepositoryP.findSeatBySeatNoWithExclusiveLock(seatId);
   }
 
   @Override
   public List<SeatP> findTempReservationExpiredSeatList(SeatStatusP seatStatus) {
-    return seatJpaRepository.findTempReservationExpiredSeatList(seatStatus);
+    return seatJpaRepositoryP.findTempReservationExpiredSeatList(seatStatus);
   }
 
   @Override
   public SeatP save(SeatP seat) {
-    return seatJpaRepository.save(seat);
+    return seatJpaRepositoryP.save(seat);
   }
 
 }

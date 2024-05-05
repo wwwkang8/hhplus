@@ -157,8 +157,9 @@ public class ReserveSeatIntegrationTest {
           countDownLatch.countDown();
         }
       });
-      countDownLatch.await();
+
     }
+    countDownLatch.await();
 
     Seat actualSeat = seatJpaRepository.findSeatBySeatNoAndConcert(seat.getSeatNo(), concert.getConcertId(), concertSchedule.getConcertDate());
     assertEquals(SeatStatus.TEMPORARY_RESERVED, actualSeat.getSeatStatus());
