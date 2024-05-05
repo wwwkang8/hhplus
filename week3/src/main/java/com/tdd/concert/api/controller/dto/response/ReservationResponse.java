@@ -83,4 +83,15 @@ public class ReservationResponse {
         .expiredAt(expiredAt)
         .build();
   }
+
+  /** 비관적락을 위한 ReservationResponse */
+  public static ReservationResponse fromP(Long concertId, Long userId, Long seatNo, LocalDateTime expiredAt) {
+
+    return ReservationResponse.builder()
+        .concertId(concertId)
+        .userId(userId)
+        .seatNo(seatNo)
+        .expiredAt(expiredAt)
+        .build();
+  }
 }

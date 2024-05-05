@@ -14,7 +14,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Isolation;
 
 @Component
 @RequiredArgsConstructor
@@ -37,29 +36,20 @@ public class ReserveSeatOptimisticLock {
   @Transactional
   public ReservationResponse reserve(ReservationRequest request) {
 
-    log.info("[ReserveSeatOptimisticLock] 예약 시작");
-
     // 1. 사용자를 조회한다.
     User user = userManager.findUserById(request.getUserId());
     if(user == null) {
       throw new RuntimeException("[좌석 예약] 존재하지 않는 사용자입니다.");
     }
-    log.info("[ReserveSeatOptimisticLock] 사용자 검증 완료");
 
     // 2. 콘서트를 조회한다.
     Concert concert = concertManager.findConcertByConcertId(request.getConcertId());
     if(concert == null) {
       throw new RuntimeException("[좌석 예약] 존재하지  콘서트입니다.");
     }
-    log.info("[ReserveSeatOptimisticLock] 콘서트 조회완료");
 
     // 3. 좌석을 임시배정한다.
-    SeatO occupiedSeat = seatManagerO.occupy(request.getSeatO().getSeatNo(),
-                                              concert.getConcertId(),
-                                              request.getConcertDate(),
-                                              user);
-
-    log.info("[ReserveSeatOptimisticLock] 좌석 Occupy 완료");
+    SeatO occupiedSeat = seatManagerO.occupy(request.getSeatO().getSeatId(), user);
 
     ReservationRequest reservationRequest = new ReservationRequest(user, concert, occupiedSeat);
 

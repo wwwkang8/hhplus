@@ -29,7 +29,7 @@ public class SeatManager {
 
 
     /** 좌석 검증처리 */
-    //seatValidator.validate(seat);
+    seatValidator.validate(seat);
 
     log.info("[SeatManager] 좌석 검증처리 완료");
 

@@ -21,8 +21,6 @@ public class ReservationManager {
   /** 좌석 예약 */
   @Transactional
   public Reservation reserve(ReservationRequest request) {
-    log.info("[ReservationManager] reserve 메서드 진입");
-
     // 좌석예약에 대한 검증(사용자ID, 콘서트, 좌석예약상태 검증)
     reservationValidator.validate(request);
 
