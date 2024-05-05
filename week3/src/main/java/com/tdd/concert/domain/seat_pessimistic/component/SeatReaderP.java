@@ -13,22 +13,22 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class SeatReaderP {
 
-  private final SeatCoreRepositoryP seatCoreRepository;
+  private final SeatCoreRepositoryP seatCoreRepositoryP;
 
   public SeatP findSeatPBySeatId(Long seatId) {
-    return seatCoreRepository.findSeatP(seatId);
+    return seatCoreRepositoryP.findSeatP(seatId);
   }
 
 
   /** 좌석번호를 조회하는 메서드. */
   public SeatP findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate) {
-    return seatCoreRepository.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
+    return seatCoreRepositoryP.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
   }
 
   /** 비관적락으로 좌석을 조회하는 메서드
    * 좌석예약시에만 활용한다. */
   public SeatP findSeatBySeatNoWithExclusiveLock(Long seatId) {
-    return seatCoreRepository.findSeatBySeatNoWithExclusiveLock(seatId);
+    return seatCoreRepositoryP.findSeatBySeatNoWithExclusiveLock(seatId);
   }
 
 }

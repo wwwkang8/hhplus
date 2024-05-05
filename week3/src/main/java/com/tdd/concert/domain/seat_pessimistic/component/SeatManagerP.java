@@ -13,19 +13,22 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class SeatManagerP {
 
-  private final SeatReaderP seatReader;
+  private final SeatValidatorP seatValidatorP;
+  private final SeatReaderP seatReaderP;
 
   public SeatP findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate) {
-    return seatReader.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
+    return seatReaderP.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
   }
 
-  public SeatP occupy(SeatP seatP, User user) {
+  public SeatP occupy(Long seatPId, User user) {
 
-     // 일단은 일반 조회로직으로 설정
-      SeatP occupySeatP = seatReader.findSeatPBySeatId(seatP.getSeatId());
+     // 비관적 락으로 좌석 조회(읽기, 쓰기 잠금)
+     SeatP occupySeatP = seatReaderP.findSeatBySeatNoWithExclusiveLock(seatPId);
+
+    seatValidatorP.validate(occupySeatP);
 
     occupySeatP.tempOccupy(user.getUserId());
 
-    return seatP;
+    return occupySeatP;
   }
 }
