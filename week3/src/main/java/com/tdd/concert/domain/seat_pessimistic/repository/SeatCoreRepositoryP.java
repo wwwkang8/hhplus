@@ -8,7 +8,7 @@ import com.tdd.concert.domain.seat_pessimistic.model.SeatStatusP;
 
 public interface SeatCoreRepositoryP {
 
-  public SeatP findSeatP(Long seatId);
+  public SeatP findSeatPBySeatId(Long seatId);
 
   public SeatP findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate);
 

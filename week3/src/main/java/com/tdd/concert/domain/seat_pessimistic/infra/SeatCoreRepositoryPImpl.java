@@ -19,7 +19,7 @@ public class SeatCoreRepositoryPImpl implements SeatCoreRepositoryP {
   private final SeatJpaRepositoryP seatJpaRepositoryP;
 
   @Override
-  public SeatP findSeatP(Long seatId) {
+  public SeatP findSeatPBySeatId(Long seatId) {
     return seatJpaRepositoryP.findSeatPBySeatId(seatId);
   }
 

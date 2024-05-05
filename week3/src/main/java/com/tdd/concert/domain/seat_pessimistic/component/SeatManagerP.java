@@ -1,7 +1,5 @@
 package com.tdd.concert.domain.seat_pessimistic.component;
 
-import java.time.LocalDate;
-
 import com.tdd.concert.domain.seat_pessimistic.model.SeatP;
 import com.tdd.concert.domain.user.model.User;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +14,8 @@ public class SeatManagerP {
   private final SeatValidatorP seatValidatorP;
   private final SeatReaderP seatReaderP;
 
-  public SeatP findSeatBySeatNoAndConcert(Long seatNo, Long concertId, LocalDate concertDate) {
-    return seatReaderP.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
+  public SeatP findSeatPBySeatId(Long seatId) {
+    return seatReaderP.findSeatPBySeatId(seatId);
   }
 
   public SeatP occupy(Long seatPId, User user) {
