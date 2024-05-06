@@ -1,6 +1,6 @@
 ## 콘서트 예약시스템 분석 및 개선 내용
 - 동시성 이슈 분석 내용 : https://jhkang-tech.tistory.com/740
-- 
+- 인덱스 성능 비교 : https://jhkang-tech.tistory.com/742
 
 
 ## 동시성 이슈가 있는 기능 : 좌석 선점(예약), 포인트 충전
