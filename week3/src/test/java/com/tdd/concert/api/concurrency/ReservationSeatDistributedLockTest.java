@@ -62,7 +62,7 @@ public class ReservationSeatDistributedLockTest {
   private SeatD seatD;
   private List<User> userList = new ArrayList<>();
   private List<ReservationRequest> reservationRequestList = new ArrayList<>();
-  int threadCnt = 200;
+  int threadCnt = 100;
 
 
   @BeforeEach

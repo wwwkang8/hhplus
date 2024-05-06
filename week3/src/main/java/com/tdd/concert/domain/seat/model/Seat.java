@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -20,13 +21,13 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 @Entity
-@Table
 @Getter
 @ToString
 @Setter
 @NoArgsConstructor
 @Builder
 @Slf4j
+@Table(name = "seat", indexes = @Index(name = "idx_seat2", columnList = "seat_no, concert_id"))
 public class Seat {
 
     @Id
