@@ -20,6 +20,7 @@ public class TokenManagerImpl implements TokenManager{
 
   private final TokenGenerator tokenGenerator;
   private final TokenReader tokenReader;
+  private final TokenWriter tokenWriter;
   private final TokenValidator tokenValidator;
   private final UserManagerImpl userManagerImpl;
 
@@ -64,7 +65,7 @@ public class TokenManagerImpl implements TokenManager{
 
 
     // 4. 발급한 토큰 테이블에 저장
-    Token savedTokenEntity = tokenGenerator.insertTokenTable(tokenEntity);
+    Token savedTokenEntity = tokenWriter.insertTokenTable(tokenEntity);
     user.setToken(token);
 
     return TokenResponse.from(savedTokenEntity);
