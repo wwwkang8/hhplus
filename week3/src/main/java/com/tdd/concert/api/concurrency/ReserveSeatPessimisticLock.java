@@ -46,7 +46,7 @@ public class ReserveSeatPessimisticLock {
     Concert concert = concertManager.findConcertByConcertId(request.getConcertId());
 
     // 3. occupy에서 좌석을 비관적락으로 잠그고, 트랜잭션 처리를 한다.
-    //SeatP asdP = seatManagerP.findSeatPBySeatId(request.getSeatP().getSeatId());
+    //SeatP seat1 = seatManagerP.findSeatPBySeatId(request.getSeatP().getSeatId());
     SeatP occupiedSeat = seatManagerP.occupy(request.getSeatP().getSeatId(), user);
 
     ReservationRequest reservationRequest = new ReservationRequest(user, concert, occupiedSeat);

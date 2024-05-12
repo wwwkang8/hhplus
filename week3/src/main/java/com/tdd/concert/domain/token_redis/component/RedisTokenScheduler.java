@@ -1,50 +1,52 @@
 package com.tdd.concert.domain.token_redis.component;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
+import com.tdd.concert.domain.concert.infra.ConcertCoreRepositoryImpl;
 import com.tdd.concert.domain.token_redis.infra.RedisTokenCoreRepositoryImpl;
-import com.tdd.concert.domain.token_redis.model.RedisToken;
-import com.tdd.concert.domain.token_redis.status.ProgressStatusR;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@RequiredArgsConstructor
 @Slf4j
 public class RedisTokenScheduler {
 
   private final RedisTokenCoreRepositoryImpl redisTokenCoreRepositoryImpl;
+  private final ConcertCoreRepositoryImpl concertCoreRepository;
   private final RedisTemplate<String, String> redisTemplate;
-  private final ValueOperations<String, String> valueOperations;
-  private final ZSetOperations<String ,String> zSetOperations;
+  private ZSetOperations<String ,String> zSetOperations;
 
-  public RedisTokenScheduler(RedisTemplate<String, String> redisTemplate, RedisTokenCoreRepositoryImpl redisTokenCoreRepositoryImpl) {
-    this.redisTokenCoreRepositoryImpl = redisTokenCoreRepositoryImpl;
-    this.redisTemplate = redisTemplate;
+  @PostConstruct
+  public void init() {
     this.zSetOperations = redisTemplate.opsForZSet();
-    this.valueOperations = redisTemplate.opsForValue();
   }
 
-  /** 여유 자리가 생기면 SortedSet에서 사용자를 끄집어 내서 RedisToken 테이블에 Insert 시켜주는 로직 */
+  /** 여유 자리가 생기면 WaitingQueue에서 끄집어 내서 WorkingQueue에 넣어주는 것 */
   @Scheduled(cron = "0 * * * * *")
   @Transactional
-  public void updateWaitingList() {
+  public void updateWaitingQueue() {
 
+//    List<Long> concertIdList = concertCoreRepository.concertList();
+//
+//    for(Long concertId : concertIdList) {
+//      long workingCnt = redisTokenCoreRepositoryImpl.currentUsersInWorkingQueue(concertId);
+//      long availableCnt = 50 - workingCnt;
+//
+//     List<String> tokenList = redisTokenCoreRepositoryImpl.popTokensFromWaitingQueue(concertId, availableCnt);
+//     redisTokenCoreRepositoryImpl.addTokenListWorkingQueue(concertId, tokenList);
+//
+//     for(String token_n : tokenList) {
+//       log.info("[RedisTokenScheduler] 콘서트ID : "+concertId + ", 토큰 : " + token_n + " WorkingQueue 진입 완료");
+//     }
+//    }
   }
 
-
-
-  @Scheduled(cron = "0 * * * * *")
-  @Transactional
-  public void dropToken() {
-
-
-  }
 
 }

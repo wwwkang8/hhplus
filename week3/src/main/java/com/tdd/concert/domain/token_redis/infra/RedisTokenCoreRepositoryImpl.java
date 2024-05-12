@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
 @Slf4j
 public class RedisTokenCoreRepositoryImpl implements RedisTokenCoreRepository {
 
-    private final RedisTemplate redisTemplate;
+    private final RedisTemplate<String, String> redisTemplate;
 
     private ZSetOperations<String ,String> zSetOperations;
     private final RedisTokenJpaRepository redisTokenJpaRepository;
@@ -51,6 +51,8 @@ public class RedisTokenCoreRepositoryImpl implements RedisTokenCoreRepository {
         zSetOperations.add(key, token, score);
         redisTemplate.expire(key, 3600, TimeUnit.SECONDS);// TTL을 1시간(3600초)으로 설정
 
+        log.info("[WaitingQueue 추가] key : " + key + ", 토큰 : " + token);
+
         return findTokenRank(concertId, token);
     }
 
@@ -64,6 +66,8 @@ public class RedisTokenCoreRepositoryImpl implements RedisTokenCoreRepository {
 
          for(ZSetOperations.TypedTuple<String> token : tokenSet) {
              tokenList.add(token.getValue());
+
+             log.info("[WaitingQueue 팝] key : " + key + ", 토큰 : " + token);
          }
 
         return tokenList;
@@ -76,17 +80,32 @@ public class RedisTokenCoreRepositoryImpl implements RedisTokenCoreRepository {
     }
 
     @Override
-    public int addWorkingQueue(Long concertId, List<String> tokenList) {
-        int count = 0;
+    public List<String> addTokenListWorkingQueue(Long concertId, List<String> tokenList) {
         String key = WORK_QUEUE_KEY + concertId;
 
         for(String token : tokenList) {
             Long score = System.currentTimeMillis();
 
             zSetOperations.add(key, token, score);
-            count++;
+
+            log.info("[WorkingQueue 추가] key : " + key + ", 토큰 : " + token);
         }
-        return count;
+        redisTemplate.expire(key, 600, TimeUnit.SECONDS);// TTL을 10분(600초)로 설정
+        return tokenList;
+    }
+
+    @Override
+    public String addWorkingQueue(Long concertId, String token) {
+        String key = WORK_QUEUE_KEY + concertId;
+
+        Long score = System.currentTimeMillis();
+
+        zSetOperations.add(key, token, score);
+        redisTemplate.expire(key, 600, TimeUnit.SECONDS);// TTL을 10분(600초)로 설정
+
+        log.info("[WorkingQueue 추가] key : " + key + ", 토큰 : " + token);
+
+        return token;
     }
 
     @Override

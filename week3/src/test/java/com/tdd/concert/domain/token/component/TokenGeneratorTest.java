@@ -21,7 +21,7 @@ public class TokenGeneratorTest {
   @BeforeEach
   void setUp() {
      mockTokenCoreRepository = new MockTokenCoreRepositoryImpl();
-     tokenGenerator = new TokenGenerator(mockTokenCoreRepository);
+     tokenGenerator = new TokenGenerator();
     tokenReader = new TokenReader(mockTokenCoreRepository);
   }
 
@@ -35,11 +35,10 @@ public class TokenGeneratorTest {
     Token token = new Token(1L, UUID.randomUUID().toString(), ProgressStatus.ONGOING, 1L, LocalDateTime.now(), LocalDateTime.now() ,LocalDateTime.now().plusMinutes(10), user);
 
     // when
-    Token savedToken = tokenGenerator.insertTokenTable(token);
+    String savedToken = tokenGenerator.generateToken(userId);
 
     // then
-    assertEquals(token.getId() , savedToken.getId());
-    assertEquals(token.getToken() , savedToken.getToken());
+    assertEquals(token.getToken() , savedToken);
   }
 
   @DisplayName("사용자ID의 토큰을 발급한다")

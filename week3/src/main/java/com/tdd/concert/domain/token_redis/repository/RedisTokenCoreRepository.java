@@ -12,7 +12,9 @@ public interface RedisTokenCoreRepository {
 
   public Long currentUsersInWorkingQueue(Long concertId);
 
-  public int addWorkingQueue(Long concertId, List<String> tokenList);
+  public List<String> addTokenListWorkingQueue(Long concertId, List<String> tokenList);
+
+  public String addWorkingQueue(Long concertId, String token);
 
   public void changeTokenStatus(String token);
 

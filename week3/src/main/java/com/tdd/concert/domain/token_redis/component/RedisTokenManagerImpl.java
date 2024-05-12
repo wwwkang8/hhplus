@@ -65,8 +65,19 @@ public class RedisTokenManagerImpl implements RedisTokenManager {
    * @return 예약열에 진입한 토큰 갯수
    * */
   @Override
-  public int addWorkingQueue(Long concertId, List<String> tokenList) {
-    return redisTokenCoreRepository.addWorkingQueue(concertId, tokenList);
+  public List<String> addTokenListWorkingQueue(Long concertId, List<String> tokenList) {
+    return redisTokenCoreRepository.addTokenListWorkingQueue(concertId, tokenList);
+  }
+
+  /**
+   * 예약열에 1개의 토큰을 추가
+   * @param concertId 콘서트ID
+   * @param token 예약열로 추가할 토큰
+   * @return 예약열에 진입한 토큰 갯수
+   * */
+  @Override
+  public String addWorkingQueue(Long concertId, String token) {
+    return redisTokenCoreRepository.addWorkingQueue(concertId, token);
   }
 
   /**
