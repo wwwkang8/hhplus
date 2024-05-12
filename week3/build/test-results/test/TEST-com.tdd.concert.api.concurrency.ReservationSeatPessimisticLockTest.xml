@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tdd.concert.api.concurrency.ReservationSeatPessimisticLockTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-12T03:13:18" hostname="Jeongui-MacBookPro.local" time="1.169">
+  <properties/>
+  <testcase name="다수의 요청자가 1개의 좌석을 동시에 예약하려고 한다." classname="com.tdd.concert.api.concurrency.ReservationSeatPessimisticLockTest" time="1.169"/>
+  <system-out><![CDATA[12:12:54.044 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.tdd.concert.api.concurrency.ReservationSeatPessimisticLockTest]: ReservationSeatPessimisticLockTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:12:54.279 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.tdd.concert.ConcertApplication for test class com.tdd.concert.api.concurrency.ReservationSeatPessimisticLockTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-05-12T12:12:55.114+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.a.c.ReservationSeatPessimisticLockTest : Starting ReservationSeatPessimisticLockTest using Java 17.0.10 with PID 2937 (started by jeonghokang in /Users/jeonghokang/IdeaProjects/hhplus/week3)
+2024-05-12T12:12:55.117+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.a.c.ReservationSeatPessimisticLockTest : The following 1 profile is active: "prod"
+2024-05-12T12:12:57.025+09:00  INFO 2937 --- [concert-prod] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-12T12:12:57.028+09:00  INFO 2937 --- [concert-prod] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-12T12:12:58.314+09:00  INFO 2937 --- [concert-prod] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1272 ms. Found 12 JPA repository interfaces.
+2024-05-12T12:12:58.346+09:00  INFO 2937 --- [concert-prod] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-05-12T12:12:58.348+09:00  INFO 2937 --- [concert-prod] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-05-12T12:12:58.383+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.concert.repository.ConcertJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.384+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.concert.repository.ConcertScheduleJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.385+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.payment.repository.PaymentJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.386+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.point.repository.PointJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.386+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.reservation.repository.ReservationJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.388+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.seat.repository.SeatJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.389+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.seat_distribute.repository.SeatJpaRepositoryD; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.390+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.seat_optimistic.repository.SeatJpaRepositoryO; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.391+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.seat_pessimistic.repository.SeatJpaRepositoryP; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.392+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.token.repository.TokenJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.393+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.token_redis.repository.RedisTokenJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.394+09:00  INFO 2937 --- [concert-prod] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.tdd.concert.domain.user.repository.UserJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2024-05-12T12:12:58.394+09:00  INFO 2937 --- [concert-prod] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2024-05-12T12:12:59.633+09:00  INFO 2937 --- [concert-prod] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-12T12:12:59.754+09:00  INFO 2937 --- [concert-prod] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-12T12:12:59.828+09:00  INFO 2937 --- [concert-prod] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-12T12:13:00.332+09:00  INFO 2937 --- [concert-prod] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-12T12:13:00.393+09:00  INFO 2937 --- [concert-prod] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-12T12:13:00.707+09:00  INFO 2937 --- [concert-prod] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-05-12T12:13:00.710+09:00  INFO 2937 --- [concert-prod] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-12T12:13:02.532+09:00  INFO 2937 --- [concert-prod] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: drop table if exists concert cascade 
+Hibernate: drop table if exists concert_schedule cascade 
+Hibernate: drop table if exists payment cascade 
+Hibernate: drop table if exists point_history cascade 
+Hibernate: drop table if exists redis_token cascade 
+Hibernate: drop table if exists reservation cascade 
+Hibernate: drop table if exists seat cascade 
+Hibernate: drop table if exists seatd cascade 
+Hibernate: drop table if exists seato cascade 
+Hibernate: drop table if exists seatp cascade 
+Hibernate: drop table if exists token cascade 
+Hibernate: drop table if exists user cascade 
+Hibernate: create table concert (concert_id bigint generated by default as identity, name varchar(255), singer varchar(255), primary key (concert_id))
+Hibernate: create table concert_schedule (concert_date date, concert_id bigint, concert_schedule_id bigint generated by default as identity, primary key (concert_schedule_id))
+Hibernate: create table payment (pay_amount integer, created_at timestamp(6), payment_id bigint generated by default as identity, reservation_id bigint unique, user_id bigint, primary key (payment_id))
+Hibernate: create table point_history (amount integer, point_rscd tinyint check (point_rscd between 0 and 1), created_at timestamp(6), point_history_id bigint generated by default as identity, user_id bigint, primary key (point_history_id))
+Hibernate: create table redis_token (progress_status tinyint check (progress_status between 0 and 3), created_at timestamp(6), expired_at timestamp(6), redis_token_id bigint generated by default as identity, updated_at timestamp(6), user_id bigint, redis_token varchar(255), primary key (redis_token_id))
+Hibernate: create table reservation (reservation_date date, reservation_status tinyint check (reservation_status between 0 and 2), concert_id bigint, reservation_id bigint generated by default as identity, seat_id bigint unique, user_id bigint, primary key (reservation_id))
+Hibernate: create table seat (price integer, seat_status tinyint check (seat_status between 0 and 2), concert_id bigint, concert_schedule_id bigint, seat_id bigint generated by default as identity, seat_no bigint, temp_reserved_expired_at timestamp(6), temp_reserved_user_id bigint, primary key (seat_id))
+Hibernate: create table seatd (concert_schedule date, price integer, seat_status tinyint check (seat_status between 0 and 2), concert_id bigint, seat_id bigint generated by default as identity, seat_no bigint, temp_reserved_expired_at timestamp(6), temp_reserved_user_id bigint, primary key (seat_id))
+Hibernate: create table seato (price integer, seat_status tinyint check (seat_status between 0 and 2), concert_id bigint, concert_schedule_id bigint, seat_id bigint generated by default as identity, seat_no bigint, temp_reserved_expired_at timestamp(6), temp_reserved_user_id bigint, version bigint, primary key (seat_id))
+Hibernate: create table seatp (concert_schedule date, price integer, seat_status tinyint check (seat_status between 0 and 2), concert_id bigint, seat_id bigint generated by default as identity, seat_no bigint, temp_reserved_expired_at timestamp(6), temp_reserved_user_id bigint, primary key (seat_id))
+Hibernate: create table token (progress_status tinyint check (progress_status between 0 and 3), created_at timestamp(6), expired_at timestamp(6), token_id bigint generated by default as identity, updated_at timestamp(6), user_id bigint, wait_no bigint, token varchar(255), primary key (token_id))
+Hibernate: create table user (point integer, user_id bigint generated by default as identity, token varchar(255), primary key (user_id))
+Hibernate: create index idx_seat2 on seat (seat_no, concert_id)
+Hibernate: alter table if exists concert_schedule add constraint FK3ry7aiaia6ooa3ajwf6w6soci foreign key (concert_id) references concert
+Hibernate: alter table if exists payment add constraint FKrewpj5f9v9xehy4ga8g221nw1 foreign key (reservation_id) references reservation
+Hibernate: alter table if exists payment add constraint FK4spfnm9si9dowsatcqs5or42i foreign key (user_id) references user
+Hibernate: alter table if exists point_history add constraint FK9yptgx9qhcp768sokuopwxncm foreign key (user_id) references user
+Hibernate: alter table if exists redis_token add constraint FKh2wb99u7bdcueby0y0is6q3i1 foreign key (user_id) references user
+Hibernate: alter table if exists reservation add constraint FKjnsh2q045ch4uso5vnb0477dq foreign key (concert_id) references concert
+Hibernate: alter table if exists reservation add constraint FKewd3sohjspqf2sjjvdcmcefpb foreign key (seat_id) references seat
+Hibernate: alter table if exists reservation add constraint FKm4oimk0l1757o9pwavorj6ljg foreign key (user_id) references user
+Hibernate: alter table if exists seat add constraint FKg0ccmmdn3894408ig1rdcgm9g foreign key (concert_id) references concert
+Hibernate: alter table if exists seat add constraint FKjtsoupodivwr6xa4vk02e2qol foreign key (concert_schedule_id) references concert_schedule
+Hibernate: alter table if exists seato add constraint FKp2yoxms6ii7wreqi2oxw91rsq foreign key (concert_id) references concert
+Hibernate: alter table if exists seato add constraint FKayp8dca2osg0hxv81nprkbgag foreign key (concert_schedule_id) references concert_schedule
+Hibernate: alter table if exists token add constraint FKe32ek7ixanakfqsdaokm4q9y2 foreign key (user_id) references user
+2024-05-12T12:13:02.648+09:00  INFO 2937 --- [concert-prod] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-12T12:13:03.326+09:00  INFO 2937 --- [concert-prod] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-12T12:13:06.043+09:00  INFO 2937 --- [concert-prod] [    Test worker] org.redisson.Version                     : Redisson 3.18.0
+2024-05-12T12:13:06.076+09:00  WARN 2937 --- [concert-prod] [    Test worker] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2024-05-12T12:13:06.339+09:00  INFO 2937 --- [concert-prod] [isson-netty-2-6] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for localhost/127.0.0.1:6379
+2024-05-12T12:13:06.405+09:00  INFO 2937 --- [concert-prod] [sson-netty-2-20] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for localhost/127.0.0.1:6379
+2024-05-12T12:13:07.188+09:00  WARN 2937 --- [concert-prod] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-12T12:13:08.655+09:00  INFO 2937 --- [concert-prod] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-05-12T12:13:18.331+09:00  INFO 2937 --- [concert-prod] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-12T12:13:18.480+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.a.c.ReservationSeatPessimisticLockTest : Started ReservationSeatPessimisticLockTest in 23.954 seconds (process running for 25.753)
+Hibernate: insert into concert (name,singer,concert_id) values (?,?,default)
+Hibernate: insert into concert_schedule (concert_id,concert_date,concert_schedule_id) values (?,?,default)
+Hibernate: insert into seatp (concert_id,concert_schedule,price,seat_no,seat_status,temp_reserved_expired_at,temp_reserved_user_id,seat_id) values (?,?,?,?,?,?,?,default)
+Hibernate: insert into user (point,token,user_id) values (?,?,default)
+2024-05-12T12:13:19.402+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c4ca4238-a0b9-3382-8dcc-509a6f75849b, 사용자ID : 1
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-05-12T12:13:19.518+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 0
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no,token_id) values (?,?,?,?,?,?,?,default)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=? for update
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token,user_id) values (?,?,default)
+2024-05-12T12:13:19.624+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : c81e728d-9d4c-3f63-af06-7f89cc14862c, 사용자ID : 2
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-05-12T12:13:19.629+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 1
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no,token_id) values (?,?,?,?,?,?,?,default)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=? for update
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token,user_id) values (?,?,default)
+2024-05-12T12:13:19.637+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : eccbc87e-4b5c-32fe-a830-8fd9f2a7baf3, 사용자ID : 3
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-05-12T12:13:19.640+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 2
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no,token_id) values (?,?,?,?,?,?,?,default)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=? for update
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token,user_id) values (?,?,default)
+2024-05-12T12:13:19.648+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : a87ff679-a2f3-371d-9181-a67b7542122c, 사용자ID : 4
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-05-12T12:13:19.651+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 3
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no,token_id) values (?,?,?,?,?,?,?,default)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=? for update
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: insert into user (point,token,user_id) values (?,?,default)
+2024-05-12T12:13:19.659+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenGenerator   : [토큰 생성] UUID 토큰 : e4da3b7f-bbce-3345-9777-2b0674a318d5, 사용자ID : 5
+Hibernate: select (coalesce(max(t1_0.wait_no),0)+1) from token t1_0
+Hibernate: select coalesce(count(t1_0.progress_status),0) from token t1_0 where t1_0.progress_status=?
+2024-05-12T12:13:19.662+09:00  INFO 2937 --- [concert-prod] [    Test worker] c.t.c.d.token.component.TokenReader      : [getCurrentQueueStatus] 예약 진행중인 고객수 : 4
+Hibernate: insert into token (created_at,expired_at,progress_status,token,updated_at,user_id,wait_no,token_id) values (?,?,?,?,?,?,?,default)
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=? for update
+Hibernate: update user set point=?,token=? where user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+Hibernate: select sp1_0.seat_id,sp1_0.concert_id,sp1_0.concert_schedule,sp1_0.price,sp1_0.seat_no,sp1_0.seat_status,sp1_0.temp_reserved_expired_at,sp1_0.temp_reserved_user_id from seatp sp1_0 where sp1_0.seat_id=? for update
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+Hibernate: select sp1_0.seat_id,sp1_0.concert_id,sp1_0.concert_schedule,sp1_0.price,sp1_0.seat_no,sp1_0.seat_status,sp1_0.temp_reserved_expired_at,sp1_0.temp_reserved_user_id from seatp sp1_0 where sp1_0.seat_id=? for update
+Hibernate: select sp1_0.seat_id,sp1_0.concert_id,sp1_0.concert_schedule,sp1_0.price,sp1_0.seat_no,sp1_0.seat_status,sp1_0.temp_reserved_expired_at,sp1_0.temp_reserved_user_id from seatp sp1_0 where sp1_0.seat_id=? for update
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+Hibernate: select sp1_0.seat_id,sp1_0.concert_id,sp1_0.concert_schedule,sp1_0.price,sp1_0.seat_no,sp1_0.seat_status,sp1_0.temp_reserved_expired_at,sp1_0.temp_reserved_user_id from seatp sp1_0 where sp1_0.seat_id=? for update
+2024-05-12T12:13:19.687+09:00  INFO 2937 --- [concert-prod] [pool-2-thread-1] c.t.c.d.seat_pessimistic.model.SeatP     : [Seat 엔티티 내부] tempOccupy 완료. 사용자 : 1
+2024-05-12T12:13:19.688+09:00  INFO 2937 --- [concert-prod] [pool-2-thread-1] c.t.c.d.r.c.ReservationValidator         : [ReservationValidator] validate 메서드 시작
+Hibernate: select sp1_0.seat_id,sp1_0.concert_id,sp1_0.concert_schedule,sp1_0.price,sp1_0.seat_no,sp1_0.seat_status,sp1_0.temp_reserved_expired_at,sp1_0.temp_reserved_user_id from seatp sp1_0 where sp1_0.seat_id=? for update
+Hibernate: select u1_0.user_id,u1_0.point,u1_0.token from user u1_0 where u1_0.user_id=?
+Hibernate: select t1_0.token_id,t1_0.created_at,t1_0.expired_at,t1_0.progress_status,t1_0.token,t1_0.updated_at,t1_0.user_id,t1_0.wait_no from token t1_0 where t1_0.token=?
+Hibernate: select c1_0.concert_id,c1_0.name,c1_0.singer from concert c1_0 where c1_0.concert_id=?
+2024-05-12T12:13:19.705+09:00  INFO 2937 --- [concert-prod] [pool-2-thread-1] c.t.c.d.r.c.ReservationValidator         : [ReservationValidator] validate 메서드 종료
+2024-05-12T12:13:19.706+09:00  INFO 2937 --- [concert-prod] [pool-2-thread-1] c.t.c.d.r.component.ReservationStore     : [ReservationStore] reserveSeat 메서드 진입
+Hibernate: insert into reservation (concert_id,reservation_date,reservation_status,seat_id,user_id,reservation_id) values (?,?,?,?,?,default)
+Hibernate: update seatp set concert_id=?,concert_schedule=?,price=?,seat_no=?,seat_status=?,temp_reserved_expired_at=?,temp_reserved_user_id=? where seat_id=?
+[Exception] 예외 발생 : 이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : 1
+[Exception] 예외 발생 : 이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : 1
+[Exception] 예외 발생 : 이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : 1
+[Exception] 예외 발생 : 이미 다른 사용자에게 임시배정된 좌석입니다. 좌석번호 : 1
+Hibernate: select sp1_0.seat_id,sp1_0.concert_id,sp1_0.concert_schedule,sp1_0.price,sp1_0.seat_no,sp1_0.seat_status,sp1_0.temp_reserved_expired_at,sp1_0.temp_reserved_user_id from seatp sp1_0 where sp1_0.seat_id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
