@@ -11,8 +11,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.support.TransactionSynchronization;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 @Component
 @RequiredArgsConstructor
@@ -39,15 +37,10 @@ public class ChangeStatus_Tx2 {
     OutboxEvent outboxEvent = new OutboxEvent(this, "POINT",userId, seatId, reservationId);
     applicationEventPublisher.publishEvent(outboxEvent);
 
-    // Transaction commit 이후에 이벤트를 발행
-    TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronization() {
-      @Override
-      public void afterCommit() {
-        // 좌석상태변경, 예약상태변경 트랜잭션 호출
-        PointEvent pointEvent = new PointEvent(this, userId,  reservation.getSeat().getPrice(), seatId, reservationId);
-        applicationEventPublisher.publishEvent(pointEvent);
-      }
-    });
+
+    // 좌석상태변경, 예약상태변경 트랜잭션 호출
+    PointEvent pointEvent = new PointEvent(this, userId,  reservation.getSeat().getPrice(), seatId, reservationId);
+    applicationEventPublisher.publishEvent(pointEvent);
   }
 
 
