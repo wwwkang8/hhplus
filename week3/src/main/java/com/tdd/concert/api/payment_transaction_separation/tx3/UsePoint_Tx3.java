@@ -27,7 +27,7 @@ public class UsePoint_Tx3 {
 
     // 좌석상태변경, 예약상태변경 트랜잭션 호출
     SendDataEvent
-        sendDataEvent = new SendDataEvent(this, userId,  seatId, reservationId);
+        sendDataEvent = new SendDataEvent(this, "NORMAL",userId,  seatId, reservationId);
     applicationEventPublisher.publishEvent(sendDataEvent);
   }
 

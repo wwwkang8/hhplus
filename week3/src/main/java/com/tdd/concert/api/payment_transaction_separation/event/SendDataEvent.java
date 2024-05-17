@@ -8,13 +8,16 @@ import org.springframework.context.ApplicationEvent;
 @Getter
 public class SendDataEvent extends ApplicationEvent {
 
+  private String eventType;
   private Long userId;
   private Long seatId;
   private Long reservationId;
 
 
-  public SendDataEvent(Object source, Long userId, Long seatId, Long reservationId) {
+  public SendDataEvent(Object source, String eventType, Long userId, Long seatId,
+                       Long reservationId) {
     super(source);
+    this.eventType = eventType;
     this.userId = userId;
     this.seatId = seatId;
     this.reservationId = reservationId;

@@ -87,10 +87,19 @@ public class CreatePayment_Tx1 {
     OutboxEvent outboxEvent = new OutboxEvent(this, "CHANGE_STATUS",user.getUserId(), seat.getSeatId(), reservation.getReservationId());
     applicationEventPublisher.publishEvent(outboxEvent);
 
-    ChangeStatusEvent changeStatusEvent = new ChangeStatusEvent(this, seat.getSeatId(), reservation.getReservationId() );
+    ChangeStatusEvent changeStatusEvent = new ChangeStatusEvent(this, "NORMAL",seat.getSeatId(), reservation.getReservationId() );
     applicationEventPublisher.publishEvent(changeStatusEvent);
 
     return PaymentResponse.from(payment);
+  }
+
+  @Transactional
+  public PaymentResponse paymentRollBack(Long userId, Long seatId, Long reservationId) {
+
+    log.info("payment 롤백");
+
+
+    return null;
   }
 
 }

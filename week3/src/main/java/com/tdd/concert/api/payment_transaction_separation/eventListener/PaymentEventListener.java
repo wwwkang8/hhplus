@@ -1,7 +1,7 @@
 package com.tdd.concert.api.payment_transaction_separation.eventListener;
 
-import com.tdd.concert.api.payment_transaction_separation.event.ChangeStatusEvent;
-import com.tdd.concert.api.payment_transaction_separation.tx2.ChangeStatus_Tx2;
+import com.tdd.concert.api.payment_transaction_separation.event.PaymentEvent;
+import com.tdd.concert.api.payment_transaction_separation.tx1.CreatePayment_Tx1;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -12,27 +12,26 @@ import org.springframework.transaction.event.TransactionalEventListener;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class ChangeStatusEventListener {
+public class PaymentEventListener {
 
-  private final ChangeStatus_Tx2 changeStatus_tx2;
+  private final CreatePayment_Tx1 createPayment_tx1;
 
   @Async
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
-  public void handleOutboxEvent(ChangeStatusEvent event) {
+  public void handleOutboxEvent(PaymentEvent event) {
     String eventType = event.getEventType();
+    long userId = event.getUserId();
     long seatId = event.getSeatId();
     long reservationId = event.getReservationId();
 
     if(eventType.equals("NORMAL")) {
-      changeStatus_tx2.changeStatus(seatId, reservationId);
-
-      log.info("[ChangeStatusEventListener] ChangeStatus_Tx2 호출 완료");
+      // createPayment_tx1.payment(seatId, reservationId);
     }else if(eventType.equals("ROLLBACK")) {
-      changeStatus_tx2.changeStatusRollBack(seatId, reservationId);
-
-      log.info("[ChangeStatusEventListener] ChangeStatus_Tx2 보상트랜잭션 호출 완료");
+      createPayment_tx1.paymentRollBack(userId, seatId, reservationId);
+      log.info("[PaymentEventListener] CreatePayment_Tx1 롤백 호출 완료");
     }
 
   }
+
 
 }

@@ -6,15 +6,18 @@ import org.springframework.context.ApplicationEvent;
 
 @ToString
 @Getter
-public class ChangeStatusEvent extends ApplicationEvent {
+public class PaymentEvent extends ApplicationEvent {
 
   private String eventType;
+  private Long userId;
   private Long seatId;
   private Long reservationId;
 
-  public ChangeStatusEvent(Object source, String eventType, Long seatId, Long reservationId) {
+  public PaymentEvent(Object source, String eventType, Long userId, Long seatId,
+                      Long reservationId) {
     super(source);
     this.eventType = eventType;
+    this.userId = userId;
     this.seatId = seatId;
     this.reservationId = reservationId;
   }

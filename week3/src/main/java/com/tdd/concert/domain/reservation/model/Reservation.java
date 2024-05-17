@@ -58,6 +58,10 @@ public class Reservation {
     this.setReservationStatus(ReservationStatus.RESERVATION_SUCCESS);
   }
 
+  public void reserveSuccessRollBack() {
+    this.setReservationStatus(ReservationStatus.TEMPORARY_RESERVED);
+  }
+
   // 엔티티 객체에 책임을 부여하기 위해서 예약 생성 메서드 추가
   public static Reservation makeReservation(User user,
                                             Concert concert,
