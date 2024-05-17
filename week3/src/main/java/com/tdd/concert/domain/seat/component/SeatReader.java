@@ -27,4 +27,10 @@ public class SeatReader {
     return seatCoreRepository.findSeatBySeatNoWithExclusiveLock(seatNo, concertId, concertDate);
   }
 
+  /** 비관적락으로 좌석을 조회하는 메서드
+   * 좌석예약상태변경을 위해서 사용합니다. */
+  public Seat findSeatBySeatIdWithExclusiveLock(Long seatId) {
+    return seatCoreRepository.findSeatBySeatIdWithExclusiveLock(seatId);
+  }
+
 }

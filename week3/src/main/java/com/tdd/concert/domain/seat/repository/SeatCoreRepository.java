@@ -12,6 +12,8 @@ public interface SeatCoreRepository {
 
   public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId, LocalDate concertDate);
 
+  public Seat findSeatBySeatIdWithExclusiveLock(Long seatId);
+
   public List<Seat> findTempReservationExpiredSeatList(SeatStatus seatStatus);
 
   public Seat save(Seat seat);
