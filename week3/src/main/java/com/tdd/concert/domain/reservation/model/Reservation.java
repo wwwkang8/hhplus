@@ -18,7 +18,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -54,6 +53,14 @@ public class Reservation {
   @OneToOne
   @JoinColumn(name="seat_id")
   private Seat seat;
+
+  public void reserveSuccess() {
+    this.setReservationStatus(ReservationStatus.RESERVATION_SUCCESS);
+  }
+
+  public void reserveSuccessRollBack() {
+    this.setReservationStatus(ReservationStatus.TEMPORARY_RESERVED);
+  }
 
   // 엔티티 객체에 책임을 부여하기 위해서 예약 생성 메서드 추가
   public static Reservation makeReservation(User user,

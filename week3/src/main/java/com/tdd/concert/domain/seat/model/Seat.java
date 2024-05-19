@@ -73,6 +73,14 @@ public class Seat {
         this.setSeatStatus(SeatStatus.AVAILABLE);
     }
 
+    public void soldOut() {
+        this.setSeatStatus(SeatStatus.SOLDOUT);
+    }
+
+    public void soldOutRollBack() {
+        this.setSeatStatus(SeatStatus.TEMPORARY_RESERVED);
+    }
+
     public Seat(long seatNo, int price, SeatStatus seatStatus) {
         this.seatNo = seatNo;
         this.price = price;

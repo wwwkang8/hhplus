@@ -16,4 +16,8 @@ public class ReservationReader {
   public Reservation findReservationByUserIdAndSeatId(Long userId, Long seatId) {
     return reservationCoreRepository.findReservationByUserIdAndSeatId(userId, seatId);
   }
+
+  public Reservation findReservationByReservationId(Long reservationId) {
+    return reservationCoreRepository.findReservationByReservationId(reservationId);
+  }
 }

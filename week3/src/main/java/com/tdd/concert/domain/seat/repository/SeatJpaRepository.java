@@ -23,6 +23,10 @@ public interface SeatJpaRepository extends JpaRepository<Seat, Long> {
   @Query("select s from Seat s where s.seatNo = ?1 AND s.concert.concertId = ?2 AND s.concertSchedule.concertDate = ?3")
   public Seat findSeatBySeatNoWithExclusiveLock(Long seatNo, Long concertId, LocalDate concertDate);
 
+  @Lock(LockModeType.PESSIMISTIC_WRITE)
+  @Query("select s from Seat s where s.seatId = ?1")
+  public Seat findSeatBySeatIdWithExclusiveLock(Long seatId);
+
 
   @Query("SELECT s FROM Seat s WHERE s.seatStatus = ?1")
   public List<Seat> findTempReservationExpiredSeatList(SeatStatus seatStatus);

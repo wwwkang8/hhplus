@@ -29,6 +29,11 @@ public class SeatCoreRepositoryImpl implements SeatCoreRepository {
   }
 
   @Override
+  public Seat findSeatBySeatIdWithExclusiveLock(Long seatId) {
+    return seatJpaRepository.findSeatBySeatIdWithExclusiveLock(seatId);
+  }
+
+  @Override
   public List<Seat> findTempReservationExpiredSeatList(SeatStatus seatStatus) {
     return seatJpaRepository.findTempReservationExpiredSeatList(seatStatus);
   }

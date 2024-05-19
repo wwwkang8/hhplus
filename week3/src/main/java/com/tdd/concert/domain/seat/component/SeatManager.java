@@ -20,6 +20,10 @@ public class SeatManager {
     return seatReader.findSeatBySeatNoAndConcert(seatNo, concertId, concertDate);
   }
 
+  public Seat findSeatBySeatIdWithExclusiveLock(Long seatId) {
+    return seatReader.findSeatBySeatIdWithExclusiveLock(seatId);
+  }
+
   public Seat occupy(Long seatNo, Long concertId, LocalDate concertDate, User user) {
     log.info("[SeatManager] 좌석 occupy 메서드 진입");
 
