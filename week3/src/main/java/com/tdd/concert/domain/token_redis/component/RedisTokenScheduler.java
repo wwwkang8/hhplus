@@ -23,29 +23,30 @@ public class RedisTokenScheduler {
   private final RedisTemplate<String, String> redisTemplate;
   private ZSetOperations<String ,String> zSetOperations;
 
+  private final long POP_CNT = 750;
+
   @PostConstruct
   public void init() {
     this.zSetOperations = redisTemplate.opsForZSet();
   }
 
   /** 여유 자리가 생기면 WaitingQueue에서 끄집어 내서 WorkingQueue에 넣어주는 것 */
-  @Scheduled(cron = "0 * * * * *")
+  @Scheduled(cron = "*/10 * * * * *")
   @Transactional
   public void updateWaitingQueue() {
 
-//    List<Long> concertIdList = concertCoreRepository.concertList();
-//
-//    for(Long concertId : concertIdList) {
-//      long workingCnt = redisTokenCoreRepositoryImpl.currentUsersInWorkingQueue(concertId);
-//      long availableCnt = 50 - workingCnt;
-//
-//     List<String> tokenList = redisTokenCoreRepositoryImpl.popTokensFromWaitingQueue(concertId, availableCnt);
-//     redisTokenCoreRepositoryImpl.addTokenListWorkingQueue(concertId, tokenList);
-//
-//     for(String token_n : tokenList) {
-//       log.info("[RedisTokenScheduler] 콘서트ID : "+concertId + ", 토큰 : " + token_n + " WorkingQueue 진입 완료");
-//     }
-//    }
+    List<Long> concertIdList = concertCoreRepository.concertList();
+
+    for(Long concertId : concertIdList) {
+
+     List<String> tokenList = redisTokenCoreRepositoryImpl.popTokensFromWaitingQueue(concertId, POP_CNT);
+     redisTokenCoreRepositoryImpl.addTokenListWorkingQueue(concertId, tokenList);
+
+     for(String token_n : tokenList) {
+       redisTokenCoreRepositoryImpl.addWorkingQueue(concertId, token_n);
+       log.info("[RedisTokenScheduler] 콘서트ID : "+concertId + ", 토큰 : " + token_n + " WorkingQueue 진입 완료");
+     }
+    }
   }
 
 
