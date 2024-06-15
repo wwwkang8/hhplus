@@ -1,4 +1,5 @@
 ## 콘서트 예약시스템 분석 및 개선 내용
+- 트러블슈팅 : https://jhkang-tech.tistory.com/774
 - 동시성 이슈 분석 내용 : https://jhkang-tech.tistory.com/740
 - 인덱스 성능 비교 : https://jhkang-tech.tistory.com/742
 - 캐시를 사용한 대기열 구현 : 추후 업로드
