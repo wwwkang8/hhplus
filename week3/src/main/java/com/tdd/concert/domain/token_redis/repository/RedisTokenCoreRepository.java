@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface RedisTokenCoreRepository {
 
+  public String findRedisTokenByConcertId(Long concertId, String token);
+
   public Long findTokenRank(Long concertId, String token);
 
   public Long addWaitingQueue(Long concertId, String token);

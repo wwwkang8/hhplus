@@ -20,6 +20,6 @@ public interface RedisTokenManager {
 
   public void popFromWorkingQueue(Long concertId, String token);
 
-  public String generateToken(Long userId);
+  public String generateToken(Long userId, Long concertId);
 
 }

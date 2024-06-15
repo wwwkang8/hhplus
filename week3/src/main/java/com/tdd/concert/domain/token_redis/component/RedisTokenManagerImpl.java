@@ -95,7 +95,7 @@ public class RedisTokenManagerImpl implements RedisTokenManager {
   }
 
   @Override
-  public String generateToken(Long userId) {
-    return redisTokenGenerator.generateToken(userId);
+  public String generateToken(Long userId, Long concertId) {
+    return redisTokenGenerator.generateToken(userId, concertId);
   }
 }
