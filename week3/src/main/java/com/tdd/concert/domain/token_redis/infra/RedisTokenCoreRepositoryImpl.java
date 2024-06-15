@@ -35,6 +35,19 @@ public class RedisTokenCoreRepositoryImpl implements RedisTokenCoreRepository {
         zSetOperations = redisTemplate.opsForZSet();
     }
 
+    @Override
+    public String findRedisTokenByConcertId(Long concertId, String token) {
+        String key = WORK_QUEUE_KEY + concertId;
+
+        // ZSET에 있는 토큰의 Score를 조회
+        Double score = zSetOperations.score(key, token);
+
+        if(score != null) {
+            return token;
+        }
+
+        return null;
+    }
 
     @Override
     public Long findTokenRank(Long concertId, String token) {

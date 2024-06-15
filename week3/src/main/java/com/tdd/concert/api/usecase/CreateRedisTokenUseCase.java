@@ -30,10 +30,11 @@ public class CreateRedisTokenUseCase {
       // 사용자 생성
       User user = userManager.createUser();
       long userId = user.getUserId();
+      long concertId = redistokenRequest.getConcertId();
 
 
-      // 토큰 생성
-      String token = redisTokenManager.generateToken(userId);
+      // 토큰 생성 : 대기열이 콘서트ID별러 생성되므로 사용자ID와 콘서트ID로 토큰 발급
+      String token = redisTokenManager.generateToken(userId, concertId);
 
       // 사용자와 RedisRequest에 토큰 세팅
       user.setToken(token);
